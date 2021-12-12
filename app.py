@@ -19,12 +19,12 @@ def home():  # put application's code here
 
 @app.route('/Utente.html')
 def utente():  # put application's code here
-    return render_template('Utente.html')
+    return render_template('utente.html')
 
 
 @app.route('/Aggiungi Annuncio.html')
 def aggiungi_annuncio():  # put application's code here
-    return render_template('Aggiungi Annuncio.html')
+    return render_template('aggiungi Annuncio.html')
 
 
 @app.route('/salva_annuncio')
@@ -34,27 +34,27 @@ def salva_annuncio():  # put application's code here
 
 @app.route('/Carrello.html')
 def carrello():  # put application's code here
-    return render_template('Carrello.html')
+    return render_template('carrello.html')
 
 
-@app.route('/Categorie.html')
+@app.route('/categorie.html')
 def categorie():  # put application's code here
-    return render_template('Categorie.html')
+    return render_template('categorie.html')
 
 
 @app.route('/InformazioniUtente.html')
 def informazioni_utente():  # put application's code here
-    return render_template('InformazioniUtente.html')
+    return render_template('informazioniUtente.html')
 
 
 @app.route('/RegistrazioneUtente.html')
 def registrazione_utente():  # put application's code here
-    return render_template('RegistrazioneUtente.html')
+    return render_template('registrazioneUtente.html')
 
 
 @app.route('/PasswordDimenticata.html')
 def password_dimenticata():  # put application's code here
-    return render_template('PasswordDimenticata.html')
+    return render_template('passwordDimenticata.html')
 
 
 if __name__ == '__main__':

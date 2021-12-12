@@ -25,6 +25,27 @@
     font-size: 2em;
     font-weight: 700;
 }
+.navbar-light .navbar-brand:hover{
+    color: coral;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #222222;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: coral ;
+}
+a {
+    color: #222222;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+a:hover {
+    color: coral;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
 
 .searchBox {
     position: initial;

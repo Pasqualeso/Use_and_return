@@ -54,7 +54,7 @@ function aggiungi(cod,prezzo, descrizione) {
         carrello[x].qnt++;
     }
     serializza();
-    alert("prodotto aggiunto al carrello");
+    alert("Prodotto aggiunto al carrello");
 }
 
 
@@ -85,13 +85,13 @@ function cambia(cella) {
 }
 
 function tabella() {
-    document.write("<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo<TH>Quantità<TH>Totale\n ");
+    document.write("<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale\n ");
     for(var i=0; i<carrello.length; i++) {
         document.write("<TR><TD class=center>"+carrello[i].codice);
         document.write("<TD> " + carrello[i].descr);
         document.write("<TD class=right>"+carrello[i].prezzo);
         document.write("<TD><input onChange=cambia(" + i + ") class=center id=q" + i + " type=text size=4 value= " + carrello[i].qnt + ">");
-        document.write("<TD class=right id=t"+i+">&nbsp;\n");
+        document.write("<TD class=right id=t"+i+">&nbsp; \n");
     }
     document.write("<TR><TD colspan=4 align=right>Importo Ordine <TD class=right id=totale>&nbsp\n");
     document.write("</TABLE>\n");
@@ -100,6 +100,6 @@ function tabella() {
 function svuota() {
     delete localStorage.carrello;
     document.getElementById('elenco').innerHTML =
-        "<TABLE border=1><TH>Codice<TH>prezzo<TH>Quantita<TH>Totale</TABLE>";
+        "<TABLE border=1><TH>Codice<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
 }
 

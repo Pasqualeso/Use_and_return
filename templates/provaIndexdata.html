@@ -10,6 +10,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="\static\css\style.css">
     <script language=javascript src=\static\js\carrello.js></script>
+    <script language=javascript src=\static\js\data.js></script>
     <title>Use and return</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#suggerimenti">Annunci suggeriti</a>
+                        <a class="nav-link" href="#categorie">Categorie</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#lanostraidea">La nostra idea</a>
@@ -55,9 +56,6 @@
                     <ul class="action">
                         <li><a href="index.html">
                             <ion-icon name="search-outile">Home</ion-icon>
-                        </a></li>
-                        <li><a href="categorie.html">
-                            <ion-icon name="search-outile">Categorie</ion-icon>
                         </a></li>
                         <li><a href="utente.html">
                             <ion-icon name="search-outile">Utente</ion-icon>
@@ -85,7 +83,6 @@
         <div class="row">
             <div class="col-xl-9 mx-auto">
                 <h1>Il servizio di noleggio più efficiente che ci sia</h1>
-                <div id="suggerimenti"></div>
             </div>
         </div>
     </div>
@@ -157,103 +154,14 @@
         </div>
         <div class="inputBx">
             <p class="white">-</p>
-            <a href="#annunci">
-                <input type="submit" value="Cerca">
-            </a>
-
+            <input type="submit" value="Cerca">
         </div>
     </div>
 </section>
-<!-- sezione spazio
-<div class="mb-5"></div>-->
-<!-- sezione annunci suggeriti -->
-<section id="suggerimenti" class="categorie text-center bg-light">
-    <div class="container">
-        <h2 class="mb-5">Annunci suggeriti</h2>
-        <div class="row">
-            <div class="wrapper">
-                <div class="col-lg-4">
-                    <div class="categoria-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_musica.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria1" src="\static\images\Musica.jpg">
-                            <h5>Musica</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="categoria-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_telefonia.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria2" src="\static\images\telefonia.png">
-                            <h5>Telefonia</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_console&videogiochi.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria3"
-                                 src="\static\images\console%20e%20videogiochi.jpg">
-                            <h5>Console e videogiochi</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_informatica.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria4" src="\static\images\informatica.jpg">
-                            <h5>Informatica</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_auto.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria5"
-                                 src="\static\images\AccessoriAuto.jpg">
-                            <h5>Accessori auto</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_gioccatoli.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria6" src="\static\images\giocattolo.jpg">
-                            <h5>Giocattoli</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_fotografia.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria7" src="\static\images\fotografia.jpg">
-                            <h5>Fotografia</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_videomaker.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria8"
-                                 src="\static\images\video%20maker.jpg">
-                            <h5>Video maker</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <a href="categoria_altro.html">
-                            <img class="img-fluid rounder-circle mb-3 categoria9" src="\static\images\altro.jpg">
-                            <h5>Altro</h5>
-                            <div id="annunci"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- sezione spazio-->
+<div class="mb-5"></div>
 <!-- Sezione Risultati Ricerca -->
-<section id="annunci"class="risultati_ricerca">
+<section class="risultati_ricerca">
     <div class="container">
         <div class="row">
             <div class="col-sm">
@@ -275,7 +183,7 @@
                             <input type="date">
                         </label>
                         <p class="card-text">Prezzo per giorno: 30 euro</p>
-                        <a href="javascript:aggiungi(1,30,'Chitarra')" class="btn btn-primary">Aggiungi al carrello</a>
+                        <a href="javascript:aggiungi(1,30,'Chitarra')" class="btn btn-primary">Nolleggia</a>
                     </div>
                 </div>
             </div>
@@ -289,14 +197,121 @@
                         <p class="card-text">Autore: Paolo Russo</p>
                         <p class="card-text">Luogo: Lazio</p>
                         <p class="card-text">Descrizione:</p>
-                        <p>Data inizio noleggio</p>
-                        <label>
-                            <input type="date">
-                        </label>
-                        <p>Data fine noleggio</p>
-                        <label>
-                            <input type="date">
-                        </label>
+                        <div id="dateA">
+                            <p>Data inizio noleggio</p>
+                            <select id="DA">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <select id="MA">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select id="YA">
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                        <div id="dateA">
+                            <p>Data fine noleggio</p>
+                            <select id="DB">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <select id="MB">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select id="YB">
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                        <div>
+                            <br>
+                            <button onclick="getDateDiffInDays();">Calcola la differenza in giorni</button>
+                        </div>
+                        <div id="date_diff"></div>
                         <p class="card-text">Prezzo per giorno: 40 euro</p>
                         <a href="javascript:aggiungi(2,40,'Canon')" class="btn btn-primary">Aggiungi al carrello</a>
                     </div>
@@ -502,7 +517,71 @@
         </div>
     </div>
 </section>
-
+<!-- sezione categorie -->
+<section id="categorie" class="categorie text-center bg-light">
+    <div class="container">
+        <h2 class="mb-5">Categorie</h2>
+        <div class="row">
+            <div class="wrapper">
+                <div class="col-lg-4">
+                    <div class="categoria-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria1" src="\static\images\Musica.jpg">
+                        <h5>Musica</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="categoria-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria2" src="\static\images\telefonia.png">
+                        <h5>Telefonia</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria3"
+                             src="\static\images\console%20e%20videogiochi.jpg">
+                        <h5>Console e videogiochi</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria4" src="\static\images\informatica.jpg">
+                        <h5>Informatica</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria5" src="\static\images\AccessoriAuto.jpg">
+                        <h5>Accessori auto</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria6" src="\static\images\giocattolo.jpg">
+                        <h5>Giocattoli</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria7" src="\static\images\fotografia.jpg">
+                        <h5>Fotografia</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria8" src="\static\images\video%20maker.jpg">
+                        <h5>Video maker</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 categoria9" src="\static\images\altro.jpg">
+                        <h5>Altro</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="mb-5"></div>
 <!--Sezione chi siamo -->
 <section id="lanostraidea" class="la-nostra-idea">
