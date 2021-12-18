@@ -22,9 +22,9 @@ def utente():  # put application's code here
     return render_template('utente.html')
 
 
-@app.route('/aggiungi_annuncio.html')
-def aggiungi_annuncio():  # put application's code here
-    return render_template('aggiungi_annuncio.html')
+@app.route('/registrazione_annuncio.html')
+def registrazione_annuncio():  # put application's code here
+    return render_template('registrazione_annuncio.html')
 
 
 @app.route('/salva_annuncio')
@@ -42,19 +42,19 @@ def categorie():  # put application's code here
     return render_template('categorie.html')
 
 
-@app.route('/informazioniUtente.html')
+@app.route('/informazioni_utente.html')
 def informazioni_utente():  # put application's code here
-    return render_template('informazioniUtente.html')
+    return render_template('informazioni_utente.html')
 
 
-@app.route('/registrazioneUtente.html')
+@app.route('/registrazione_utente.html')
 def registrazione_utente():  # put application's code here
-    return render_template('registrazioneUtente.html')
+    return render_template('registrazione_utente.html')
 
 
-@app.route('/passwordDimenticata.html')
+@app.route('/password_dimenticata.html')
 def password_dimenticata():  # put application's code here
-    return render_template('passwordDimenticata.html')
+    return render_template('password_dimenticata.html')
 
 
 if __name__ == '__main__':
