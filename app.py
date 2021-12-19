@@ -1,10 +1,11 @@
 from flask import Flask
 from flask import render_template
-from flask_sqlalchemy import SQLAlchemy
+
+from Database.dbMysqlAlchemy import db_session, init_db
+from Database.users_db import form_user, form_login
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqllite:///mcdata.db'
-db = SQLAlchemy(app)
+db = init_db()
 
 
 @app.route('/')
