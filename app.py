@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
 
 from Database.dbMysqlAlchemy import db_session, init_db
 from Database.users_db import form_user, form_login
@@ -56,6 +55,11 @@ def registrazione_utente():  # put application's code here
 @app.route('/password_dimenticata.html')
 def password_dimenticata():  # put application's code here
     return render_template('password_dimenticata.html')
+
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
 
 
 if __name__ == '__main__':
