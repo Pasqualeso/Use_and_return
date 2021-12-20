@@ -5,6 +5,7 @@ from flask import Flask, render_template
 from Database.dbMysqlAlchemy import db_session, init_db
 
 # from Database.users_db import form_user, form_login
+from Database.utente_db import form_user, form_login
 
 app = Flask(__name__)
 db = init_db()
@@ -18,11 +19,6 @@ def index():  # put application's code here
 @app.route('/index.html')
 def home():  # put application's code here
     return render_template('index.html')
-
-
-@app.route('/utente.html')
-def utente():  # put application's code here
-    return render_template('utente.html')
 
 
 @app.route('/registrazione_annuncio.html')
@@ -95,8 +91,17 @@ def informazioni_utente():  # put application's code here
     return render_template('informazioni_utente.html')
 
 
-@app.route('/registrazione_utente.html')
+@app.route('/utente.html', methods=['GET', 'POST'])
+def utente():  # put application's code here
+    form_login(db)
+    return render_template('utente.html')
+
+
+@app.route('/registrazione_utente.html', methods=['GET', 'POST'])
 def registrazione_utente():  # put application's code here
+    log_err = form_user(db)
+    if log_err is not None:
+        print(log_err)
     return render_template('registrazione_utente.html')
 
 

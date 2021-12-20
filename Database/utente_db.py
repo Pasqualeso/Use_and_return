@@ -1,6 +1,5 @@
 import uuid
 from datetime import datetime
-
 from flask import request
 from sqlalchemy import Table, Column, Integer, String
 from sqlalchemy import exc
@@ -115,12 +114,14 @@ def form_user(db):
         username = request.form['username']
         password = request.form['password']
         sesso = request.form['sesso']
+        data_nascita_utente = request.form['data_nascita_utente']
         telefono = request.form['telefono']
         citta = request.form['citta']
         provincia = request.form['provincia']
         via = request.form['via']
         cap = request.form['cap']
-        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, telefono, citta, provincia, via, cap)
+        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
+                              provincia, via, cap)
         log_err = add_user(db, nuovo_utente)
 
         return log_err
