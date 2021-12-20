@@ -133,13 +133,13 @@
     <h1>Registrazione:</h1>
     <!-- Un "Tab" per ogni step nel form: -->
     <div class="tab">Nome completo:
-        <p><input placeholder="Nome..." oninput="this.className = ''" name="fname"></p>
-        <p><input placeholder="Cognome..." oninput="this.className = ''" name="lname"></p>
+        <p><input placeholder="Nome..." id="nome" oninput="this.className = ''" name="fname"></p>
+        <p><input placeholder="Cognome..." id="cognome" oninput="this.className = ''" name="lname"></p>
         <p>Sesso</p>
-        <select name='select1'>
-            <option value='2'> Donna
-            <option value='3'> Uomo
-            <option value='4'> Non specificato
+        <select name='select1' id="sesso">
+            <option value='2'> F
+            <option value='3'> M
+            <option value='4'> N
         </select>
         <br><br>
         <label for="exampleFormControlFile1">Importa una tua foto...</label>
@@ -147,35 +147,35 @@
         <br>
     </div>
     <div class="tab">Informazioni di contatto:
-        <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-        <p><input placeholder="Telefono..." oninput="this.className = ''" name="phone"></p>
+        <p><input placeholder="E-mail..." id="email" oninput="this.className = ''" name="email"></p>
+        <p><input placeholder="Telefono..." id="telefono" oninput="this.className = ''" name="phone"></p>
     </div>
     <div class="tab">Residenza:
-        <p><input placeholder="Via..." oninput="this.className = ''" name="street"></p>
-        <p><input placeholder="Numero civico..." oninput="this.className = ''" name="civic"></p>
-        <p><input placeholder="Città..." oninput="this.className = ''" name="city"></p>
-        <p><input placeholder="Provincia..." oninput="this.className = ''" name="province"></p>
-        <p><input placeholder="CAP..." oninput="this.className = ''" name="cap"></p>
+        <p><input placeholder="Via..." id="via" oninput="this.className = ''" name="street"></p>
+        <p><input placeholder="Città..." id="citta" oninput="this.className = ''" name="city"></p>
+        <p><input placeholder="Provincia..." id="provincia" oninput="this.className = ''" name="province"></p>
+        <p><input placeholder="CAP..." id="cap" oninput="this.className = ''" name="cap"></p>
     </div>
     <div class="tab">Indirizzo di spedizione:
-        <p><input placeholder="Via..." oninput="this.className = ''" name="street"></p>
-        <p><input placeholder="Numero civico..." oninput="this.className = ''" name="civic"></p>
-        <p><input placeholder="Città..." oninput="this.className = ''" name="city"></p>
-        <p><input placeholder="Provincia..." oninput="this.className = ''" name="province"></p>
-        <p><input placeholder="CAP..." oninput="this.className = ''" name="cap"></p>
+        <p><input placeholder="Via..." id="via_spedizione" oninput="this.className = ''" name="street"></p>
+        <p><input placeholder="Città..." id="citta_spedizione" oninput="this.className = ''" name="city"></p>
+        <p><input placeholder="Provincia..." id="provincia_spedizione" oninput="this.className = ''" name="province"></p>
+        <p><input placeholder="CAP..." id="cap_spedizione" oninput="this.className = ''" name="cap"></p>
     </div>
-    <div class="tab">Data di nascita:
+    <div class="tab" id="data_di_nascita">Data di nascita:
         <input type="date">
         <br>
     </div>
+    <!--
     <div class="tab">Pagamento:
         <p><input placeholder="Intestatario carta" oninput="this.className = ''" name="accountholder"></p>
         <p><input placeholder="Numero carta" oninput="this.className = ''" name="number"></p>
     </div>
+    -->
     <div class="tab">Login Info:
-        <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-        <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-        <p><input placeholder="Codice iscrizione..." oninput="this.className = ''" name="code"></p>
+        <p><input placeholder="Username..." id="username" oninput="this.className = ''" name="uname"></p>
+        <p><input placeholder="Password..." id="password" oninput="this.className = ''" name="pword" type="password"></p>
+        <p><input placeholder="Codice iscrizione..." id="bonus_iscrizione" oninput="this.className = ''" name="code"></p>
     </div>
     <div style="overflow:auto;">
         <div style="float:right;">
