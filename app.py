@@ -1,7 +1,10 @@
+import uuid
+
 from flask import Flask, render_template
 
 from Database.dbMysqlAlchemy import db_session, init_db
-#from Database.users_db import form_user, form_login
+
+# from Database.users_db import form_user, form_login
 
 app = Flask(__name__)
 db = init_db()
@@ -41,37 +44,46 @@ def carrello():  # put application's code here
 def categorie():  # put application's code here
     return render_template('categorie.html')
 
+
 @app.route('/categoria_altro.html')
 def categoria_altro():  # put application's code here
     return render_template('categoria_altro.html')
+
 
 @app.route('/categoria_auto.html')
 def categoria_auto():  # put application's code here
     return render_template('categoria_auto.html')
 
+
 @app.route('/categoria_console&videogiochi.html')
 def categoria_console_e_videogiochi():  # put application's code here
     return render_template('categoria_console&videogiochi.html')
+
 
 @app.route('/categoria_fotografia.html')
 def categoria_fotografia():  # put application's code here
     return render_template('categoria_fotografia.html')
 
+
 @app.route('/categoria_gioccatoli.html')
 def categoria_giocattoli():  # put application's code here
     return render_template('categoria_gioccatoli.html')
+
 
 @app.route('/categoria_informatica.html')
 def categoria_informatica():  # put application's code here
     return render_template('categoria_informatica.html')
 
+
 @app.route('/categoria_musica.html')
 def categoria_musica():  # put application's code here
     return render_template('categoria_musica.html')
 
+
 @app.route('/categoria_telefonia.html')
 def categoria_telefonia():  # put application's code here
     return render_template('categoria_telefonia.html')
+
 
 @app.route('/categoria_videomaker.html')
 def categoria_videomaker():  # put application's code here
