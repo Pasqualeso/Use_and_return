@@ -1,10 +1,5 @@
-import uuid
-
 from flask import Flask, render_template
-
 from Database.dbMysqlAlchemy import db_session, init_db
-
-# from Database.users_db import form_user, form_login
 from Database.utente_db import form_user, form_login
 
 app = Flask(__name__)

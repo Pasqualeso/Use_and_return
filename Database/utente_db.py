@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+
 from flask import request
 from sqlalchemy import Table, Column, Integer, String
 from sqlalchemy import exc
@@ -24,7 +25,7 @@ class Utente(object):
     citta_utente = Column(String(50), nullable=False)
     provincia_utente = Column(String(50), nullable=False)
     via_utente = Column(String(120), nullable=False)
-    cap_utente = Column(int(5), nullable=False)
+    cap_utente = Column(Integer, nullable=False)
     data_creazione_utente = Column(String(30), nullable=False)
 
     # COSTRUTTORE CREAZIONE UTENTE
@@ -92,7 +93,7 @@ utenti = Table('utente', metadata,
                Column('citta_utente', String(50), nullable=False),
                Column('provincia_utente', String(50), nullable=False),
                Column('via_utente', String(120), nullable=False),
-               Column('cap_utente', int(5), nullable=False),
+               Column('cap_utente', Integer, nullable=False),
                Column('data_creazione_utente', String(30), nullable=False)
                )
 mapper(Utente, utenti)
