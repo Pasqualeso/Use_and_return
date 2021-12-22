@@ -10,8 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="\static\css\style.css">
-    <link rel="stylesheet" href="\static\css\RegistrazioneUtente.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Registrazione Utente</title>
 </head>
 <body>
@@ -45,230 +44,324 @@
         </div>
     </nav>
 </header>
-<!--CSS Registrazione Utente -->
-<style>
-    * {
-        box-sizing: border-box;
-    }
 
-    body {
-        background-color: #ff7f50;
-        color: #F1EEE6;
-    }
+<section class="inner-page">
+    <div class="container">
 
-    #regForm {
-        background: rgba(0, 0, 0, .5);
-        margin: 100px auto;
-        font-family: Raleway;
-        padding: 40px;
-        width: 70%;
-        min-width: 300px;
-    }
 
-    h1 {
-        text-align: center;
-    }
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
 
-    input {
-        padding: 10px;
-        width: 100%;
-        font-size: 17px;
-        font-family: Raleway;
-        border: 1px solid #aaaaaa;
-    }
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Registrazione</h2>
+                    <p>CREA UN ACCOUNT</p>
+                </div>
 
-    /* Contrassegna le caselle di input che ricevono un errore durante la convalida: */
-    input.invalid {
-        background-color: #ffdddd;
-    }
+                <div class="row">
 
-    /* Nascondi tutti i passaggi per impostazione predefinita: */
-    .tab {
-        display: none;
-    }
+                    <div class="col-lg-6 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
 
-    button {
-        background-color: #ff5a26;
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 17px;
-        font-family: Raleway;
-        cursor: pointer;
-    }
+                        <form action="" method="post" role="form" class="email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"
+                                           required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="cognome" id="cognome"
+                                           placeholder="Cognome" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="username" class="form-control" id="username"
+                                           placeholder="Username" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="password" class="form-control" name="password" id="password"
+                                           placeholder="Password" required>
+                                </div>
 
-    button:hover {
-        opacity: 0.8;
-    }
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                           required>
+                                </div>
 
-    #prevBtn {
-        background-color: #FF0000;
-    }
+                                  <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="telefono" id="telefono"
+                                           placeholder="Telefono"
+                                           required>
+                                </div>
 
-    /* Crea dei cerchi che indichino i passaggi del form: */
-    .step {
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbbbbb;
-        border: none;
-        border-radius: 50%;
-        display: inline-block;
-        opacity: 0.5;
-    }
+                                <div class="col-md-3 form-group mt-3 mt-md-0">
+                                    <select class="form-control" id="sesso" name="Sesso"
+                                            style="padding:10px; border-radius: 0px;">
+                                        <option value="" selected="true" disabled="disabled">Sesso</option>
+                                        <option value='2'> F
+                                        <option value='3'> M
+                                        <option value='4'> N
+                                    </select>
+                                </div>
 
-    .step.active {
-        opacity: 1;
-    }
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <div type="text" class=class="form-control" name="data_di_nascita" id="data_di_nascita">Data di nascita:
+                                        <input type="date">
+                                        <br>
+                                    </div>
+                                </div>
 
-    /* Segna i passaggi che sono finiti e validi: */
-    .step.finish {
-        background-color: #04AA6D;
-    }
-</style>
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="citta" id="citta"
+                                           placeholder="Città domicilio"
+                                           required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <select class="form-control" id="provincia" name="provincia"
+                                            style="padding:10px; border-radius: 0px;">
+                                        <option value="" selected="true" disabled="disabled">Provincia domicilio
+                                        </option>
+                                        <option value="ag">Agrigento</option>
+                                        <option value="al">Alessandria</option>
+                                        <option value="an">Ancona</option>
+                                        <option value="ao">Aosta</option>
+                                        <option value="ar">Arezzo</option>
+                                        <option value="ap">Ascoli Piceno</option>
+                                        <option value="at">Asti</option>
+                                        <option value="av">Avellino</option>
+                                        <option value="ba">Bari</option>
+                                        <option value="bt">Barletta-Andria-Trani</option>
+                                        <option value="bl">Belluno</option>
+                                        <option value="bn">Benevento</option>
+                                        <option value="bg">Bergamo</option>
+                                        <option value="bi">Biella</option>
+                                        <option value="bo">Bologna</option>
+                                        <option value="bz">Bolzano</option>
+                                        <option value="bs">Brescia</option>
+                                        <option value="br">Brindisi</option>
+                                        <option value="ca">Cagliari</option>
+                                        <option value="cl">Caltanissetta</option>
+                                        <option value="cb">Campobasso</option>
+                                        <option value="ci">Carbonia-iglesias</option>
+                                        <option value="ce">Caserta</option>
+                                        <option value="ct">Catania</option>
+                                        <option value="cz">Catanzaro</option>
+                                        <option value="ch">Chieti</option>
+                                        <option value="co">Como</option>
+                                        <option value="cs">Cosenza</option>
+                                        <option value="cr">Cremona</option>
+                                        <option value="kr">Crotone</option>
+                                        <option value="cn">Cuneo</option>
+                                        <option value="en">Enna</option>
+                                        <option value="fm">Fermo</option>
+                                        <option value="fe">Ferrara</option>
+                                        <option value="fi">Firenze</option>
+                                        <option value="fg">Foggia</option>
+                                        <option value="fc">Forl&igrave;-Cesena</option>
+                                        <option value="fr">Frosinone</option>
+                                        <option value="ge">Genova</option>
+                                        <option value="go">Gorizia</option>
+                                        <option value="gr">Grosseto</option>
+                                        <option value="im">Imperia</option>
+                                        <option value="is">Isernia</option>
+                                        <option value="sp">La spezia</option>
+                                        <option value="aq">L'aquila</option>
+                                        <option value="lt">Latina</option>
+                                        <option value="le">Lecce</option>
+                                        <option value="lc">Lecco</option>
+                                        <option value="li">Livorno</option>
+                                        <option value="lo">Lodi</option>
+                                        <option value="lu">Lucca</option>
+                                        <option value="mc">Macerata</option>
+                                        <option value="mn">Mantova</option>
+                                        <option value="ms">Massa-Carrara</option>
+                                        <option value="mt">Matera</option>
+                                        <option value="vs">Medio Campidano</option>
+                                        <option value="me">Messina</option>
+                                        <option value="mi">Milano</option>
+                                        <option value="mo">Modena</option>
+                                        <option value="mb">Monza e della Brianza</option>
+                                        <option value="na">Napoli</option>
+                                        <option value="no">Novara</option>
+                                        <option value="nu">Nuoro</option>
+                                        <option value="og">Ogliastra</option>
+                                        <option value="ot">Olbia-Tempio</option>
+                                        <option value="or">Oristano</option>
+                                        <option value="pd">Padova</option>
+                                        <option value="pa">Palermo</option>
+                                        <option value="pr">Parma</option>
+                                        <option value="pv">Pavia</option>
+                                        <option value="pg">Perugia</option>
+                                        <option value="pu">Pesaro e Urbino</option>
+                                        <option value="pe">Pescara</option>
+                                        <option value="pc">Piacenza</option>
+                                        <option value="pi">Pisa</option>
+                                        <option value="pt">Pistoia</option>
+                                        <option value="pn">Pordenone</option>
+                                        <option value="pz">Potenza</option>
+                                        <option value="po">Prato</option>
+                                        <option value="rg">Ragusa</option>
+                                        <option value="ra">Ravenna</option>
+                                        <option value="rc">Reggio di Calabria</option>
+                                        <option value="re">Reggio nell'Emilia</option>
+                                        <option value="ri">Rieti</option>
+                                        <option value="rn">Rimini</option>
+                                        <option value="rm">Roma</option>
+                                        <option value="ro">Rovigo</option>
+                                        <option value="sa">Salerno</option>
+                                        <option value="ss">Sassari</option>
+                                        <option value="sv">Savona</option>
+                                        <option value="si">Siena</option>
+                                        <option value="sr">Siracusa</option>
+                                        <option value="so">Sondrio</option>
+                                        <option value="ta">Taranto</option>
+                                        <option value="te">Teramo</option>
+                                        <option value="tr">Terni</option>
+                                        <option value="to">Torino</option>
+                                        <option value="tp">Trapani</option>
+                                        <option value="tn">Trento</option>
+                                        <option value="tv">Treviso</option>
+                                        <option value="ts">Trieste</option>
+                                        <option value="ud">Udine</option>
+                                        <option value="va">Varese</option>
+                                        <option value="ve">Venezia</option>
+                                        <option value="vb">Verbano-Cusio-Ossola</option>
+                                        <option value="vc">Vercelli</option>
+                                        <option value="vr">Verona</option>
+                                        <option value="vv">Vibo valentia</option>
+                                        <option value="vi">Vicenza</option>
+                                        <option value="vt">Viterbo</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="via" id="via"
+                                           placeholder="Via domicilio"
+                                           required>
+                                </div>
 
-</body>
-<!--Form Registrazione Utente
-<form action="" method="post" role="form" class="email-form"> -->
-<form id="regForm" action="" method="post" role="form">
-    <h1>Registrazione:</h1>
-    <!-- Un "Tab" per ogni step nel form: -->
-    <div class="tab">Nome completo:
-        <p><input placeholder="Nome..." id="nome" oninput="this.className = ''" name="fname"></p>
-        <p><input placeholder="Cognome..." id="cognome" oninput="this.className = ''" name="lname"></p>
-        <p>Sesso</p>
-        <select name='select1' id="sesso">
-            <option value='2'> F
-            <option value='3'> M
-            <option value='4'> N
-        </select>
-        <br><br>
-        <label for="exampleFormControlFile1">Importa una tua foto...</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        <br>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="cap" id="cap"
+                                           placeholder="Cap domicilio"
+                                           required>
+                                </div>
+                            </div>
+
+                            <div class="text-left mt-2">
+                                <button type="submit">Registrati</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+
     </div>
-    <div class="tab">Informazioni di contatto:
-        <p><input placeholder="E-mail..." id="email" oninput="this.className = ''" name="email"></p>
-        <p><input placeholder="Telefono..." id="telefono" oninput="this.className = ''" name="phone"></p>
-    </div>
-    <div class="tab">Residenza:
-        <p><input placeholder="Via..." id="via" oninput="this.className = ''" name="street"></p>
-        <p><input placeholder="Città..." id="citta" oninput="this.className = ''" name="city"></p>
-        <p><input placeholder="Provincia..." id="provincia" oninput="this.className = ''" name="province"></p>
-        <p><input placeholder="CAP..." id="cap" oninput="this.className = ''" name="cap"></p>
-    </div>
-    <div class="tab">Indirizzo di spedizione:
-        <p><input placeholder="Via..." id="via_spedizione" oninput="this.className = ''" name="street"></p>
-        <p><input placeholder="Città..." id="citta_spedizione" oninput="this.className = ''" name="city"></p>
-        <p><input placeholder="Provincia..." id="provincia_spedizione" oninput="this.className = ''" name="province"></p>
-        <p><input placeholder="CAP..." id="cap_spedizione" oninput="this.className = ''" name="cap"></p>
-    </div>
-    <div class="tab" id="data_di_nascita">Data di nascita:
-        <input type="date">
-        <br>
-    </div>
-    <!--
-    <div class="tab">Pagamento:
-        <p><input placeholder="Intestatario carta" oninput="this.className = ''" name="accountholder"></p>
-        <p><input placeholder="Numero carta" oninput="this.className = ''" name="number"></p>
-    </div>
-    -->
-    <div class="tab">Login Info:
-        <p><input placeholder="Username..." id="username" oninput="this.className = ''" name="uname"></p>
-        <p><input placeholder="Password..." id="password" oninput="this.className = ''" name="pword" type="password"></p>
-        <p><input placeholder="Codice iscrizione..." id="bonus_iscrizione" oninput="this.className = ''" name="code"></p>
-    </div>
-    <div style="overflow:auto;">
-        <div style="float:right;">
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Precedente</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)">Successivo</button>
+</section>
+
+
+<!-- Sezione recensioni clienti -->
+<section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
+    <div class="container">
+        <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg">
+                    <h5>Luca Rossi</h5>
+                    <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
+                        guadagnare!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg">
+                    <h5>Paolo Bianchi</h5>
+                    <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg">
+                    <h5>Matteo Verdi</h5>
+                    <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Cerchi che indicano gli steps nel form: -->
-    <div style="text-align:center;margin-top:40px;">
-        <span class="step"></span>
-        <span class="step"></span>
-        <span class="step"></span>
-        <span class="step"></span>
-        <span class="step"></span>
-        <span class="step"></span>
-        <span class="step"></span>
-    </div>
-</form>
-
-<script>
-    var currentTab = 0; // La scheda corrente è impostata per essere la prima scheda (0)
-    showTab(currentTab); // Visualizza la scheda corrente
-
-    function showTab(n) {
-        // Questa funzione visualizzerà la scheda specificata del form
-        var x = document.getElementsByClassName("tab");
-        x[n].style.display = "block";
-        //... e correggere i pulsanti Previous/Next :
-        if (n == 0) {
-            document.getElementById("prevBtn").style.display = "none";
-        } else {
-            document.getElementById("prevBtn").style.display = "inline";
-        }
-        if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Conferma Registrazione";
-        } else {
-            document.getElementById("nextBtn").innerHTML = "Successivo";
-        }
-        //... ed esegue una funzione che visualizzerà l'indicatore di passaggio corretto:
-        fixStepIndicator(n)
-    }
-
-    function nextPrev(n) {
-        // Questa funzione determinerà quale scheda visualizzare
-        var x = document.getElementsByClassName("tab");
-        // Uscire dalla funzione se un campo nella scheda corrente non è valido:
-        if (n == 1 && !validateForm()) return false;
-        // Nascondi la scheda corrente:
-        x[currentTab].style.display = "none";
-        // Aumenta o diminuisce la scheda corrente di 1:
-        currentTab = currentTab + n;
-        // se sei arrivato alla fine del form...
-        if (currentTab >= x.length) {
-            // ... il form viene inviato:
-            document.getElementById("regForm").submit();
-            return false;
-        }
-        // Altrimenti, visualizza la scheda corretta:
-        showTab(currentTab);
-    }
-
-    function validateForm() {
-        // Questa funzione si occupa della convalida dei campi del form
-        var x, y, i, valid = true;
-        x = document.getElementsByClassName("tab");
-        y = x[currentTab].getElementsByTagName("input");
-        // Un ciclo che controlla ogni campo di input nella scheda corrente:
-        for (i = 0; i < y.length; i++) {
-            // Se un campo è vuoto...
-            if (y[i].value == "") {
-                // aggiungi una classe "non valida" al campo:
-                y[i].className += " invalid";
-                // e imposta lo stato valido corrente su false
-                valid = false;
+</section>
+<!--Sezione Newsletter -->
+<section id="contattaci" class="newsletter text-white text-center">
+    <div class="container">
+        <style>
+            .newsletter {
+                background-image: url("/static/images/newsletter.jpeg");
             }
-        }
-        // Se lo stato valido è vero, contrassegna il passaggio come terminato e valido:
-        if (valid) {
-            document.getElementsByClassName("step")[currentTab].className += " finish";
-        }
-        return valid; // restituire lo stato valido
-    }
+        </style>
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h2 class="mb-4">Iscriviti alla nostra newsletter!</h2>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form>
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="#">Abouy</a></li>
+                    <li class="list-inline-item"><a href="#">Contact</a></li>
+                    <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">© Your Website 2021. All Rights Reserved.</p>
+            </div>
+            <div class="col-lg-6 h-100 text-center text-lg-right">
+                <p class="testo">Seguici su:</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home Page/logo-insta.jpg"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home Page/logo-linkedln.png"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item"></li>
+                    <a href="#"><img src="/static/images/Home Page/logo-twitter.png"
+                                     alt=""></a>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    function fixStepIndicator(n) {
-        // Questa funzione rimuove la classe "active" di tutti i passaggi...
-        var i, x = document.getElementsByClassName("step");
-        for (i = 0; i < x.length; i++) {
-            x[i].className = x[i].className.replace(" active", "");
-        }
-        //... e aggiunge la classe "active" nel passaggio corrente:
-        x[n].className += " active";
-    }
+</footer>
 
-</script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
 </html>
