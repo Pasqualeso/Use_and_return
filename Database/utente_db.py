@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-
+import smtplib
 from flask import request
 from sqlalchemy import Table, Column, Integer, String
 from sqlalchemy import exc
@@ -73,7 +73,8 @@ class Utente(object):
         id_seed = uuid.uuid4()
         string_temp = username
         uid = uuid.uuid3(id_seed, string_temp)
-        uuid_final = str(uid)[:13]
+        uuid_final = str(uid)[:13].replace("-", "")
+
         print(uuid_final)
         return uuid_final
 
@@ -106,6 +107,27 @@ class UserException(Exception):
         self.errors = errors
 
 
+def send_email(user, pwd, recipient, subject, body):
+    FROM = user
+    TO = recipient if isinstance(recipient, list) else [recipient]
+    SUBJECT = subject
+    TEXT = body
+
+    # Prepare actual message
+    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
+    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.ehlo()
+        server.starttls()
+        server.login(user, pwd)
+        server.sendmail(FROM, TO, message)
+        server.close()
+        print('successfully sent the mail')
+    except:
+        print("failed to send mail\n")
+
+
 # Metodo per leggere i campi dai vari form di registrazione per creare un nuovo utente
 def form_user(db):
     if request.method == 'POST':
@@ -121,6 +143,7 @@ def form_user(db):
         provincia = request.form['provincia']
         via = request.form['via']
         cap = request.form['cap']
+
         nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
                               provincia, via, cap)
         log_err = add_user(db, nuovo_utente)

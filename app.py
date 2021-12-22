@@ -97,7 +97,7 @@ def registrazione_utente():  # put application's code here
     log_err = form_user(db)
     if log_err is not None:
         print(log_err)
-    return render_template('registrazione_utente.html')
+    return render_template('registrazione_utente.html', error=log_err)
 
 
 @app.route('/password_dimenticata.html')
