@@ -1,10 +1,13 @@
+import datetime
 import uuid
-from datetime import datetime
 import smtplib
+from datetime import date
+
 from flask import request
 from sqlalchemy import Table, Column, Integer, String
 from sqlalchemy import exc
 from sqlalchemy.orm import mapper
+from sqlalchemy.sql.functions import now
 
 from Database.dbMysqlAlchemy import db_session, metadata
 
@@ -13,7 +16,7 @@ from Database.dbMysqlAlchemy import db_session, metadata
 class Utente(object):
     query = db_session.query_property()
     __tablename__ = 'Utente'
-    id_utente = Column(Integer, primary_key=True)
+    id_utente = Column(String(12), primary_key=True)
     nome_utente = Column(String(50), nullable=False)
     cognome_utente = Column(String(50), nullable=False)
     email_utente = Column(String(120), nullable=False)
@@ -29,8 +32,7 @@ class Utente(object):
     data_creazione_utente = Column(String(30), nullable=False)
 
     # COSTRUTTORE CREAZIONE UTENTE
-    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,
-                 via, cap):
+    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,provincia, via, cap):
         self.id_utente = self.generate_id(username)
         self.nome_utente = nome
         self.cognome_utente = cognome
@@ -44,11 +46,11 @@ class Utente(object):
         self.provincia_utente = provincia
         self.via_utente = via
         self.cap_utente = cap
-        self.data_creazione_utente = datetime.now()
+        self.data_creazione_utente = datetime.datetime.now()
 
     # COSTRUTTORE CARICA UTENTE
-    def __init__(self, id, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,
-                 via, cap, data_creazione):
+    '''
+    def __init__(self, id, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,provincia, via, cap,data_creazione):
         self.id_utente = id
         self.nome_utente = nome
         self.cognome_utente = cognome
@@ -63,7 +65,7 @@ class Utente(object):
         self.via_utente = via
         self.cap_utente = cap
         self.data_creazione_utente = data_creazione
-
+    '''
     # FUNZIONE STAMPA UTENTE
     def __repr__(self):
         return f'<Utente {self.id_utente + self.nome_utente + self.cognome_utente + self.email_utente + self.username_utente + self.password_utente + self.sesso_utente + self.data_di_nascita_utente + self.citta_utente + self.provincia_utente + self.via_utente + self.cap_utente + self.data_creazione_utente!r}> '
@@ -81,7 +83,7 @@ class Utente(object):
 
 # Mappatura della classe utente per la gestione nel database
 utenti = Table('utente', metadata,
-               Column('id_utente', Integer, primary_key=True),
+               Column('id_utente', String(12), primary_key=True),
                Column('nome_utente', String(50), nullable=False),
                Column('cognome_utente', String(50), nullable=False),
                Column('username_utente', String(50), nullable=False),
@@ -107,6 +109,7 @@ class UserException(Exception):
         self.errors = errors
 
 
+'''
 def send_email(user, pwd, recipient, subject, body):
     FROM = user
     TO = recipient if isinstance(recipient, list) else [recipient]
@@ -126,26 +129,28 @@ def send_email(user, pwd, recipient, subject, body):
         print('successfully sent the mail')
     except:
         print("failed to send mail\n")
+'''
 
 
 # Metodo per leggere i campi dai vari form di registrazione per creare un nuovo utente
 def form_user(db):
-    if request.method == 'POST':
-        nome = request.form['nome']
-        cognome = request.form['cognome']
-        email = request.form['email']
-        username = request.form['username']
-        password = request.form['password']
-        sesso = request.form['sesso']
-        data_nascita_utente = request.form['data_nascita_utente']
-        telefono = request.form['telefono']
-        citta = request.form['citta']
-        provincia = request.form['provincia']
-        via = request.form['via']
-        cap = request.form['cap']
 
-        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
-                              provincia, via, cap)
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        cognome = request.form.get('cognome')
+        email = request.form.get('email')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        sesso = request.form.get('sesso')
+        data_nascita_utente = request.form.get('data_nascita_utente')
+        telefono = request.form.get('telefono')
+        citta = request.form.get('citta')
+        provincia = request.form.get('provincia')
+        via = request.form.get('via')
+        cap = request.form.get('cap')
+
+        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta, provincia, via, cap)
+
         log_err = add_user(db, nuovo_utente)
 
         return log_err
