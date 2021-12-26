@@ -1,21 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags-->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="\static\css\style.css">
-    <script language=javascript src=\static\js\carrello.js></script>
-    <title>Categoria informatica</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Registrazione Utente</title>
 </head>
 <body>
-<!-- INIZIALIZZA JAVASCRIPT -->
-<script>inizializza()</script>
-<!--Navbar -->
+<!--Sezione NavBar -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -46,35 +45,127 @@
     </nav>
 </header>
 
-<!-- Sezione Risultati Ricerca -->
-<section id="annunci" class="risultati_ricerca">
-    <div class="container-fluid p-15">
-        <div class="row no-gutters">
-            <div class=" card col-lg-6 order-lg-1" style="width: 18rem;">
-                <img src="\static\images\macbook.jpg" class="card-img-top" alt="...">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #ff7f50;
+    }
+
+    .inner-page {
+        background: rgba(0, 0, 0, .5);
+        margin: 100px auto;
+        font-family: Raleway;
+        padding: 40px;
+        width: 70%;
+        min-width: 300px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    select {
+        text-align: center;
+    }
+
+    .login-box form a {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #F1EEE6;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+        letter-spacing: 4px;
+    }
+
+    button {
+        background-color: #ff5a26;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 17px;
+        font-family: Raleway;
+        cursor: pointer;
+    }
+
+    h6 {
+        color: #dddddd;
+    }
+
+    h3 {
+        color: #dddddd;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+</style>
+</body>
+<section class="inner-page">
+    <div class="container">
+
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h3>Registrazione utente</h3>
+                    <h6>INFOMRAZIONI:</h6>
+                    <br>
+                </div>
+
+                <div class="row">
+
+                    <div class="mb-5">
+
+                        <form action="" method="post" role="form" class="email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"
+                                           required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="cognome" id="cognome"
+                                           placeholder="Cognome" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="username" class="form-control" id="username"
+                                           placeholder="Username" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="password" class="form-control" name="password" id="password"
+                                           placeholder="Password" required>
+                                </div>
+
+                            </div>
+
+                            <div class="text-center mt-2">
+                                <button type="submit">Registrati</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="card-body col-lg-6 order-lg-2">
-                <h5 class=" card-title">Titolo: Macbook pro</h5>
-                <p class="card-text">Codice: 5</p>
-                <p class="card-text">Categoria: Informatica</p>
-                <p class="card-text">Autore: Paolo Russo</p>
-                <p class="card-text">Luogo: Lazio</p>
-                <p class="card-text">Descrizione:</p>
-                <p>Data inizio noleggio</p>
-                <label>
-                    <input type="date">
-                </label>
-                <p>Data fine noleggio</p>
-                <label>
-                    <input type="date">
-                </label>
-                <p class="card-text">Prezzo per giorno: 130 euro</p>
-                <a href="javascript:aggiungi(5,130,'Macbook pro')" class="btn btn-primary">Aggiungi al
-                    carrello</a>
-            </div>
-        </div>
+        </section><!-- End Contact Section -->
+
+
     </div>
 </section>
+
 
 <!-- Sezione recensioni clienti -->
 <section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
@@ -83,7 +174,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente1" src="\static\images\Home Page\cliente1.jpg">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg">
                     <h5>Luca Rossi</h5>
                     <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
                         guadagnare!"</p>
@@ -91,14 +182,14 @@
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente2" src="\static\images\Home Page\cliente2.jpg">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg">
                     <h5>Paolo Bianchi</h5>
                     <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente3" src="\static\images\Home Page\cliente3.jpg">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg">
                     <h5>Matteo Verdi</h5>
                     <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
                 </div>

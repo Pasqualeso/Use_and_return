@@ -1,4 +1,4 @@
-html{
+html {
     height: 100%;
 }
 
@@ -10,16 +10,15 @@ body {
 }
 
 .login-box {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    width: 400px;
+    background: rgba(0, 0, 0, .5);
+    margin: 100px auto;
+    font-family: Raleway;
     padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    width: 70%;
+    min-width: 300px;
     border-radius: 10px;
+
+
 }
 
 .login-box h2 {
@@ -44,6 +43,7 @@ body {
     outline: none;
     background: transparent;
 }
+
 .login-box .user-box label {
     position: absolute;
     top: 0;
@@ -66,17 +66,30 @@ body {
 .login-box form a {
     position: relative;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 10px;
     color: #F1EEE6;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
+    margin-top: 10px;
     letter-spacing: 4px;
+    font-family: Raleway;
 }
-
+ input {
+        padding: 10px;
+        width: 100%;
+        font-size: 17px;
+        font-family: Raleway;
+        border: 1px solid #aaaaaa;
+        color: #dddddd;
+        text-align: center;
+    }
+ h3 {
+        color: #dddddd;
+        text-align: center;
+    }
 .login-box form a:hover {
     background: #ff7f50;
     color: #F1EEE6;
@@ -105,7 +118,7 @@ body {
     0% {
         left: -100%;
     }
-    50%,100% {
+    50%, 100% {
         left: 100%;
     }
 }
@@ -121,15 +134,15 @@ body {
 }
 
 @keyframes btn-anim2 {
-    0%{
+    0% {
         top: -100%;
     }
-    50%,100% {
+    50%, 100% {
         top: 100%;
     }
 }
 
-.login-box span:nth-child(3){
+.login-box span:nth-child(3) {
     bottom: 0;
     tight: -100%;
     width: 100%;
@@ -140,10 +153,10 @@ body {
 }
 
 @keyframes btn-anim3 {
-    0%{
+    0% {
         right: -100%;
     }
-    50%,100% {
+    50%, 100% {
         right: 100%;
     }
 }
@@ -162,7 +175,7 @@ body {
     0% {
         bottom: -100%;
     }
-    50%,100% {
+    50%, 100% {
         bottom: 100%;
     }
 }

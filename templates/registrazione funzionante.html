@@ -7,7 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
+    <!-- Favicons -->
+    <link href="../static/img/favicon.png" rel="icon">
+    <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
+    <!-- Template Main CSS File -->
+    <link href="../static/css/generic_style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -45,72 +64,6 @@
     </nav>
 </header>
 
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        background-color: #ff7f50;
-    }
-
-    .inner-page {
-        background: rgba(0, 0, 0, .5);
-        margin: 100px auto;
-        font-family: Raleway;
-        padding: 40px;
-        width: 70%;
-        min-width: 300px;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    select {
-        text-align: center;
-    }
-
-    .login-box form a {
-        position: relative;
-        display: inline-block;
-        padding: 10px 20px;
-        color: #F1EEE6;
-        font-size: 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-        overflow: hidden;
-        transition: .5s;
-        margin-top: 40px;
-        letter-spacing: 4px;
-    }
-
-    button {
-        background-color: #ff5a26;
-        color: #ffffff;
-        border: none;
-        padding: 10px 20px;
-        font-size: 17px;
-        font-family: Raleway;
-        cursor: pointer;
-    }
-
-    h6 {
-        color: #dddddd;
-    }
-
-    h3 {
-        color: #dddddd;
-    }
-
-    button:hover {
-        opacity: 0.8;
-    }
-
-</style>
-</body>
 <section class="inner-page">
     <div class="container">
 
@@ -120,14 +73,13 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h3>Registrazione utente</h3>
-                    <h6>INFOMRAZIONI:</h6>
-                    <br>
+                    <h2>Registrazione</h2>
+                    <p>CREA UN ACCOUNT</p>
                 </div>
 
                 <div class="row">
 
-                    <div class="mb-5">
+                    <div class="col-lg-6 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
 
                         <form action="" method="post" role="form" class="email-form">
                             <div class="row">
@@ -152,7 +104,7 @@
                                            placeholder="Password" required>
                                 </div>
 
-                                <div class="col-md-6 form-group mt-3 mt-md-0 ">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <select class="form-control" id="sesso" name="sesso"
                                             style="padding:10px; border-radius: 0px;">
                                         <option value="" selected="true" disabled="disabled">Sesso
@@ -162,21 +114,21 @@
                                         <option value="N">N</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="text" class="form-control" name="telefono" id="telefono"
-                                           placeholder="Telefono"
-                                           required>
-                                </div>
-                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                 <div class="col-md-12 form-group mt-3 mt-md-0">
                                     <div type="text" class="form-control"
-                                         id="data_nascita_utente">Data di nascita:
-                                        <input type="date" class="form-control" name="data_nascita_utente"
-                                               id="data_nascita_utente" required>
+                                         id="data_nascita_utente" >Data di nascita:
+                                        <input type="date" class="form-control" name="data_nascita_utente" id="data_nascita_utente" required>
                                         <br>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <input type="text" class="form-control" name="telefono" id="telefono"
+                                           placeholder="Telefono"
+                                           required>
+                                </div>
+
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
                                     <input type="text" class="form-control" name="citta" id="citta"
                                            placeholder="Città domicilio"
                                            required>
@@ -298,7 +250,7 @@
                                         <option value="vt">Viterbo</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
                                     <input type="text" class="form-control" name="via" id="via"
                                            placeholder="Via domicilio"
                                            required>
@@ -311,8 +263,8 @@
                                 </div>
                             </div>
 
-                            <div class="text-center mt-2">
-                                <button type="submit">Registrati</button>
+                            <div class="text-left mt-2">
+                                    <button type="submit">Registrati</button>
                             </div>
                         </form>
 
@@ -392,26 +344,25 @@
         <div class="row">
             <div class="col-lg-6 h-100 text-center text-lg-left">
                 <ul class="list-inline mb-2">
-                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="#">Abouy</a></li>
                     <li class="list-inline-item"><a href="#">Contact</a></li>
                     <li class="list-inline-item"><a href="#">Term of Use</a></li>
                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                 </ul>
-                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright <strong><span>Università di Napoli Parthenope</span></strong></p>
-                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">© Your Website 2021. All Rights Reserved.</p>
             </div>
-
             <div class="col-lg-6 h-100 text-center text-lg-right">
                 <p class="testo">Seguici su:</p>
                 <ul class="list-inline mb-0">
-                    <li class="list-inline-item mr-3"><a href="#"><img src="\static\images\Home Page\logo-insta.jpg"
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home Page/logo-insta.jpg"
                                                                        alt=""></a>
                     </li>
-                    <li class="list-inline-item mr-3"><a href="#"><img src="\static\images\Home Page\logo-linkedln.png"
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home Page/logo-linkedln.png"
                                                                        alt=""></a>
                     </li>
-                    <li class="list-inline-item"></li><a href="#"><img src="\static\images\Home Page\logo-twitter.png"
-                                                                       alt=""></a>
+                    <li class="list-inline-item"></li>
+                    <a href="#"><img src="/static/images/Home Page/logo-twitter.png"
+                                     alt=""></a>
                 </ul>
             </div>
         </div>
@@ -421,6 +372,18 @@
 
 
 <!-- Optional JavaScript -->
+
+<!-- Vendor JS Files -->
+<script src="../static/vendor/purecounter/purecounter.js"></script>
+<script src="../static/vendor/aos/aos.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="../static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="../static/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="../static/js/main.js"></script>
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

@@ -47,43 +47,162 @@
 <section class login>
     <div class="container">
         <div class="login-box">
-            <h2>Login</h2>
-            <form action="">
-                <div class="user-box">
-                    <input type="text" name="" required="">
-                    <label>Username</label>
+            <h3>Login</h3>
+            <br>
+            <form action="informazioni_utente.html" method="post" role="form" class="email-form">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="text" name="username" class="form-control" id="username"
+                               placeholder="Username" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        <input type="password" class="form-control" name="password" id="password"
+                               placeholder="Password" required>
+                    </div>
                 </div>
-                <div class="user-box">
-                    <input type="password">
-                    <label for="">Password</label>
-                    <a href="informazioni_utente.html">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Invia
-                    </a>
-                    <div></div>
-                    <a href="registrazione_utente.html">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Registrati
+                <div class="text-center mt-2">
+                    <a href="#">
+                       <button type="submit">Invia</button>
                     </a>
 
-                    <a href="password_dimenticata.html">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Password dimenticata
-                    </a>
+                </div>
+                <style>
+                    button {
+                        background-color: #ff5a26;
+                        color: #ffffff;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 17px;
+                        font-family: Raleway;
+                        cursor: pointer;
+                    }
+                </style>
+                <div class="text-center">
+                    <div class="container">
+                        <div class="mb-5">
+                            <a href="registrazione_utente.html">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Registrati
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="container">
+                        <div class="mb-5">
+                            <a href="password_dimenticata.html">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Password dimenticata
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </section>
+
+
+<!-- Sezione recensioni clienti -->
+<section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
+    <div class="container">
+        <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg">
+                    <h5>Luca Rossi</h5>
+                    <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
+                        guadagnare!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg">
+                    <h5>Paolo Bianchi</h5>
+                    <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg">
+                    <h5>Matteo Verdi</h5>
+                    <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Sezione Newsletter -->
+<section id="contattaci" class="newsletter text-white text-center">
+    <div class="container">
+        <style>
+            .newsletter {
+                background-image: url("/static/images/newsletter.jpeg");
+            }
+        </style>
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h2 class="mb-4">Iscriviti alla nostra newsletter!</h2>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form>
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="#">Contact</a></li>
+                    <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright
+                    <strong><span>Università di Napoli Parthenope</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                </p>
+            </div>
+
+            <div class="col-lg-6 h-100 text-center text-lg-right">
+                <p class="testo">Seguici su:</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3"><a href="#"><img src="\static\images\Home Page\logo-insta.jpg"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item mr-3"><a href="#"><img src="\static\images\Home Page\logo-linkedln.png"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item"></li>
+                    <a href="#"><img src="\static\images\Home Page\logo-twitter.png"
+                                     alt=""></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

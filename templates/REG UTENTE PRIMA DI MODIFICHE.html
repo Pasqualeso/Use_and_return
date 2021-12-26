@@ -10,9 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="\static\css\style.css">
-    <link rel="stylesheet" href="\static\css\RegistrazioneUtente.css">
-    <title>Registrazione Utente</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Registrazione Annuncio</title>
 </head>
 <body>
 <!--Sezione NavBar -->
@@ -45,7 +44,7 @@
         </div>
     </nav>
 </header>
-<!--CSS Registrazione Utente -->
+<!-- CSS Aggiungi Annuncio -->
 <style>
     * {
         box-sizing: border-box;
@@ -57,7 +56,7 @@
     }
 
     #regForm {
-        background: rgba(0, 0, 0, .5);
+        background: rgba(0,0,0,.5);
         margin: 100px auto;
         font-family: Raleway;
         padding: 40px;
@@ -128,55 +127,52 @@
 </style>
 
 </body>
-<!--Form Registrazione Utente
-<form action="" method="post" role="form" class="email-form"> -->
-<form id="regForm" action="" method="post" role="form">
-    <h1>Registrazione:</h1>
+<!-- Form Registrazione Annuncio -->
+<form id="regForm" action="salva_annuncio.html">
+    <h1>Inserisci annuncio:</h1>
     <!-- Un "Tab" per ogni step nel form: -->
-    <div class="tab">Nome completo:
-        <p><input placeholder="Nome..." id="nome" oninput="this.className = ''" name="fname"></p>
-        <p><input placeholder="Cognome..." id="cognome" oninput="this.className = ''" name="lname"></p>
-        <p>Sesso</p>
-        <select name='select1' id="sesso">
-            <option value='2'> F
-            <option value='3'> M
-            <option value='4'> N
-        </select>
-        <br><br>
-        <label for="exampleFormControlFile1">Importa una tua foto...</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        <br>
-    </div>
-    <div class="tab">Informazioni di contatto:
-        <p><input placeholder="E-mail..." id="email" oninput="this.className = ''" name="email"></p>
-        <p><input placeholder="Telefono..." id="telefono" oninput="this.className = ''" name="phone"></p>
-    </div>
-    <div class="tab">Residenza:
-        <p><input placeholder="Via..." id="via" oninput="this.className = ''" name="street"></p>
-        <p><input placeholder="Città..." id="citta" oninput="this.className = ''" name="city"></p>
-        <p><input placeholder="Provincia..." id="provincia" oninput="this.className = ''" name="province"></p>
-        <p><input placeholder="CAP..." id="cap" oninput="this.className = ''" name="cap"></p>
-    </div>
-    <div class="tab">Indirizzo di spedizione:
-        <p><input placeholder="Via..." id="via_spedizione" oninput="this.className = ''" name="street"></p>
-        <p><input placeholder="Città..." id="citta_spedizione" oninput="this.className = ''" name="city"></p>
-        <p><input placeholder="Provincia..." id="provincia_spedizione" oninput="this.className = ''" name="province"></p>
-        <p><input placeholder="CAP..." id="cap_spedizione" oninput="this.className = ''" name="cap"></p>
-    </div>
-    <div class="tab" id="data_di_nascita">Data di nascita:
+    <div class="tab">Informazioni generali sul prodotto:
+        <p><input placeholder="Titolo..." oninput="this.className = ''" name="title"></p>
+        <p>Categoria</p>
+            <label>
+                <select name='select1'>
+                    <option value='2'> Musica
+                    <option value='3'> Telefonia
+                    <option value='4'> Console e videogiochi
+                    <option value='5'> Informatica
+                    <option value='6'> Accessori auto
+                    <option value='7'> Gioccatoli
+                    <option value='8'> Fotografia
+                    <option value='9'> Video-maker
+                    <option value='9'> Altro
+                </select>
+            </label>
+        <p><input placeholder="Descrizione..." oninput="this.className = ''" name="description"></p>
+        <p>Data di inserimento</p>
         <input type="date">
-        <br>
+        <br><br>
+        <p><input placeholder="Prezzo per giorno..." oninput="this.className = ''" name="price"></p>
+        <label for="exampleFormControlFile1">Inserisci file dal computer...</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
     </div>
-    <!--
-    <div class="tab">Pagamento:
-        <p><input placeholder="Intestatario carta" oninput="this.className = ''" name="accountholder"></p>
-        <p><input placeholder="Numero carta" oninput="this.className = ''" name="number"></p>
+    <div class="tab">Informazioni sul proprietario:
+        <p><input placeholder="Nome completo..." oninput="this.className = ''" name="name"></p>
+        <p><input placeholder="Telefono..." oninput="this.className = ''" name="phone"></p>
     </div>
-    -->
-    <div class="tab">Login Info:
-        <p><input placeholder="Username..." id="username" oninput="this.className = ''" name="uname"></p>
-        <p><input placeholder="Password..." id="password" oninput="this.className = ''" name="pword" type="password"></p>
-        <p><input placeholder="Codice iscrizione..." id="bonus_iscrizione" oninput="this.className = ''" name="code"></p>
+    <div class="tab">Luogo prodotto:
+        <p><input placeholder="Via..." oninput="this.className = ''" name="street"></p>
+        <p><input placeholder="Numero civico..." oninput="this.className = ''" name="civic"></p>
+        <p><input placeholder="Città..." oninput="this.className = ''" name="city"></p>
+        <p><input placeholder="Provincia..." oninput="this.className = ''" name="province"></p>
+        <p><input placeholder="CAP..." oninput="this.className = ''" name="cap"></p>
+    </div>
+    </div>
+    <div class="tab">
+            <p>Data inizio disponibilità</p>
+            <input type="date">
+        <br><br>
+            <p>Data fine disponibilità</p>
+            <input type="date">
     </div>
     <div style="overflow:auto;">
         <div style="float:right;">
@@ -184,10 +180,8 @@
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Successivo</button>
         </div>
     </div>
-    <!-- Cerchi che indicano gli steps nel form: -->
+    <!-- Cerchi che indicano i passaggi del form -->
     <div style="text-align:center;margin-top:40px;">
-        <span class="step"></span>
-        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
@@ -201,7 +195,7 @@
     showTab(currentTab); // Visualizza la scheda corrente
 
     function showTab(n) {
-        // Questa funzione visualizzerà la scheda specificata del form
+        // Questa funzione visualizzerà la scheda specificata del form...
         var x = document.getElementsByClassName("tab");
         x[n].style.display = "block";
         //... e correggere i pulsanti Previous/Next :
@@ -211,7 +205,7 @@
             document.getElementById("prevBtn").style.display = "inline";
         }
         if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Conferma Registrazione";
+            document.getElementById("nextBtn").innerHTML = "Conferma Registrazione";
         } else {
             document.getElementById("nextBtn").innerHTML = "Successivo";
         }

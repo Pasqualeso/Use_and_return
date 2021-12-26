@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Registrazione Annuncio</title>
+</head>
+<body>
+<!--Sezione NavBar -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Use and return</a>
+            <!--link esterni-->
+            <div id="container">
+                <div class="action">
+                    <ul class="action">
+                        <li><a href="index.html">
+                            <ion-icon name="search-outile">Home</ion-icon>
+                        </a></li>
+                        <li><a href="categorie.html">
+                            <ion-icon name="search-outile">Categorie</ion-icon>
+                        </a></li>
+                        <li><a href="utente.html">
+                            <ion-icon name="search-outile">Utente</ion-icon>
+                        </a></li>
+                        <li><a href="registrazione_annuncio.html">
+                            <ion-icon name="search-outile">Aggiungi annuncio</ion-icon>
+                        </a></li>
+                        <li><a href="carrello.html">
+                            <ion-icon name="search-outile">Carrello</ion-icon>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- CSS Aggiungi Annuncio -->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #ff7f50;
+        color: #F1EEE6;
+    }
+
+    #regForm {
+        background: rgba(0, 0, 0, .5);
+        margin: 100px auto;
+        font-family: Raleway;
+        padding: 40px;
+        width: 70%;
+        min-width: 300px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    input {
+        padding: 10px;
+        width: 100%;
+        font-size: 17px;
+        font-family: Raleway;
+        border: 1px solid #aaaaaa;
+    }
+
+    /* Contrassegna le caselle di input che ricevono un errore durante la convalida: */
+    input.invalid {
+        background-color: #ffdddd;
+    }
+
+    /* Nascondi tutti i passaggi per impostazione predefinita: */
+    .tab {
+        display: none;
+    }
+
+    button {
+        background-color: #ff5a26;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 17px;
+        font-family: Raleway;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #prevBtn {
+        background-color: #FF0000;
+    }
+
+    /* Crea dei cerchi che indichino i passaggi del form: */
+    .step {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+    }
+
+    .step.active {
+        opacity: 1;
+    }
+
+    /* Segna i passaggi che sono finiti e validi: */
+    .step.finish {
+        background-color: #04AA6D;
+    }
+</style>
+
+</body>
+<!-- Form Registrazione Annuncio -->
+<form id="regForm" action="salva_annuncio.html">
+    <h1>Inserisci annuncio:</h1>
+    <!-- Un "Tab" per ogni step nel form: -->
+    <div class="tab">Informazioni generali sul prodotto:
+        <input type="text" class="form-control" name="nome" id="titolo" placeholder="Titolo" required>
+        <br>
+        <select class="form-control" id="categoria" name="categoria"
+                style="padding:10px; border-radius: 0px;">
+            <option value="" selected="true" disabled="disabled">Categoria
+            </option>
+            <option value="Musica">Musica</option>
+            <option value="Telefonia">Telefonia</option>
+            <option value="Console e videogiochi">Console e videogiochi</option>
+            <option value='Informatica'> Informatica</option>
+            <option value='Accessori auto'> Accessori auto</option>
+            <option value='Gioccatoli'> Gioccatoli</option>
+            <option value='Fotografia'> Fotografia</option>
+            <option value='Video-maker'> Video-maker</option>
+            <option value='Altro'> Altro</option>
+        </select>
+        <br>
+        <input type="text" class="form-control" name="prezzo_per_giorno" id="prezzo_per_giorno"
+               placeholder="Prezzo per giorno" required>
+        <br>
+        <input type="text" class="form-control" name="descrizione_annuncio" id="descrizione_annuncio"
+               placeholder="Descrizione" required>
+        <br>
+        <div type="text" class="form-control"
+             id="data_inizio_noleggio">Data inzio noleggio:
+            <input type="date" class="form-control" name="data_inizio_noleggio" id="data_inizio_noleggio" required>
+            <br>
+        </div>
+        <br>
+        <div type="text" class="form-control"
+             id="data_fine_noleggio">Data fine noleggio:
+            <input type="date" class="form-control" name="data_fine_noleggio" id="data_fine_noleggio" required>
+            <br>
+        </div>
+        <br>
+        <label for="exampleFormControlFile1">Inserisci file dal computer...</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <br>
+    <div class="tab">Informazioni sul proprietario:
+        <p><input placeholder="Nome completo..." oninput="this.className = ''" name="name"></p>
+        <p><input placeholder="Telefono..." oninput="this.className = ''" name="phone"></p>
+    </div>
+    <div class="tab">Luogo prodotto:
+        <p><input placeholder="Via..." oninput="this.className = ''" name="street"></p>
+        <p><input placeholder="Città..." oninput="this.className = ''" name="city"></p>
+        <p><input placeholder="Provincia..." oninput="this.className = ''" name="province"></p>
+        <p><input placeholder="CAP..." oninput="this.className = ''" name="cap"></p>
+    </div>
+    </div>
+    <div class="tab">
+        <p>Data inizio disponibilità</p>
+        <input type="date">
+        <br><br>
+        <p>Data fine disponibilità</p>
+        <input type="date">
+    </div>
+    <div style="overflow:auto;">
+        <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Precedente</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Successivo</button>
+        </div>
+    </div>
+    <!-- Cerchi che indicano i passaggi del form -->
+    <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+    </div>
+</form>
+
+<script>
+    var currentTab = 0; // La scheda corrente è impostata per essere la prima scheda (0)
+    showTab(currentTab); // Visualizza la scheda corrente
+
+    function showTab(n) {
+        // Questa funzione visualizzerà la scheda specificata del form...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        //... e correggere i pulsanti Previous/Next :
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Conferma Registrazione";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Successivo";
+        }
+        //... ed esegue una funzione che visualizzerà l'indicatore di passaggio corretto:
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+        // Questa funzione determinerà quale scheda visualizzare
+        var x = document.getElementsByClassName("tab");
+        // Uscire dalla funzione se un campo nella scheda corrente non è valido:
+        if (n == 1 && !validateForm()) return false;
+        // Nascondi la scheda corrente:
+        x[currentTab].style.display = "none";
+        // Aumenta o diminuisce la scheda corrente di 1:
+        currentTab = currentTab + n;
+        // se sei arrivato alla fine del form...
+        if (currentTab >= x.length) {
+            // ... il form viene inviato:
+            document.getElementById("regForm").submit();
+            return false;
+        }
+        // Altrimenti, visualizza la scheda corretta:
+        showTab(currentTab);
+    }
+
+    function validateForm() {
+        // Questa funzione si occupa della convalida dei campi del form
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+        // Un ciclo che controlla ogni campo di input nella scheda corrente:
+        for (i = 0; i < y.length; i++) {
+            // Se un campo è vuoto...
+            if (y[i].value == "") {
+                // aggiungi una classe "non valida" al campo:
+                y[i].className += " invalid";
+                // e imposta lo stato valido corrente su false
+                valid = false;
+            }
+        }
+        // Se lo stato valido è vero, contrassegna il passaggio come terminato e valido:
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // restituire lo stato valido
+    }
+
+    function fixStepIndicator(n) {
+        // Questa funzione rimuove la classe "active" di tutti i passaggi...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... e aggiunge la classe "active" nel passaggio corrente:
+        x[n].className += " active";
+    }
+
+</script>
+</html>
