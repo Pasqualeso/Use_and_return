@@ -1,9 +1,17 @@
-from flask import Flask, render_template
+import flask
+from flask import Flask, render_template, session, redirect
+from flask import Flask, render_template, session
+from flask_login import LoginManager, login_user
+from flask_login._compat import unicode
 from Database.dbMysqlAlchemy import db_session, init_db
-from Database.utente_db import form_user, form_login
+from Database.utente_db import form_user, form_login, Utente
 
 app = Flask(__name__)
 db = init_db()
+login_manager = LoginManager()
+current_app_login = login_manager.init_app(app)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+curr_user = None
 
 
 @app.route('/')
@@ -86,10 +94,46 @@ def informazioni_utente():  # put application's code here
     return render_template('informazioni_utente.html')
 
 
+def get_id(self):
+    return unicode(self.alternative_id)
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Utente.query.filter_by(alternative_id=user_id).first()
+
+
+def logout():
+    global curr_user
+    curr_user = None
+    session.pop('username_form')
+
+
+# Login Utente
 @app.route('/utente.html', methods=['GET', 'POST'])
 def utente():  # put application's code here
-    form_login(db)
+    global curr_user
+
+    if curr_user is None:
+        user = form_login(db)
+        curr_user = user
+
+    if curr_user is not None:
+        print(curr_user.__repr__())
+
+        return f'Logged in as {session["username_form"]}'
+    else:
+        print('You are not logged in')
+
+    if curr_user is not None:
+        return redirect(flask.url_for('informazioni_utente'))
+
     return render_template('utente.html')
+
+
+@app.route('/informazioni_utente.html', methods=['GET', 'POST'])
+def area_utente():
+    return render_template('informazioni_utente.html')
 
 
 @app.route('/registrazione_utente.html', methods=['GET', 'POST'])

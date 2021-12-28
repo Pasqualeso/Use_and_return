@@ -1,15 +1,19 @@
 import datetime
 import uuid
-import smtplib
-from datetime import date
 
-from flask import request
-from sqlalchemy import Table, Column, Integer, String
+import self
+from flask import request, session
+from flask_login import login_user
+from flask_wtf import FlaskForm
+from sqlalchemy import Table, Column, Integer, String, Boolean
 from sqlalchemy import exc
 from sqlalchemy.orm import mapper
-from sqlalchemy.sql.functions import now
+from sqlalchemy.sql.functions import user
+from werkzeug.security import check_password_hash
 
-from Database.dbMysqlAlchemy import db_session, metadata
+from Database.dbMysqlAlchemy import db_session, metadata, init_db
+
+dbUser = init_db()
 
 
 # CLASSE UTENTE
@@ -30,42 +34,46 @@ class Utente(object):
     via_utente = Column(String(120), nullable=False)
     cap_utente = Column(Integer, nullable=False)
     data_creazione_utente = Column(String(30), nullable=False)
+    authenticated = Column(Integer, nullable=False, default=False)
 
     # COSTRUTTORE CREAZIONE UTENTE
-    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,provincia, via, cap):
-        self.id_utente = self.generate_id(username)
-        self.nome_utente = nome
-        self.cognome_utente = cognome
-        self.email_utente = email
-        self.username_utente = username
-        self.password_utente = password
-        self.sesso_utente = sesso
-        self.data_di_nascita_utente = data_di_nascita
-        self.telefono_utente = telefono
-        self.citta_utente = citta
-        self.provincia_utente = provincia
-        self.via_utente = via
-        self.cap_utente = cap
-        self.data_creazione_utente = datetime.datetime.now()
+    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,
+                 via, cap, data_creazione):
+        if isinstance(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,
+                      provincia,
+                      via, cap):
+            self.id_utente = self.generate_id(username)
+            self.nome_utente = nome
+            self.cognome_utente = cognome
+            self.email_utente = email
+            self.username_utente = username
+            self.password_utente = password
+            self.sesso_utente = sesso
+            self.data_di_nascita_utente = data_di_nascita
+            self.telefono_utente = telefono
+            self.citta_utente = citta
+            self.provincia_utente = provincia
+            self.via_utente = via
+            self.cap_utente = cap
+            self.data_creazione_utente = datetime.datetime.now()
 
-    # COSTRUTTORE CARICA UTENTE
-    '''
-    def __init__(self, id, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,provincia, via, cap,data_creazione):
-        self.id_utente = id
-        self.nome_utente = nome
-        self.cognome_utente = cognome
-        self.email_utente = email
-        self.username_utente = username
-        self.password_utente = password
-        self.sesso_utente = sesso
-        self.data_di_nascita_utente = data_di_nascita
-        self.telefono_utente = telefono
-        self.citta_utente = citta
-        self.provincia_utente = provincia
-        self.via_utente = via
-        self.cap_utente = cap
-        self.data_creazione_utente = data_creazione
-    '''
+        elif isinstance(self, id, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,
+                        provincia, via, cap, data_creazione):
+            self.id_utente = id
+            self.nome_utente = nome
+            self.cognome_utente = cognome
+            self.email_utente = email
+            self.username_utente = username
+            self.password_utente = password
+            self.sesso_utente = sesso
+            self.data_di_nascita_utente = data_di_nascita
+            self.telefono_utente = telefono
+            self.citta_utente = citta
+            self.provincia_utente = provincia
+            self.via_utente = via
+            self.cap_utente = cap
+            self.data_creazione_utente = data_creazione
+
     # FUNZIONE STAMPA UTENTE
     def __repr__(self):
         return f'<Utente {self.id_utente + self.nome_utente + self.cognome_utente + self.email_utente + self.username_utente + self.password_utente + self.sesso_utente + self.data_di_nascita_utente + self.citta_utente + self.provincia_utente + self.via_utente + self.cap_utente + self.data_creazione_utente!r}> '
@@ -79,6 +87,14 @@ class Utente(object):
 
         print(uuid_final)
         return uuid_final
+
+    @classmethod
+    def getSession(cls):
+        return db_session
+
+    @classmethod
+    def get(cls, user_id):
+        return self.id_utente
 
 
 # Mappatura della classe utente per la gestione nel database
@@ -97,7 +113,8 @@ utenti = Table('utente', metadata,
                Column('provincia_utente', String(50), nullable=False),
                Column('via_utente', String(120), nullable=False),
                Column('cap_utente', Integer, nullable=False),
-               Column('data_creazione_utente', String(30), nullable=False)
+               Column('data_creazione_utente', String(30), nullable=False),
+               Column('authenticated', Integer, nullable=False, default=False)
                )
 mapper(Utente, utenti)
 
@@ -134,7 +151,6 @@ def send_email(user, pwd, recipient, subject, body):
 
 # Metodo per leggere i campi dai vari form di registrazione per creare un nuovo utente
 def form_user(db):
-
     if request.method == 'POST':
         nome = request.form.get('nome')
         cognome = request.form.get('cognome')
@@ -149,7 +165,8 @@ def form_user(db):
         via = request.form.get('via')
         cap = request.form.get('cap')
 
-        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta, provincia, via, cap)
+        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
+                              provincia, via, cap)
 
         log_err = add_user(db, nuovo_utente)
 
@@ -175,21 +192,24 @@ def add_user(db, utente_inserito):
 
 
 # Metodo per leggere i campi dai vari form di login per effettuare la query di controllo
-def form_login(db):
+def form_login(db) -> Utente:
     if request.method == 'POST':
-        username_form = request.form['username']
-        password_form = request.form['password']
+        username_form = session['username_form'] = request.form.get('username')
+        password_form = request.form.get('password')
 
-        query_login = "SELECT * FROM utenti WHERE Username = %s AND Password = %s"
+        query_login = "SELECT * FROM Utente WHERE USERNAME_UTENTE = %s AND PASSWORD_UTENTE = %s"
         valori_query = (username_form, password_form)
+
         utente = control_user(db, query_login, valori_query)
+
         if utente is None:
             return None
+
         return utente
 
 
 # Metodo per effettuare una query di controllo sugli Username e password inseriti per accedere all'account
-def control_user(db, query_login, valori_query):
+def control_user(db, query_login, valori_query) -> Utente:
     try:
         cursor = db.connect()
         result = cursor.execute(query_login, valori_query)
