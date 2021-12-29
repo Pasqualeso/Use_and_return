@@ -19,7 +19,7 @@ class RegistrationFormUtente(FlaskForm):
     """
 
     course_name = StringField(
-        "What's the name of the course", validators=[DataRequired()]
+        "Inserisci il tuo nome", validators=[DataRequired()]
     )
     course_active = BooleanField("The course is active?")
     difficulty = RadioField(
