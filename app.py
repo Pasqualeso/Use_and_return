@@ -165,28 +165,28 @@ def registrazione_utente():  # put application's code here
 @app.route("/TEST_REGISTRAZIONE_UTENTE.html", methods=["GET", "POST"])
 def super_form():
     # Actions for the complicate form
-    course_form = RegistrationFormUtente()
+    form_utente = RegistrationFormUtente()
 
     # if the form is compiled
-    if course_form.validate_on_submit():
+    if form_utente.validate_on_submit():
         # save form information into session user cookie
-        session["course_name"] = course_form.course_name.data
-        session["course_active"] = course_form.course_active.data
-        session["difficulty"] = course_form.difficulty.data
-        session["platform"] = course_form.platform.data
-        session["note"] = course_form.note.data
+        session["nome_utente"] = form_utente.nome.data
+        session["course_active"] = form_utente.course_active.data
+        session["difficulty"] = form_utente.difficulty.data
+        session["platform"] = form_utente.platform.data
+        session["note"] = form_utente.note.data
 
         # reset the form
-        course_form.course_name.data = ""
-        course_form.course_active.data = ""
-        course_form.difficulty.data = ""
-        course_form.platform.data = ""
-        course_form.note.data = ""
+        form_utente.nome_utente.data = ""
+        form_utente.course_active.data = ""
+        form_utente.difficulty.data = ""
+        form_utente.platform.data = ""
+        form_utente.note.data = ""
 
         # go to the thankyou template page (thankyou function in python file)
         return redirect(url_for("TEST_RISULTATO"))
 
-    return render_template("TEST_REGISTRAZIONE_UTENTE.html", form=course_form)
+    return render_template("TEST_REGISTRAZIONE_UTENTE.html", form=form_utente)
 
 
 @app.route("/TEST_RISULTATO.html", methods=["GET", "POST"])

@@ -18,7 +18,7 @@ class RegistrationFormUtente(FlaskForm):
         FlaskForm (object): FlaskForm default main class
     """
 
-    course_name = StringField(
+    nome_utente = StringField(
         "What's the name of the course", validators=[DataRequired()]
     )
     course_active = BooleanField("The course is active?")
