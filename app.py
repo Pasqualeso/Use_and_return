@@ -1,10 +1,22 @@
 import flask
-from flask import Flask, render_template, session, redirect
-from flask import Flask, render_template, session
-from flask_login import LoginManager, login_user
+from flask import Flask, render_template, session, request, url_for, flash, redirect
+from flask_login import LoginManager
 from flask_login._compat import unicode
 from Database.dbMysqlAlchemy import db_session, init_db
 from Database.utente_db import form_user, form_login, Utente
+from flask_wtf import FlaskForm
+from wtforms import (
+    StringField,
+    BooleanField,
+    DateTimeField,
+    RadioField,
+    SelectField,
+    TextAreaField,
+    SubmitField,
+)
+from wtforms.validators import DataRequired
+
+from Form.forms import LoginForm, RegistrationFormUtente
 
 app = Flask(__name__)
 db = init_db()
@@ -89,11 +101,6 @@ def categoria_videomaker():  # put application's code here
     return render_template('categoria_videomaker.html')
 
 
-@app.route('/informazioni_utente.html')
-def informazioni_utente():  # put application's code here
-    return render_template('informazioni_utente.html')
-
-
 def get_id(self):
     return unicode(self.alternative_id)
 
@@ -109,39 +116,83 @@ def logout():
     session.pop('username_form')
 
 
+''' 
 # Login Utente
 @app.route('/utente.html', methods=['GET', 'POST'])
 def utente():  # put application's code here
     global curr_user
+    formLog = LoginForm()
+    user = form_login(db,formLog)
 
-    if curr_user is None:
-        user = form_login(db)
-        curr_user = user
+    formLog.username.data = ""  # reset
+    formLog.password.data = ""  # reset
 
-    if curr_user is not None:
-        print(curr_user.__repr__())
+    # print(curr_user.__repr__())
 
-        return f'Logged in as {session["username_form"]}'
-    else:
-        print('You are not logged in')
+    return redirect(flask.url_for('informazioni_utente', user=curr_user, form=formLog))
+    # return f'Logged in as {session["username_form"]}'
 
-    if curr_user is not None:
-        return redirect(flask.url_for('informazioni_utente'))
+    return render_template('utente.html', form=formLog)
+'''
 
-    return render_template('utente.html')
+'''
+# localhost http://127.0.0.1:5000/<name>
+@app.route('/informazioni_utente.html/<name>', methods=['GET', 'POST'])
+def informazioni_utente(user):  # put application's code here
 
+    return render_template('informazioni_utente.html')
 
+'''
+
+'''
 @app.route('/informazioni_utente.html', methods=['GET', 'POST'])
 def area_utente():
     return render_template('informazioni_utente.html')
 
+'''
 
+'''
 @app.route('/registrazione_utente.html', methods=['GET', 'POST'])
 def registrazione_utente():  # put application's code here
     log_err = form_user(db)
     if log_err is not None:
         print(log_err)
     return render_template('registrazione_utente.html', error=log_err)
+
+'''
+
+
+@app.route("/TEST_REGISTRAZIONE_UTENTE.html", methods=["GET", "POST"])
+def super_form():
+    # Actions for the complicate form
+    course_form = RegistrationFormUtente()
+
+    # if the form is compiled
+    if course_form.validate_on_submit():
+        # save form information into session user cookie
+        session["course_name"] = course_form.course_name.data
+        session["course_active"] = course_form.course_active.data
+        session["difficulty"] = course_form.difficulty.data
+        session["platform"] = course_form.platform.data
+        session["note"] = course_form.note.data
+
+        # reset the form
+        course_form.course_name.data = ""
+        course_form.course_active.data = ""
+        course_form.difficulty.data = ""
+        course_form.platform.data = ""
+        course_form.note.data = ""
+
+        # go to the thankyou template page (thankyou function in python file)
+        return redirect(url_for("TEST_RISULTATO"))
+
+    return render_template("TEST_REGISTRAZIONE_UTENTE.html", form=course_form)
+
+
+@app.route("/TEST_RISULTATO.html", methods=["GET", "POST"])
+def TEST_RISULTATO():
+    flash("Form compiled succesfully!")  # flash an alert message to the user
+    return render_template("TEST_RISULTATO.html")
 
 
 @app.route('/password_dimenticata.html')

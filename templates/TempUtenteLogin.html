@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% extends 'index.html' %} {% block content %}
+    <h2>Informazioni inserite</h2>
+    <ul>
+        <form action="" method="POST">
+            <!-- Use the advance form (form) object here -->
+            {{ utente.hidden_tag() }} {{ utente.username.label }}
+            {{ utente.password() }} {{ utente.submit() }}
+        </form>
+        <li>Username: <b>{{session['username'] }}</b></li>
+    </ul>
+    {% endblock content %}
+</head>
+<body>
+
+</body>
+</html>

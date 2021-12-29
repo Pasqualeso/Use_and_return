@@ -1,19 +1,12 @@
 import datetime
 import uuid
-
 import self
 from flask import request, session
-from flask_login import login_user
-from flask_wtf import FlaskForm
 from sqlalchemy import Table, Column, Integer, String, Boolean
 from sqlalchemy import exc
 from sqlalchemy.orm import mapper
-from sqlalchemy.sql.functions import user
-from werkzeug.security import check_password_hash
 
 from Database.dbMysqlAlchemy import db_session, metadata, init_db
-
-dbUser = init_db()
 
 
 # CLASSE UTENTE
@@ -34,7 +27,6 @@ class Utente(object):
     via_utente = Column(String(120), nullable=False)
     cap_utente = Column(Integer, nullable=False)
     data_creazione_utente = Column(String(30), nullable=False)
-    authenticated = Column(Integer, nullable=False, default=False)
 
     # COSTRUTTORE CREAZIONE UTENTE
     def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,
@@ -113,8 +105,7 @@ utenti = Table('utente', metadata,
                Column('provincia_utente', String(50), nullable=False),
                Column('via_utente', String(120), nullable=False),
                Column('cap_utente', Integer, nullable=False),
-               Column('data_creazione_utente', String(30), nullable=False),
-               Column('authenticated', Integer, nullable=False, default=False)
+               Column('data_creazione_utente', String(30), nullable=False)
                )
 mapper(Utente, utenti)
 
@@ -192,10 +183,10 @@ def add_user(db, utente_inserito):
 
 
 # Metodo per leggere i campi dai vari form di login per effettuare la query di controllo
-def form_login(db) -> Utente:
-    if request.method == 'POST':
-        username_form = session['username_form'] = request.form.get('username')
-        password_form = request.form.get('password')
+def form_login(db, form) -> Utente:
+    if form.validate_on_submit():
+        username_form = session['username'] = form.username.data  # request.form.get('username')
+        password_form = session['password'] = form.password.data  # request.form.get('password')
 
         query_login = "SELECT * FROM Utente WHERE USERNAME_UTENTE = %s AND PASSWORD_UTENTE = %s"
         valori_query = (username_form, password_form)
