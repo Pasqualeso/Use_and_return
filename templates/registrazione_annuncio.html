@@ -128,7 +128,8 @@
         border-radius: 0.25rem;
         transition: border-color .15s
     }
-    p{
+
+    p {
         color: #dddddd;
     }
 </style>
@@ -155,64 +156,73 @@
                             <div class="row">
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="titolo_annuncio"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.hidden_tag() }} {{ form.titolo.label }}
+                                    </div>
                                     <div class="form-control">
-                                       {{ form.hidden_tag() }} {{ form.nome_utente.label }}{{ form.nome_utente }}
+                                        {{ form.titolo }}
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0 ">
                                     <label for="categoria"></label>
-                                    <select class="form-control" id="categoria" name="categoria"
-                                                                           style="padding:10px; border-radius: 0;">
-                                        <option value="" selected="true" disabled="disabled">Categoria
-                                        </option>
-                                        <option value="Musica">Musica</option>
-                                        <option value="Telefonia">Telefonia</option>
-                                        <option value="Console e videogiochi">Console e videogiochi</option>
-                                        <option value='Informatica'> Informatica</option>
-                                        <option value='Accessori auto'> Accessori auto</option>
-                                        <option value='Gioccatoli'> Gioccatoli</option>
-                                        <option value='Fotografia'> Fotografia</option>
-                                        <option value='Video-maker'> Video-maker</option>
-                                        <option value='Altro'> Altro</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-12 form-group mt-3 mt-md-0">
-                                    <div class="table-bordered">
-                                        <p>Descrizone (MAX 200)</p>
-                                        <label for="descrizone_annuncio"></label>
-                                        <textarea class="form-control" name="descrizione_annuncio"
-                                                                                           id="descrizone_annuncio"
-                                                                                           placeholder="Descrizone (MAX 200)"
-                                                                                           required>
-                                    </textarea>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.categoria.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.categoria }}
                                     </div>
                                 </div>
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <label for="descrizone_annuncio"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.descrizione_annuncio.label }}
+                                        <div class="form-control">
+                                            {{ form.descrizione_annuncio }}
+                                        </div>
+                                    </div>
+
+
+                                    <!--<textarea class="form-control" name="descrizione_annuncio"
+                                              id="descrizone_annuncio">
+                                    </textarea>-->
+                                </div>
+
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <div type="text" class="table-bordered"
                                          id="data_inizio_noleggio">
-                                        <p>Data inzio noleggio:</p>
                                         <label for="data_inizio_noleggio"></label>
-                                        <input type="date" class="form-control" name="data_inizio_noleggio"
-                                                                                         id="data_inizio_noleggio" required>
+                                        <div class="table-bordered text-center text-white">
+                                            {{ form.data_inizio_noleggio_annuncio.label }}
+                                        </div>
+                                        <div class="form-control">
+                                            {{ form.data_inizio_noleggio_annuncio }}
+                                        </div>
                                         <br>
                                     </div>
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <div type="text" class="table-bordered"
                                          id="data_fine_noleggio">
-                                        <p>Data fine noleggio:</p>
                                         <label for="data_fine_noleggio"></label>
-                                        <input type="date" class="form-control" name="data_fine_noleggio"
-                                                                                       id="data_fine_noleggio" required>
+                                        <div class="table-bordered text-center text-white">
+                                            {{ form.data_fine_noleggio_annuncio.label }}
+                                        </div>
+                                        <div class="form-control">
+                                            {{ form.data_fine_noleggio_annuncio }}
+                                        </div>
                                         <br>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-2">
-                                    <input type="file" class="form-control-file" name="inserimento_file"
-                                           id="exampleFormControlFile1" required>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.immagine_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.immagine_annuncio }}
+                                    </div>
                                 </div>
 
                             </div>
@@ -241,7 +251,8 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg"
+                         alt="">
                     <h5>Luca Rossi</h5>
                     <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
                         guadagnare!"</p>
@@ -249,14 +260,16 @@
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg"
+                         alt="">
                     <h5>Paolo Bianchi</h5>
                     <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg"
+                         alt="">
                     <h5>Matteo Verdi</h5>
                     <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
                 </div>
@@ -282,7 +295,7 @@
                         <div class="col-12 col-md-9 mb-2 mb-md-0">
                             <label for="exampleInputEmail1"></label>
                             <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                                                                           aria-describedby="emailHelp" placeholder="Enter email">
+                                   aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="col-12 col-md-3">
                             <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
@@ -304,8 +317,10 @@
                     <li class="list-inline-item"><a href="#">Term of Use</a></li>
                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                 </ul>
-                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright <strong><span>Università di Napoli Parthenope</span></strong></p>
-                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright
+                    <strong><span>Università di Napoli Parthenope</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                </p>
             </div>
 
             <div class="col-lg-6 h-100 text-center text-lg-right">
@@ -318,7 +333,7 @@
                                                                        alt=""></a>
                     </li>
                     <li class="list-inline-item"><a href="#"><img src="/static/images/Home Page/logo-twitter.png"
-                                                                       alt=""></a>
+                                                                  alt=""></a>
                     </li>
                 </ul>
             </div>

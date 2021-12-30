@@ -45,17 +45,17 @@
     </nav>
 </header>
 {% for message in get_flashed_messages() %}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    <span class="sr-only">Close</span>
-  </button>
-  {{ message }}
-</div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{ message }}
+    </div>
 {% endfor %}
 
 <div class="jumbotron">
-  <h1 class="display-3">Congratulazioni per esserti registrato!</h1>
+    <h1 class="display-3">Congratulazioni per esserti registrato!</h1>
 </div>
 <!-- Sezione Account -->
 <div class="accordion" id="accordionExample">
@@ -71,22 +71,59 @@
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-               <ul>
-    <li>Nome utente: <b>{{ session['nome_utente'] }}</b></li>
-    <li>Cognome utente: <b>{{ session['cognome_utente'] }}</b></li>
-    <li>Email: <b>{{ session['email'] }}</b></li>
-    <li>Username: <b>{{ session['username'] }}</b></li>
-    <li>Sesso: <b>{{ session['sesso'] }}</b></li>
-    <li>Telefono: <b>{{ session['telefono'] }}</b></li>
-    <li>Data di nascita: <b>{{ session['data_di_nascita'] }}</b></li>
-    <li>Citta': <b>{{ session['citta'] }}</b></li>
-    <li>Provincia: <b>{{ session['provincia'] }}</b></li>
-    <li>Via: <b>{{ session['via'] }}</b></li>
-    <li>Cap: <b>{{ session['cap'] }}</b></li>
-  </ul>
+                <ul>
+                    <li>Nome utente: <b>{{ session['nome_utente'] }}</b></li>
+                    <li>Cognome utente: <b>{{ session['cognome_utente'] }}</b></li>
+                    <li>Email: <b>{{ session['email'] }}</b></li>
+                    <li>Username: <b>{{ session['username'] }}</b></li>
+                    <li>Sesso: <b>{{ session['sesso'] }}</b></li>
+                    <li>Telefono: <b>{{ session['telefono'] }}</b></li>
+                    <li>Data di nascita: <b>{{ session['data_di_nascita'] }}</b></li>
+                    <li>Citta': <b>{{ session['citta'] }}</b></li>
+                    <li>Provincia: <b>{{ session['provincia'] }}</b></li>
+                    <li>Via: <b>{{ session['via'] }}</b></li>
+                    <li>Cap: <b>{{ session['cap'] }}</b></li>
+                </ul>
+                <!-- Sezione modica informazioni -->
+                <style>
+                    button {
+                        background-color: #ff5a26;
+                        color: #ffffff;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 17px;
+                        font-family: Raleway;
+                        cursor: pointer;
+                    }
+                </style>
+                <section id="Menù" class="Menù text-center">
+                    <div class="container">
+                        <a class="mb-5 alert-danger button" href="TEST_REGISTRAZIONE_UTENTE.html"><br>
+                            <button>MODIFICA LE TUE INFORMAZIONI</button>
+                        </a>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    I miei annununci
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <li></li>
+
+
+            </div>
+        </div>
+    </div>
+
     <div class="card">
         <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
@@ -109,6 +146,7 @@
             </div>
         </div>
     </div>
+
     <div class="card">
         <div class="card-header" id="headingThree">
             <h2 class="mb-0">
@@ -135,7 +173,8 @@
 <!-- Sezione menù -->
 <section id="Menù" class="Menù text-center">
     <div class="container">
-        <a class="mb-5" href=index.html><br>Torna allo shopping</a>
+        <a class="mb-5" href=index.html><br>
+            <button>Torna allo shopping</button></a>
     </div>
 </section>
 

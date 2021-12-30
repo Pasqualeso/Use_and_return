@@ -45,21 +45,22 @@ def registrazione_annuncio():  # put application's code here
     # if the form is compiled
     if form_annuncio.validate_on_submit():
         # save form information into session user cookie
-        session["titolo"] = form_annuncio.titolo.data
-        session["categoria"] = form_annuncio.categoria.data
-        session["descrizione"] = form_annuncio.descrizione.data
-        session["data_inizio_noleggio"] = form_annuncio.data_inizio_noleggio.data
-        session["data_fine_noleggio"] = form_annuncio.data_fine_noleggio.data
-        session["immagine"] = form_annuncio.immagine.data
+        session["titolo_annuncio"] = form_annuncio.titolo_annuncio.data
+        session["categoria_annuncio"] = form_annuncio.categoria_annuncio.data
+        session["descrizione_annuncio"] = form_annuncio.descrizione_annuncio.data
+        session["data_inizio_noleggio_annuncio"] = form_annuncio.data_inizio_noleggio_annuncio.data
+        session["data_fine_noleggio_annuncio"] = form_annuncio.data_fine_noleggio_annuncio.data
+        session["immagine_annuncio"] = form_annuncio.immagine_annuncio.data
 
         submit = SubmitField("Submit")
 
         # reset the form
-        form_annuncio.titolo.data = ""
-        form_annuncio.categoria.data = ""
-        form_annuncio.descrizione.data = ""
-        form_annuncio.data_inizio_noleggio.data = ""
-        form_annuncio.data_fine_noleggio.data = ""
+        form_annuncio.titolo_annuncio.data = ""
+        form_annuncio.categoria_annuncio.data = ""
+        form_annuncio.descrizione_annuncio.data = ""
+        form_annuncio.data_inizio_noleggio_annuncio.data = ""
+        form_annuncio.data_fine_noleggio_annuncio.data = ""
+        form_annuncio.immagine_annuncio.data = ""
 
         # go to the thankyou template page (thankyou function in python file)
         return redirect(url_for("salva_annuncio"))
@@ -125,6 +126,10 @@ def categoria_telefonia():  # put application's code here
 @app.route('/categoria_videomaker.html')
 def categoria_videomaker():  # put application's code here
     return render_template('categoria_videomaker.html')
+
+@app.route('/utente.html')
+def utente():  # put application's code here
+    return render_template('utente.html')
 
 
 def get_id(self):
@@ -194,7 +199,7 @@ def super_form():
     form_utente = RegistrationFormUtente()
 
     # if the form is compiled
-    if form_utente.validate_on_submit():
+    if form_utente.validate_on_submit_annuncio():
         # save form information into session user cookie
         session["nome_utente"] = form_utente.nome_utente.data
         session["cognome_utente"] = form_utente.cognome_utente.data
@@ -231,7 +236,7 @@ def super_form():
 
 @app.route("/TEST_RISULTATO.html", methods=["GET", "POST"])
 def TEST_RISULTATO():
-    flash("Form compiled succesfully!")  # flash an alert message to the user
+    flash("Form compilato con successo!")  # flash an alert message to the user
     return render_template("TEST_RISULTATO.html")
 
 

@@ -134,59 +134,122 @@
                             <div class="row">
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="nome"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.hidden_tag() }} {{ form.nome_utente.label }}
+                                    </div>
                                     <div class="form-control">
-                                        {{ form.hidden_tag() }} {{ form.nome_utente.label }}{{ form.nome_utente }}
+                                        {{ form.nome_utente }}
                                     </div>
                                 </div>
+
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="cognome"></label>
-                                    {{ form.cognome_utente.label }}{{ form.cognome_utente }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.cognome_utente.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.cognome_utente }}
+                                    </div>
                                 </div>
+
                                 <div class="col-md-12 form-group mt-3 mt-md-0">
                                     <label for="email"></label>
-                                   {{ form.email.label }}{{ form.email }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.email.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.email }}
+                                    </div>
                                 </div>
+
                                 <div class="col-md-6 form-group">
                                     <label for="username"></label>
-                                    {{ form.username.label }}{{ form.username }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.username.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.username }}
+                                    </div>
                                 </div>
+
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="password"></label>
-                                    {{ form.password.label }}{{ form.password }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.password.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.password }}
+                                    </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0 ">
                                     <label for="sesso"></label>
-                                    {{ form.sesso.label }}{{ form.sesso }}
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label for="telefono"></label>
-                                    {{ form.telefono.label }}{{ form.telefono }}
-                                </div>
-                                <div class="col-md-12 form-group mt-3 mt-md-0">
-                                    <div type="text" class="form-control">
-                                        <label for="data_nascita_utente"></label>
-                                        {{ form.data_di_nascita.label }}{{ form.data_di_nascita }}
-                                        <br>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.sesso.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.sesso }}
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label for="citta"></label>
-                                    {{ form.citta.label }}{{ form.citta }}
+                                    <label for="telefono"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.telefono.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.telefono }}
+                                    </div>
                                 </div>
+
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                        <label for="data_nascita_utente"></label>
+                                        <div class="table-bordered text-center text-white">
+                                            {{ form.data_di_nascita.label }}
+                                        </div>
+                                        <div class="form-control">
+                                            {{ form.data_di_nascita }}
+                                        </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="citta"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.citta.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.citta }}
+                                    </div>
+                                </div>
+
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="provincia"></label>
-                                    {{ form.provincia.label }}{{ form.provincia }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.provincia.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.provincia }}
+                                    </div>
                                 </div>
+
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="via"></label>
-                                    {{ form.via.label }}{{ form.via }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.via.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.via }}
+                                    </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="cap"></label>
-                                    {{ form.cap.label }}{{ form.cap }}
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.cap.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.cap }}
+                                    </div>
                                 </div>
                             </div>
 
@@ -214,7 +277,8 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg"
+                         alt="">
                     <h5>Luca Rossi</h5>
                     <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
                         guadagnare!"</p>
@@ -222,14 +286,16 @@
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg"
+                         alt="">
                     <h5>Paolo Bianchi</h5>
                     <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg"
+                         alt="">
                     <h5>Matteo Verdi</h5>
                     <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
                 </div>
@@ -253,10 +319,8 @@
                 <form>
                     <div class="form-row">
                         <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <label for="exampleInputEmail1"></label>
-                            <input type="email" class="form-control
-                            -control-lg" id="exampleInputEmail1"
-                                                                           aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="col-12 col-md-3">
                             <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
@@ -278,8 +342,10 @@
                     <li class="list-inline-item"><a href="#">Term of Use</a></li>
                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                 </ul>
-                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright <strong><span>Università di Napoli Parthenope</span></strong></p>
-                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright
+                    <strong><span>Università di Napoli Parthenope</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                </p>
             </div>
 
             <div class="col-lg-6 h-100 text-center text-lg-right">
@@ -292,7 +358,7 @@
                                                                        alt=""></a>
                     </li>
                     <li class="list-inline-item"><a href="#"><img src="/static/images/Home Page/logo-twitter.png"
-                                                                       alt=""></a>
+                                                                  alt=""></a>
                     </li>
                 </ul>
             </div>
