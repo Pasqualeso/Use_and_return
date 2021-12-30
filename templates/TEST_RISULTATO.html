@@ -96,7 +96,7 @@
                         cursor: pointer;
                     }
                 </style>
-                <section id="Menù" class="Menù text-center">
+                <section id="Modifiche" class="Menù text-center">
                     <div class="container">
                         <a class="mb-5 alert-danger button" href="TEST_REGISTRAZIONE_UTENTE.html"><br>
                             <button>MODIFICA LE TUE INFORMAZIONI</button>
@@ -117,9 +117,21 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-                <li></li>
-
-
+                <ul>
+                    <li>Titolo annuncio: <b>{{ session['titolo_annuncio'] }}</b></li>
+                    <li>Categoria annuncio: <b>{{ session['categoria_annuncio'] }}</b></li>
+                    <li>Descrizione annuncio: <b>{{ session['descrizione_annuncio'] }}</b></li>
+                    <li>Data inzio noleggio: <b>{{ session['data_inizio_noleggio_annuncio'] }}</b></li>
+                    <li>Data fine noleggio: <b>{{ session['data_fine_noleggio_annuncio'] }}</b></li>
+                    <li>Immagine annuncio: <b>{{ session['immagine_annuncio'] }}</b></li>
+                </ul>
+                <section id="Modifiche" class="Menù text-center">
+                    <div class="container">
+                        <a class="mb-5 alert-danger button" href="registrazione_annuncio.html"><br>
+                            <button>MODIFICA LE TUE INFORMAZIONI</button>
+                        </a>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -174,7 +186,8 @@
 <section id="Menù" class="Menù text-center">
     <div class="container">
         <a class="mb-5" href=index.html><br>
-            <button>Torna allo shopping</button></a>
+            <button>Torna allo shopping</button>
+        </a>
     </div>
 </section>
 

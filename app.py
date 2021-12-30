@@ -63,9 +63,9 @@ def registrazione_annuncio():  # put application's code here
         form_annuncio.immagine_annuncio.data = ""
 
         # go to the thankyou template page (thankyou function in python file)
-        return redirect(url_for("salva_annuncio"))
+        return redirect(url_for("TEST_RISULTATO"))
 
-    return render_template('registrazione_annuncio.html')
+    return render_template('TEST_RISULTATO.html')
 
 
 @app.route('/salva_annuncio')
