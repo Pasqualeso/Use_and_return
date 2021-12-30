@@ -1,5 +1,8 @@
+from datetime import datetime
+
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, SelectField, TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, SelectField, TextAreaField, \
+    EmailField, DateField, IntegerField, FileField
 from wtforms.validators import InputRequired, EqualTo, DataRequired
 
 
@@ -10,26 +13,33 @@ class LoginForm(FlaskForm):
 
 
 ################################################
-#### SUPER ADVANCE FORMS with validators, session, url for, ...
 class RegistrationFormUtente(FlaskForm):
-    """Definition of the form
+    nome_utente = StringField("Inserisci il tuo nome", validators=[DataRequired()])
+    cognome_utente = StringField("Inserisci il tuo cognome", validators=[DataRequired()])
+    email = EmailField("Inserisci la tua email", validators=[DataRequired()])
+    username = StringField("Inserisci il tuo username", validators=[DataRequired()])
+    password = PasswordField("Inserisci la tua password", validators=[DataRequired()])
+    sesso = SelectField(
+        "Inserisci il tuo sesso: ",
+        choices=[("m", "M"), ("f", "F"), ("n", "N")]
+        , validators=[DataRequired()]
+    )
+    telefono = StringField("Inserisci il tuo numero di telefono", validators=[DataRequired()])
+    data_di_nascita = DateField("Inserisci la data di nascita", format='%Y-%m-%d', validators=[DataRequired()])
+    citta = StringField("Inserisci la citta", validators=[DataRequired()])
+    provincia = StringField("Inserisci la provincia", validators=[DataRequired()])
+    via = StringField("Inserisci la via", validators=[DataRequired()])
+    cap = IntegerField("Inserisci il cap", validators=[DataRequired()])
 
-    Args:
-        FlaskForm (object): FlaskForm default main class
-    """
+    submit = SubmitField("Submit")
 
-    nome_utente = StringField(
-        "What's the name of the course", validators=[DataRequired()]
-    )
-    course_active = BooleanField("The course is active?")
-    difficulty = RadioField(
-        "Please the difficulty of the course:",
-        choices=[("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")],
-    )
-    platform = SelectField(
-        u"Pick the platform you want to do the course:",
-        choices=[("zoom", "Zoom"), ("skype", "Skype"), ("teams", "Teams")],
-    )
-    # the u before the string is the casting to unicode
-    note = TextAreaField()
+
+class RegistrationFormAnnuncio(FlaskForm):
+    titolo = StringField("Inserisci il titolo della categoria", validators=[DataRequired()])
+    categoria = StringField("Inserisci la categoria", validators=[DataRequired()])
+    descrizione = StringField("Inserisci una descrizione(Max 200 caratteri)", validators=[DataRequired()])
+    data_inizio_noleggio = DateField("Inserisci una data di inizio noleggio", validators=[DataRequired()])
+    data_fine_noleggio = DateField("Inserisci una data di fine noleggio", validators=[DataRequired()])
+    immagine = FileField("Inserisci un'immagine", validators=[DataRequired()])
+
     submit = SubmitField("Submit")

@@ -16,7 +16,7 @@ from wtforms import (
 )
 from wtforms.validators import DataRequired
 
-from Form.forms import LoginForm, RegistrationFormUtente
+from Form.forms import LoginForm, RegistrationFormUtente, RegistrationFormAnnuncio
 
 app = Flask(__name__)
 db = init_db()
@@ -38,6 +38,32 @@ def home():  # put application's code here
 
 @app.route('/registrazione_annuncio.html')
 def registrazione_annuncio():  # put application's code here
+
+    # Actions for the complicate form
+    form_annuncio = RegistrationFormAnnuncio
+
+    # if the form is compiled
+    if form_annuncio.validate_on_submit():
+        # save form information into session user cookie
+        session["titolo"] = form_annuncio.titolo.data
+        session["categoria"] = form_annuncio.categoria.data
+        session["descrizione"] = form_annuncio.descrizione.data
+        session["data_inizio_noleggio"] = form_annuncio.data_inizio_noleggio.data
+        session["data_fine_noleggio"] = form_annuncio.data_fine_noleggio.data
+        session["immagine"] = form_annuncio.immagine.data
+
+        submit = SubmitField("Submit")
+
+        # reset the form
+        form_annuncio.titolo.data = ""
+        form_annuncio.categoria.data = ""
+        form_annuncio.descrizione.data = ""
+        form_annuncio.data_inizio_noleggio.data = ""
+        form_annuncio.data_fine_noleggio.data = ""
+
+        # go to the thankyou template page (thankyou function in python file)
+        return redirect(url_for("salva_annuncio"))
+
     return render_template('registrazione_annuncio.html')
 
 
@@ -170,18 +196,32 @@ def super_form():
     # if the form is compiled
     if form_utente.validate_on_submit():
         # save form information into session user cookie
-        session["nome_utente"] = form_utente.nome.data
-        session["course_active"] = form_utente.course_active.data
-        session["difficulty"] = form_utente.difficulty.data
-        session["platform"] = form_utente.platform.data
-        session["note"] = form_utente.note.data
+        session["nome_utente"] = form_utente.nome_utente.data
+        session["cognome_utente"] = form_utente.cognome_utente.data
+        session["email"] = form_utente.email.data
+        session["username"] = form_utente.username.data
+        session["password"] = form_utente.password.data
+        session["sesso"] = form_utente.sesso.data
+        session["telefono"] = form_utente.telefono.data
+        session["data_di_nascita"] = form_utente.data_di_nascita.data
+        session["citta"] = form_utente.citta.data
+        session["provincia"] = form_utente.provincia.data
+        session["via"] = form_utente.via.data
+        session["cap"] = form_utente.cap.data
 
+        submit = SubmitField("Submit")
         # reset the form
         form_utente.nome_utente.data = ""
-        form_utente.course_active.data = ""
-        form_utente.difficulty.data = ""
-        form_utente.platform.data = ""
-        form_utente.note.data = ""
+        form_utente.cognome_utente.data = ""
+        form_utente.email.data = ""
+        form_utente.username.data = ""
+        form_utente.password.data = ""
+        form_utente.sesso.data = ""
+        form_utente.data_di_nascita.data = ""
+        form_utente.citta.data = ""
+        form_utente.provincia.data = ""
+        form_utente.via.data = ""
+        form_utente.cap.data = ""
 
         # go to the thankyou template page (thankyou function in python file)
         return redirect(url_for("TEST_RISULTATO"))
