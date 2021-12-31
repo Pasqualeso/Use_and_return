@@ -1,10 +1,11 @@
 import datetime
 import uuid
 import self
-from flask import request, session
+from flask import request, session, url_for, redirect
 from sqlalchemy import Table, Column, Integer, String, Boolean
 from sqlalchemy import exc
 from sqlalchemy.orm import mapper
+from wtforms import SubmitField
 
 from Database.dbMysqlAlchemy import db_session, metadata, init_db
 
@@ -29,46 +30,44 @@ class Utente(object):
     data_creazione_utente = Column(String(30), nullable=False)
 
     # COSTRUTTORE CREAZIONE UTENTE
-    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,
-                 via, cap, data_creazione):
-        if isinstance(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,
-                      provincia,
-                      via, cap):
-            self.id_utente = self.generate_id(username)
-            self.nome_utente = nome
-            self.cognome_utente = cognome
-            self.email_utente = email
-            self.username_utente = username
-            self.password_utente = password
-            self.sesso_utente = sesso
-            self.data_di_nascita_utente = data_di_nascita
-            self.telefono_utente = telefono
-            self.citta_utente = citta
-            self.provincia_utente = provincia
-            self.via_utente = via
-            self.cap_utente = cap
-            self.data_creazione_utente = datetime.datetime.now()
-
-        elif isinstance(self, id, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,
-                        provincia, via, cap, data_creazione):
-            self.id_utente = id
-            self.nome_utente = nome
-            self.cognome_utente = cognome
-            self.email_utente = email
-            self.username_utente = username
-            self.password_utente = password
-            self.sesso_utente = sesso
-            self.data_di_nascita_utente = data_di_nascita
-            self.telefono_utente = telefono
-            self.citta_utente = citta
-            self.provincia_utente = provincia
-            self.via_utente = via
-            self.cap_utente = cap
-            self.data_creazione_utente = data_creazione
+    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,via, cap):
+        self.id_utente = self.generate_id(username)
+        self.nome_utente = nome
+        self.cognome_utente = cognome
+        self.email_utente = email
+        self.username_utente = username
+        self.password_utente = password
+        self.sesso_utente = sesso
+        self.data_di_nascita_utente = data_di_nascita
+        self.telefono_utente = telefono
+        self.citta_utente = citta
+        self.provincia_utente = provincia
+        self.via_utente = via
+        self.cap_utente = cap
+        self.data_creazione_utente = datetime.datetime.now()
 
     # FUNZIONE STAMPA UTENTE
     def __repr__(self):
-        return f'<Utente {self.id_utente + self.nome_utente + self.cognome_utente + self.email_utente + self.username_utente + self.password_utente + self.sesso_utente + self.data_di_nascita_utente + self.citta_utente + self.provincia_utente + self.via_utente + self.cap_utente + self.data_creazione_utente!r}> '
+        return f'<Utente {self.id_utente + self.nome_utente + self.cognome_utente + self.email_utente + self.username_utente + self.password_utente + self.sesso_utente + self.data_creazione_utente + self.citta_utente + self.provincia_utente + self.via_utente + self.cap_utente + self.data_creazione_utente!r}> '
+
+    '''
+           elif isinstance(self, id, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta,
+                            provincia, via, cap, data_creazione):
+           self.id_utente = id
+           self.nome_utente = nome
+           self.cognome_utente = cognome
+           self.email_utente = email
+           self.username_utente = username
+           self.password_utente = password
+           self.sesso_utente = sesso
+           self.data_di_nascita_utente = data_di_nascita
+           self.telefono_utente = telefono
+           self.citta_utente = citta
+           self.provincia_utente = provincia
+           self.via_utente = via
+           self.cap_utente = cap
+           self.data_creazione_utente = data_creazione
+            '''
 
     # FUNZIONE GENERA ID IN BASE ALL'USERNAME E AD UN ID CASUALE
     def generate_id(self, username):
@@ -141,26 +140,44 @@ def send_email(user, pwd, recipient, subject, body):
 
 
 # Metodo per leggere i campi dai vari form di registrazione per creare un nuovo utente
-def form_user(db):
-    if request.method == 'POST':
-        nome = request.form.get('nome')
-        cognome = request.form.get('cognome')
-        email = request.form.get('email')
-        username = request.form.get('username')
-        password = request.form.get('password')
-        sesso = request.form.get('sesso')
-        data_nascita_utente = request.form.get('data_nascita_utente')
-        telefono = request.form.get('telefono')
-        citta = request.form.get('citta')
-        provincia = request.form.get('provincia')
-        via = request.form.get('via')
-        cap = request.form.get('cap')
+def form_user(db, form_utente):
+    # if the form is compiled
+    if form_utente.validate_on_submit():
+        # save form information into session user cookie
+        nome = session["nome_utente"] = form_utente.nome_utente.data
+        cognome = session["cognome_utente"] = form_utente.cognome_utente.data
+        email = session["email"] = form_utente.email.data
+        username = session["username"] = form_utente.username.data
+        password = session["password"] = form_utente.password.data
+        sesso = session["sesso"] = form_utente.sesso.data
+        telefono = session["telefono"] = form_utente.telefono.data
+        data_nascita_utente = session["data_di_nascita"] = form_utente.data_di_nascita.data
+        citta = session["citta"] = form_utente.citta.data
+        provincia = session["provincia"] = form_utente.provincia.data
+        via = session["via"] = form_utente.via.data
+        cap = session["cap"] = form_utente.cap.data
+
+        submit = SubmitField("Submit")
+
+        # reset the form
+        form_utente.nome_utente.data = ""
+        form_utente.cognome_utente.data = ""
+        form_utente.email.data = ""
+        form_utente.username.data = ""
+        form_utente.password.data = ""
+        form_utente.sesso.data = ""
+        form_utente.data_di_nascita.data = ""
+        form_utente.citta.data = ""
+        form_utente.provincia.data = ""
+        form_utente.via.data = ""
+        form_utente.cap.data = ""
 
         nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
                               provincia, via, cap)
 
         log_err = add_user(db, nuovo_utente)
-
+        if log_err is None:
+            return redirect(url_for("TEST_RISULTATO"))
         return log_err
 
 

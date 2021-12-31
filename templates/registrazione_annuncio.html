@@ -157,20 +157,20 @@
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="titolo_annuncio"></label>
                                     <div class="table-bordered text-center text-white">
-                                        {{ form.hidden_tag() }} {{ form.titolo.label }}
+                                        {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
                                     </div>
                                     <div class="form-control">
-                                        {{ form.titolo }}
+                                        {{ form.titolo_annuncio }}
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0 ">
                                     <label for="categoria"></label>
                                     <div class="table-bordered text-center text-white">
-                                        {{ form.categoria.label }}
+                                        {{ form.categoria_annuncio.label }}
                                     </div>
                                     <div class="form-control">
-                                        {{ form.categoria }}
+                                        {{ form.categoria_annuncio }}
                                     </div>
                                 </div>
                                 <div class="col-md-12 form-group mt-3 mt-md-0">
@@ -228,7 +228,7 @@
                             </div>
 
                             <div class="text-center mt-2 registrazione">
-                                <button type="submit">Registrati</button>
+                                {{ form.submit_annuncio }}
                             </div>
                         </form>
 

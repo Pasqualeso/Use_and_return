@@ -40,7 +40,7 @@ def home():  # put application's code here
 def registrazione_annuncio():  # put application's code here
 
     # Actions for the complicate form
-    form_annuncio = RegistrationFormAnnuncio
+    form_annuncio = RegistrationFormAnnuncio()
 
     # if the form is compiled
     if form_annuncio.validate_on_submit():
@@ -52,7 +52,7 @@ def registrazione_annuncio():  # put application's code here
         session["data_fine_noleggio_annuncio"] = form_annuncio.data_fine_noleggio_annuncio.data
         session["immagine_annuncio"] = form_annuncio.immagine_annuncio.data
 
-        submit = SubmitField("Submit")
+        submit_annuncio = form_annuncio.submit_annuncio
 
         # reset the form
         form_annuncio.titolo_annuncio.data = ""
@@ -65,10 +65,10 @@ def registrazione_annuncio():  # put application's code here
         # go to the thankyou template page (thankyou function in python file)
         return redirect(url_for("TEST_RISULTATO"))
 
-    return render_template('TEST_RISULTATO.html')
+    return render_template('registrazione_annuncio.html', form=form_annuncio)
 
 
-@app.route('/salva_annuncio')
+@app.route('/salva_annuncio.html')
 def salva_annuncio():  # put application's code here
     return render_template('salva_annuncio.html')
 
@@ -126,6 +126,7 @@ def categoria_telefonia():  # put application's code here
 @app.route('/categoria_videomaker.html')
 def categoria_videomaker():  # put application's code here
     return render_template('categoria_videomaker.html')
+
 
 @app.route('/utente.html')
 def utente():  # put application's code here
@@ -198,38 +199,8 @@ def super_form():
     # Actions for the complicate form
     form_utente = RegistrationFormUtente()
 
-    # if the form is compiled
-    if form_utente.validate_on_submit_annuncio():
-        # save form information into session user cookie
-        session["nome_utente"] = form_utente.nome_utente.data
-        session["cognome_utente"] = form_utente.cognome_utente.data
-        session["email"] = form_utente.email.data
-        session["username"] = form_utente.username.data
-        session["password"] = form_utente.password.data
-        session["sesso"] = form_utente.sesso.data
-        session["telefono"] = form_utente.telefono.data
-        session["data_di_nascita"] = form_utente.data_di_nascita.data
-        session["citta"] = form_utente.citta.data
-        session["provincia"] = form_utente.provincia.data
-        session["via"] = form_utente.via.data
-        session["cap"] = form_utente.cap.data
-
-        submit = SubmitField("Submit")
-        # reset the form
-        form_utente.nome_utente.data = ""
-        form_utente.cognome_utente.data = ""
-        form_utente.email.data = ""
-        form_utente.username.data = ""
-        form_utente.password.data = ""
-        form_utente.sesso.data = ""
-        form_utente.data_di_nascita.data = ""
-        form_utente.citta.data = ""
-        form_utente.provincia.data = ""
-        form_utente.via.data = ""
-        form_utente.cap.data = ""
-
-        # go to the thankyou template page (thankyou function in python file)
-        return redirect(url_for("TEST_RISULTATO"))
+    log_err = form_user(db, form_utente)
+    # go to the thankyou template page (thankyou function in python file)
 
     return render_template("TEST_REGISTRAZIONE_UTENTE.html", form=form_utente)
 
