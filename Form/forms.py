@@ -86,9 +86,26 @@ class RegistrationFormAnnuncio(FlaskForm):
 
 
 class RegistrationFormRicerca(FlaskForm):
-    oggetto_ricerca = StringField("oggetto")
-    categoria_ricerca = SelectField("categoria")
-    regione_ricerca = SelectField("regione")
+    oggetto_ricerca = StringField("Inserisci oggetto)", validators=[DataRequired()])
+    categoria_ricerca = SelectField(
+        "Inserisci la categoria",
+        choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console e videogiochi", "Console e videogiochi"),
+                 ("informatica", "Informatica"),
+                 ("accessori auto", "Accessori auto"), ("giocattoli", "Giocattoli"), ("fotografia", "Fotografia"),
+                 ("video-maker", "Video-maker"), ("altro", "Altro")]
+        , validators=[DataRequired()])
+    provincia = SelectField(
+        "Inserisci la provincia",
+        choices=[("valle d'aosta", "Valle d'Aosta"), ("piemonte", "Piemonte"), ("liguria", "Liguria"), ("lombardia", "Lombardia"), ("trentino-altro adige", "Trentino-Alto Adige"),
+                 ("veneto", "Veneto"), ("friuli-venezia giulia", "Friuli-Venezia Giulia"), ("emilia romagna", "Emilia Romagna"), ("toscana", "Toscana"), ("umbria", "Umbria"), ("marche", "Marche"),
+                 ("lazio", "Lazio"),
+                 ("bg", "Bergamo"), ("bi", "Biella"), ("bo", "Bologna"), ("bz", "Bolzano"), ("bs", "Brescia"),
+                 ("br", "Brindisi"), ("ca", "Cagliari"),
+                 ("cl", "Caltanissetta"), ("cb", "Campobasso"), ("ci", "Carbonia - iglesias "), ("ce", "Caserta"),
+                 ("ct", "Catania"), ("cz", "Catanzaro"),]
+
+        , validators=[DataRequired()])
     data_inizio_noleggio_ricerca = DateField("Inserisci una data di inizio noleggio", validators=[DataRequired()])
     data_fine_noleggio_ricerca = DateField("Inserisci una data di fine noleggio", validators=[DataRequired()])
-    submit_ricerca = SubmitField("submit")
+
+    submit_ricerca = SubmitField("Submit")

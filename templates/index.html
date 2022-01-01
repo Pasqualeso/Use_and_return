@@ -94,13 +94,24 @@
 <section class="BarraRicerca">
     <div class="searchBox">
         <div class="inputBx">
-            <p>Inserisci oggetto</p>
-            <label>
-                <input type="search" placeholder="Esempio: Chitarra">
-            </label>
+            <div class="table-bordered text-center text-white">
+                {{ form.hidden_tag() }} {{ form.oggetto_ricerca.label }}
+            </div>
+            <div class="form-control">
+                {{ oggetto_ricerca }}
+            </div>
         </div>
         <div class="inputBx">
-            <p>Categoria</p>
+
+            <div class="table-bordered text-center text-white">
+                {{ form.categoria_ricerca.label }}
+            </div>
+            <div class="form-control">
+                {{ form.categoria_ricerca }}
+            </div>
+
+
+            <!--<p>Categoria</p>
             <label>
                 <select name='select1'>
                     <option value='2'> Musica
@@ -114,7 +125,7 @@
                     <option value='9'> Altro
                     <option value='9'> Tutte le categorie
                 </select>
-            </label>
+            </label> -->
         </div>
         <div class="inputBx">
             <p>Luogo</p>
@@ -591,7 +602,8 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home Page/cliente1.jpg"
+                         alt="">
                     <h5>Luca Rossi</h5>
                     <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
                         guadagnare!"</p>
@@ -599,14 +611,16 @@
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home Page/cliente2.jpg"
+                         alt="">
                     <h5>Paolo Bianchi</h5>
                     <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg" alt="">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home Page/cliente3.jpg"
+                         alt="">
                     <h5>Matteo Verdi</h5>
                     <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
                 </div>
