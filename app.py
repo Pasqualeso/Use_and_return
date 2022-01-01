@@ -3,7 +3,7 @@ from flask import Flask, render_template, session, request, url_for, flash, redi
 from flask_login import LoginManager
 from flask_login._compat import unicode
 from Database.dbMysqlAlchemy import db_session, init_db
-from Database.utente_db import form_user, form_login, Utente
+from Database.utente_db import form_user, form_login, Utente, add_user
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField,
@@ -16,7 +16,7 @@ from wtforms import (
 )
 from wtforms.validators import DataRequired
 
-from Form.forms import LoginForm, RegistrationFormUtente, RegistrationFormAnnuncio
+from Form.forms import LoginForm, RegistrationFormUtente, RegistrationFormAnnuncio, RegistrationFormRicerca
 
 app = Flask(__name__)
 db = init_db()
@@ -28,7 +28,24 @@ curr_user = None
 
 @app.route('/')
 def index():  # put application's code here
-    return render_template('index.html')
+    form_ricerca = RegistrationFormRicerca()
+
+    if form_ricerca.validate_on_submit():
+        session["oggetto_ricerca"] = form_ricerca.oggetto_ricerca
+        session["categoria_ricerca"] = form_ricerca.categoria_ricerca
+        session["regione_ricerca "] = form_ricerca.regione_ricerca
+        session["data_inizio_noleggio_ricerca"] = form_ricerca.data_inizio_noleggio_ricerca
+        session["data_fine_noleggio_ricerca"] = form_ricerca.data_fine_noleggio_ricerca
+
+        submit_ricerca = form_ricerca.submit_ricerca
+
+        form_ricerca.oggetto_ricerca = ""
+        form_ricerca.categoria_ricerca = ""
+        form_ricerca.regione_ricerca = ""
+        form_ricerca.data_inizio_noleggio_ricerca = ""
+        form_ricerca.data_fine_noleggio_ricerca = ""
+
+    return render_template('index.html', form=form_ricerca)
 
 
 @app.route('/index.html')
@@ -130,7 +147,15 @@ def categoria_videomaker():  # put application's code here
 
 @app.route('/utente.html')
 def utente():  # put application's code here
-    return render_template('utente.html')
+    form_login = LoginForm()
+
+    if form_login.validate_on_submit():
+        session["username_login"] = form_login.username_login
+        session["password_login"] = form_login.password_login
+
+        submit_login = form_login.submit_login
+
+    return render_template('utente.html', form=form_login)
 
 
 def get_id(self):
@@ -147,25 +172,6 @@ def logout():
     curr_user = None
     session.pop('username_form')
 
-
-''' 
-# Login Utente
-@app.route('/utente.html', methods=['GET', 'POST'])
-def utente():  # put application's code here
-    global curr_user
-    formLog = LoginForm()
-    user = form_login(db,formLog)
-
-    formLog.username.data = ""  # reset
-    formLog.password.data = ""  # reset
-
-    # print(curr_user.__repr__())
-
-    return redirect(flask.url_for('informazioni_utente', user=curr_user, form=formLog))
-    # return f'Logged in as {session["username_form"]}'
-
-    return render_template('utente.html', form=formLog)
-'''
 
 '''
 # localhost http://127.0.0.1:5000/<name>
@@ -199,8 +205,9 @@ def super_form():
     # Actions for the complicate form
     form_utente = RegistrationFormUtente()
 
-    log_err = form_user(db, form_utente)
-    # go to the thankyou template page (thankyou function in python file)
+    if form_utente.validate_on_submit():
+        log_err = form_user(db, form_utente)
+        return redirect(url_for("TEST_RISULTATO"))
 
     return render_template("TEST_REGISTRAZIONE_UTENTE.html", form=form_utente)
 

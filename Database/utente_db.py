@@ -30,7 +30,8 @@ class Utente(object):
     data_creazione_utente = Column(String(30), nullable=False)
 
     # COSTRUTTORE CREAZIONE UTENTE
-    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,via, cap):
+    def __init__(self, nome, cognome, email, username, password, sesso, data_di_nascita, telefono, citta, provincia,
+                 via, cap):
         self.id_utente = self.generate_id(username)
         self.nome_utente = nome
         self.cognome_utente = cognome
@@ -142,43 +143,42 @@ def send_email(user, pwd, recipient, subject, body):
 # Metodo per leggere i campi dai vari form di registrazione per creare un nuovo utente
 def form_user(db, form_utente):
     # if the form is compiled
-    if form_utente.validate_on_submit():
-        # save form information into session user cookie
-        nome = session["nome_utente"] = form_utente.nome_utente.data
-        cognome = session["cognome_utente"] = form_utente.cognome_utente.data
-        email = session["email"] = form_utente.email.data
-        username = session["username"] = form_utente.username.data
-        password = session["password"] = form_utente.password.data
-        sesso = session["sesso"] = form_utente.sesso.data
-        telefono = session["telefono"] = form_utente.telefono.data
-        data_nascita_utente = session["data_di_nascita"] = form_utente.data_di_nascita.data
-        citta = session["citta"] = form_utente.citta.data
-        provincia = session["provincia"] = form_utente.provincia.data
-        via = session["via"] = form_utente.via.data
-        cap = session["cap"] = form_utente.cap.data
 
-        submit = SubmitField("Submit")
+    # save form information into session user cookie
+    nome = session["nome_utente"] = form_utente.nome_utente.data
+    cognome = session["cognome_utente"] = form_utente.cognome_utente.data
+    email = session["email"] = form_utente.email.data
+    username = session["username"] = form_utente.username.data
+    password = session["password"] = form_utente.password.data
+    sesso = session["sesso"] = form_utente.sesso.data
+    telefono = session["telefono"] = form_utente.telefono.data
+    data_nascita_utente = session["data_di_nascita"] = form_utente.data_di_nascita.data
+    citta = session["citta"] = form_utente.citta.data
+    provincia = session["provincia"] = form_utente.provincia.data
+    via = session["via"] = form_utente.via.data
+    cap = session["cap"] = form_utente.cap.data
 
-        # reset the form
-        form_utente.nome_utente.data = ""
-        form_utente.cognome_utente.data = ""
-        form_utente.email.data = ""
-        form_utente.username.data = ""
-        form_utente.password.data = ""
-        form_utente.sesso.data = ""
-        form_utente.data_di_nascita.data = ""
-        form_utente.citta.data = ""
-        form_utente.provincia.data = ""
-        form_utente.via.data = ""
-        form_utente.cap.data = ""
+    submit = SubmitField("Submit")
 
-        nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
-                              provincia, via, cap)
+    # reset the form
+    form_utente.nome_utente.data = ""
+    form_utente.cognome_utente.data = ""
+    form_utente.email.data = ""
+    form_utente.username.data = ""
+    form_utente.password.data = ""
+    form_utente.sesso.data = ""
+    form_utente.data_di_nascita.data = ""
+    form_utente.citta.data = ""
+    form_utente.provincia.data = ""
+    form_utente.via.data = ""
+    form_utente.cap.data = ""
 
-        log_err = add_user(db, nuovo_utente)
-        if log_err is None:
-            return redirect(url_for("TEST_RISULTATO"))
-        return log_err
+    nuovo_utente = Utente(nome, cognome, email, username, password, sesso, data_nascita_utente, telefono, citta,
+                          provincia, via, cap)
+
+    log_err = add_user(db, nuovo_utente)
+
+    return log_err
 
 
 # Metodo per aggiungere un nuovo utente al database
