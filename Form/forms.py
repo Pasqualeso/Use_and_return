@@ -97,12 +97,8 @@ class RegistrationFormRicerca(FlaskForm):
     provincia = SelectField(
         "Inserisci la provincia",
         choices=[("valle d'aosta", "Valle d'Aosta"), ("piemonte", "Piemonte"), ("liguria", "Liguria"), ("lombardia", "Lombardia"), ("trentino-altro adige", "Trentino-Alto Adige"),
-                 ("veneto", "Veneto"), ("friuli-venezia giulia", "Friuli-Venezia Giulia"), ("emilia romagna", "Emilia Romagna"), ("toscana", "Toscana"), ("umbria", "Umbria"), ("marche", "Marche"),
-                 ("lazio", "Lazio"),
-                 ("bg", "Bergamo"), ("bi", "Biella"), ("bo", "Bologna"), ("bz", "Bolzano"), ("bs", "Brescia"),
-                 ("br", "Brindisi"), ("ca", "Cagliari"),
-                 ("cl", "Caltanissetta"), ("cb", "Campobasso"), ("ci", "Carbonia - iglesias "), ("ce", "Caserta"),
-                 ("ct", "Catania"), ("cz", "Catanzaro"),]
+                 ("veneto", "Veneto"), ("friuli-venezia giulia", "Friuli-Venezia Giulia"), ("emilia romagna", "Emilia Romagna"), ("toscana", "Toscana"), ("umbria",ria"), ("marche", "Marche"),
+                 ("lazio", "Lazio"), ("abruzzo", "Abruzzo"), ("molise", "Molise"), ("campania", "Campania"), ("puglia", "Puglia"), ("basilicata", "Basilicata"), ("calabria", "Calabria"), ("sicilia", "Sicilia"), ("sardegna","Sardegna"), ("non specificare","Non Specificare"),]
 
         , validators=[DataRequired()])
     data_inizio_noleggio_ricerca = DateField("Inserisci una data di inizio noleggio", validators=[DataRequired()])
