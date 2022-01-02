@@ -178,7 +178,7 @@ def form_user(db, form_utente):
 
     log_err = add_user(db, nuovo_utente)
 
-    return log_err
+    return log_err,nuovo_utente
 
 
 # Metodo per aggiungere un nuovo utente al database

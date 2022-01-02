@@ -2,6 +2,8 @@ import flask
 from flask import Flask, render_template, session, request, url_for, flash, redirect
 from flask_login import LoginManager
 from flask_login._compat import unicode
+
+from Database.annuncio_db import form_add_annuncio
 from Database.dbMysqlAlchemy import db_session, init_db
 from Database.utente_db import form_user, form_login, Utente, add_user
 from flask_wtf import FlaskForm
@@ -61,26 +63,8 @@ def registrazione_annuncio():  # put application's code here
 
     # if the form is compiled
     if form_annuncio.validate_on_submit():
-        # save form information into session user cookie
-        session["titolo_annuncio"] = form_annuncio.titolo_annuncio.data
-        session["categoria_annuncio"] = form_annuncio.categoria_annuncio.data
-        session["descrizione_annuncio"] = form_annuncio.descrizione_annuncio.data
-        session["data_inizio_noleggio_annuncio"] = form_annuncio.data_inizio_noleggio_annuncio.data
-        session["data_fine_noleggio_annuncio"] = form_annuncio.data_fine_noleggio_annuncio.data
-        session["immagine_annuncio"] = form_annuncio.immagine_annuncio.data
-
-        submit_annuncio = form_annuncio.submit_annuncio
-
-        # reset the form
-        form_annuncio.titolo_annuncio.data = ""
-        form_annuncio.categoria_annuncio.data = ""
-        form_annuncio.descrizione_annuncio.data = ""
-        form_annuncio.data_inizio_noleggio_annuncio.data = ""
-        form_annuncio.data_fine_noleggio_annuncio.data = ""
-        form_annuncio.immagine_annuncio.data = ""
-
-        # go to the thankyou template page (thankyou function in python file)
-        return redirect(url_for("TEST_RISULTATO"))
+        id_utente = session["id_utente"]
+        annuncio = form_add_annuncio(db, form_annuncio, id_utente)
 
     return render_template('registrazione_annuncio.html', form=form_annuncio)
 
@@ -206,7 +190,9 @@ def super_form():
     form_utente = RegistrationFormUtente()
 
     if form_utente.validate_on_submit():
-        log_err = form_user(db, form_utente)
+        log_err, nuovo_utente = form_user(db, form_utente)
+        id_utente = session["id_utente"] = nuovo_utente.id_utente
+        form_utente.id_utente = id_utente
         return redirect(url_for("TEST_RISULTATO"))
 
     return render_template("TEST_REGISTRAZIONE_UTENTE.html", form=form_utente)

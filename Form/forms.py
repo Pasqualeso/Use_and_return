@@ -17,6 +17,7 @@ class LoginForm(FlaskForm):
 ################################################
 # classe form registrazione utente
 class RegistrationFormUtente(FlaskForm):
+    id_utente = StringField("Id")
     nome_utente = StringField("Inserisci il tuo nome", validators=[DataRequired()])
     cognome_utente = StringField("Inserisci il tuo cognome", validators=[DataRequired()])
     email = EmailField("Inserisci la tua email", validators=[DataRequired()])
@@ -81,8 +82,13 @@ class RegistrationFormAnnuncio(FlaskForm):
                  ("video-maker", "Video-maker"), ("altro", "Altro")]
         , validators=[DataRequired()])
     descrizione_annuncio = StringField("Inserisci una descrizione(Max 200 caratteri)", validators=[DataRequired()])
+
+    prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio", validators=[DataRequired()])
+
     data_inizio_noleggio_annuncio = DateField("Inserisci una data di inizio noleggio", validators=[DataRequired()])
     data_fine_noleggio_annuncio = DateField("Inserisci una data di fine noleggio", validators=[DataRequired()])
+    disponibile = IntegerField("Inserisci la disponibilità", validators=[DataRequired()])
+
     immagine_annuncio = FileField("Inserisci un'immagine", validators=[DataRequired()])
 
     submit_annuncio = SubmitField("Submit")
