@@ -178,7 +178,7 @@ def form_user(db, form_utente):
 
     log_err = add_user(db, nuovo_utente)
 
-    return log_err,nuovo_utente
+    return log_err, nuovo_utente
 
 
 # Metodo per aggiungere un nuovo utente al database
@@ -200,24 +200,39 @@ def add_user(db, utente_inserito):
 
 
 # Metodo per leggere i campi dai vari form di login per effettuare la query di controllo
-def form_login(db, form) -> Utente:
-    if form.validate_on_submit():
-        username_form = session['username'] = form.username.data  # request.form.get('username')
-        password_form = session['password'] = form.password.data  # request.form.get('password')
+def form_login_user(db, form):
 
-        query_login = "SELECT * FROM Utente WHERE USERNAME_UTENTE = %s AND PASSWORD_UTENTE = %s"
-        valori_query = (username_form, password_form)
+    username_form = session["username"] = form.username_login.data  # request.form.get('username')
+    password_form = session["password"] = form.password_login.data  # request.form.get('password')
 
-        utente = control_user(db, query_login, valori_query)
+    submit_login = form.submit_login
 
-        if utente is None:
-            return None
+    query_login = "SELECT * FROM utente WHERE USERNAME_UTENTE = %s AND PASSWORD_UTENTE = %s"
+    valori_query = (username_form, password_form)
 
-        return utente
+    utente = control_user(db, query_login, valori_query)
+
+    session["nome_utente"] = utente.nome_utente
+    session["cognome_utente"] = utente.cognome_utente
+    session["email"] = utente.email_utente
+    session["username"] = utente.username_utente
+    session["password"] = utente.password_utente
+    session["sesso"] = utente.sesso_utente
+    session["telefono"] = utente.telefono_utente
+    session["data_di_nascita"] = utente.data_di_nascita_utente
+    session["citta"] = utente.citta_utente
+    session["provincia"] = utente.provincia_utente
+    session["via"] = utente.via_utente
+    session["cap"] = utente.cap_utente
+
+    if utente is None:
+        return None
+
+    return utente
 
 
 # Metodo per effettuare una query di controllo sugli Username e password inseriti per accedere all'account
-def control_user(db, query_login, valori_query) -> Utente:
+def control_user(db, query_login, valori_query):
     try:
         cursor = db.connect()
         result = cursor.execute(query_login, valori_query)

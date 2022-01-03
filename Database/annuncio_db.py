@@ -1,3 +1,5 @@
+import datetime
+
 from flask import session, redirect, url_for
 from sqlalchemy import String, Column, Integer, Table, exc
 from sqlalchemy.orm import mapper
@@ -20,8 +22,7 @@ class Annuncio(object):
     id_utente_rf_annuncio = Column(String(12), nullable=False)
 
     # COSTRUTTORE CREAZIONE ANNUNCIO
-    def __init__(self, id_annuncio, titolo, categoria, prezzo, descrizione, data_inizio, data_fine, data_inserimento,
-                 disponibilita,
+    def __init__(self, id_annuncio, titolo, categoria, prezzo, descrizione, data_inizio, data_fine, disponibilita,
                  id_utente):
         self.id_annuncio = id_annuncio
         self.titolo_annuncio = titolo
@@ -30,7 +31,7 @@ class Annuncio(object):
         self.descrizione_annuncio = descrizione
         self.data_inizio_noleggio = data_inizio
         self.data_fine_noleggio = data_fine
-        self.data_inserimento_annuncio = data_inserimento
+        self.data_inserimento_annuncio = datetime.datetime.now()
         self.disponibile = disponibilita
         self.id_utente_rf_annuncio = id_utente
 
@@ -66,11 +67,11 @@ def form_add_annuncio(db, form_annuncio, id_utente):
     titolo = session["titolo_annuncio"] = form_annuncio.titolo_annuncio.data
     categoria = session["categoria_annuncio"] = form_annuncio.categoria_annuncio.data
     descrizione = session["descrizione_annuncio"] = form_annuncio.descrizione_annuncio.data
-    prezzo = session["prezzo_per_giorno_annuncio"] = form_annuncio.prezzo_per_giorno_annuncio
+    prezzo = session["prezzo_per_giorno_annuncio"] = form_annuncio.prezzo_per_giorno_annuncio.data
     data_inizio = session["data_inizio_noleggio_annuncio"] = form_annuncio.data_inizio_noleggio_annuncio.data
     data_fine = session["data_fine_noleggio_annuncio"] = form_annuncio.data_fine_noleggio_annuncio.data
-    data_inserimento = session["data_inserimento_annuncio"] = form_annuncio.data_inserimento_annuncio
-    disponibile = session["disponibile"] = form_annuncio.disponibile
+    data_inserimento = session["data_inserimento_annuncio"] = form_annuncio.data_inserimento_annuncio.data
+    disponibile = session["disponibile"] = form_annuncio.disponibile.data
     immagine = session["immagine_annuncio"] = form_annuncio.immagine_annuncio.data
 
     submit_annuncio = form_annuncio.submit_annuncio
@@ -79,29 +80,29 @@ def form_add_annuncio(db, form_annuncio, id_utente):
     form_annuncio.titolo_annuncio.data = ""
     form_annuncio.categoria_annuncio.data = ""
     form_annuncio.descrizione_annuncio.data = ""
-    form_annuncio.prezzo_per_giorno_annuncio = ""
+    form_annuncio.prezzo_per_giorno_annuncio.data = ""
     form_annuncio.data_inizio_noleggio_annuncio.data = ""
     form_annuncio.data_fine_noleggio_annuncio.data = ""
-    form_annuncio.data_inserimento_annuncio = ""
-    form_annuncio.disponibile = ""
+    form_annuncio.data_inserimento_annuncio.data = ""
+    form_annuncio.disponibile.data = ""
     form_annuncio.immagine_annuncio.data = ""
 
-    nuovo_annuncio = Annuncio(titolo, categoria, descrizione, prezzo, data_inizio, data_fine, data_inserimento,
-                              disponibile, id_utente)
+    nuovo_annuncio = Annuncio(titolo, categoria, descrizione, prezzo, data_inizio, data_fine, disponibile, id_utente)
+    err_log = add_annuncio(db, nuovo_annuncio)
 
-    return redirect(url_for("TEST_RISULTATO"))
+    return err_log
 
 
 # Metodo per aggiungere un nuovo annuncio al database
 def add_annuncio(db, annuncio_inserito):
     try:
         db.connect()
-        nuovo_utente = annuncio_inserito
-        if nuovo_utente is None:
+        nuovo_annuncio = annuncio_inserito
+        if nuovo_annuncio is None:
             raise AnnuncioException("Annuncio non valido\n")
         else:
-            # Aggiunge un nuovo utente nel database
-            db_session.add(annuncio_inserito)
+            # Aggiunge un nuovo annuncio nel database
+            db_session.add(nuovo_annuncio)
             db_session.commit()
     except exc.SQLAlchemyError as ex:
         print(ex.__doc__)

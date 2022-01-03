@@ -5,7 +5,7 @@ from flask_login._compat import unicode
 
 from Database.annuncio_db import form_add_annuncio
 from Database.dbMysqlAlchemy import db_session, init_db
-from Database.utente_db import form_user, form_login, Utente, add_user
+from Database.utente_db import form_user, form_login_user, Utente, add_user, form_login_user
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField,
@@ -55,7 +55,7 @@ def home():  # put application's code here
     return render_template('index.html')
 
 
-@app.route('/registrazione_annuncio.html')
+@app.route('/registrazione_annuncio.html', methods=["GET", "POST"])
 def registrazione_annuncio():  # put application's code here
 
     # Actions for the complicate form
@@ -64,7 +64,8 @@ def registrazione_annuncio():  # put application's code here
     # if the form is compiled
     if form_annuncio.validate_on_submit():
         id_utente = session["id_utente"]
-        annuncio = form_add_annuncio(db, form_annuncio, id_utente)
+        log_err = form_add_annuncio(db, form_annuncio, id_utente)
+        return redirect(url_for("TEST_RISULTATO"))
 
     return render_template('registrazione_annuncio.html', form=form_annuncio)
 
@@ -129,17 +130,18 @@ def categoria_videomaker():  # put application's code here
     return render_template('categoria_videomaker.html')
 
 
-@app.route('/utente.html')
+@app.route('/utente.html', methods=["GET", "POST"])
 def utente():  # put application's code here
-    form_login = LoginForm()
 
-    if form_login.validate_on_submit():
-        session["username_login"] = form_login.username_login
-        session["password_login"] = form_login.password_login
+    form_log = LoginForm()
 
-        submit_login = form_login.submit_login
+    if form_log.validate_on_submit():
 
-    return render_template('utente.html', form=form_login)
+        user = form_login_user(db, form_log)
+
+        return redirect(url_for("TEST_RISULTATO"))
+
+    return render_template('utente.html', form=form_log)
 
 
 def get_id(self):
