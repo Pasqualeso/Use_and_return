@@ -82,6 +82,18 @@ class RegistrationFormAnnuncio(FlaskForm):
                  ("video-maker", "Video-maker"), ("altro", "Altro")]
         , validators=[DataRequired()])
     descrizione_annuncio = StringField("Inserisci una descrizione(Max 200 caratteri)", validators=[DataRequired()])
+    regione_annuncio =SelectField(
+        "Inserisci la regione dell'annuncio",
+        choices=[("valle d'aosta", "Valle d'Aosta"), ("piemonte", "Piemonte"), ("liguria", "Liguria"),
+                 ("lombardia", "Lombardia"), ("trentino-alto adige", "Trentino-Alto Adige"),
+                 ("veneto", "Veneto"), ("friuli-venezia giulia", "Friuli-Venezia Giulia"),
+                 ("emilia romagna", "Emilia Romagna"), ("toscana", "Toscana"), ("umbria", "Umbria"),
+                 ("marche", "Marche"),
+                 ("lazio", "Lazio"), ("abruzzo", "Abruzzo"), ("molise", "Molise"), ("campania", "Campania"),
+                 ("puglia", "Puglia"), ("basilicata", "Basilicata"), ("calabria", "Calabria"),
+                 ("sicilia", "Sicilia"), ("sardegna", "Sardegna"), ("non specificare", "Non Specificare"), ]
+
+        , validators=[DataRequired()])
 
     prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio", validators=[DataRequired()])
 

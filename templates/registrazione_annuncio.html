@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/style.css">
-    <title>Registrazione Annuncio</title>
+    <title>Registrazione annuncio</title>
 </head>
 <body>
 <!--Sezione NavBar -->
@@ -44,7 +44,7 @@
         </div>
     </nav>
 </header>
-
+<!-- CSS FORM -->
 <style>
     * {
         box-sizing: border-box;
@@ -63,6 +63,10 @@
         min-width: 300px;
         text-align: center;
         border-radius: 10px;
+    }
+
+    input {
+        text-align: center;
     }
 
     select {
@@ -101,39 +105,13 @@
         color: #dddddd;
     }
 
-    input {
-        padding: 10px;
-        width: 100%;
-        font-size: 17px;
-        font-family: Raleway;
-        border: 1px solid #aaaaaa;
-        color: #dddddd;
-        text-align: center;
-    }
-
     button:hover {
         opacity: 0.8;
     }
 
-    .form-control {
-        display: block;
-        width: 100%;
-        padding: 0.375rem 0.75rem;
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #495057;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid #ced4da;
-        border-radius: 0.25rem;
-        transition: border-color .15s
-    }
-
-    p {
-        color: #dddddd;
-    }
 </style>
 </body>
+<!--HTML FORM-->
 <section class="inner-page">
     <div class="container">
 
@@ -143,8 +121,8 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h3>Creazione annuncio</h3>
-                    <h6>INFORMAZIONI:</h6>
+                    <h3>Registrazione annuncio</h3>
+                    <h6>INFOMRAZIONI:</h6>
                     <br>
                 </div>
 
@@ -155,7 +133,7 @@
                         <form action="" method="post" role="form" class="email-form">
                             <div class="row">
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label for="titolo_annuncio"></label>
+                                    <label for="titolo"></label>
                                     <div class="table-bordered text-center text-white">
                                         {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
                                     </div>
@@ -164,81 +142,80 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 form-group mt-3 mt-md-0 ">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="categoria"></label>
                                     <div class="table-bordered text-center text-white">
-                                        {{ form.categoria_annuncio.label }}
+                                       {{ form.categoria_annuncio.label }}
                                     </div>
                                     <div class="form-control">
                                         {{ form.categoria_annuncio }}
                                     </div>
                                 </div>
-                                <div class="col-md-12 form-group mt-3 mt-md-0">
-                                    <label for="descrizone_annuncio"></label>
+
+                                <div class="col-md-6 form-group">
+                                    <label for="descrzione"></label>
                                     <div class="table-bordered text-center text-white">
                                         {{ form.descrizione_annuncio.label }}
-                                        <div class="form-control">
-                                            {{ form.descrizione_annuncio }}
-                                        </div>
                                     </div>
-
-
-                                    <!--<textarea class="form-control" name="descrizione_annuncio"
-                                              id="descrizone_annuncio">
-                                    </textarea>-->
+                                    <div class="form-control">
+                                        {{ form.descrizione_annuncio }}
+                                    </div>
                                 </div>
 
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="regione"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.regione_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.regione_annuncio }}
+                                    </div>
+                                </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <div type="text" class="table-bordered"
-                                         id="data_inizio_noleggio">
                                         <label for="data_inizio_noleggio"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.data_inizio_noleggio_annuncio.label }}
+                                       {{ form.data_inizio_noleggio_annuncio.label }}
                                         </div>
                                         <div class="form-control">
                                             {{ form.data_inizio_noleggio_annuncio }}
                                         </div>
-                                        <br>
-                                    </div>
                                 </div>
+
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <div type="text" class="table-bordered"
-                                         id="data_fine_noleggio">
                                         <label for="data_fine_noleggio"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.data_fine_noleggio_annuncio.label }}
+                                       {{ form.data_fine_noleggio_annuncio.label }}
                                         </div>
                                         <div class="form-control">
                                             {{ form.data_fine_noleggio_annuncio }}
                                         </div>
-                                        <br>
-                                    </div>
                                 </div>
 
-                                <div class="col-md-6 form-group mt-2">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="immagine"></label>
                                     <div class="table-bordered text-center text-white">
-                                        {{ form.immagine_annuncio.label }}
+                                       {{ form.immagine_annuncio.label }}
                                     </div>
                                     <div class="form-control">
-                                        {{ form.immagine_annuncio }}
+                                     {{ form.immagine_annuncio }}
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label for="prezzo_annuncio"></label>
+                                    <label for="prezzo"></label>
                                     <div class="table-bordered text-center text-white">
                                         {{ form.prezzo_per_giorno_annuncio.label }}
                                     </div>
                                     <div class="form-control">
-                                        {{ form.prezzo_per_giorno_annuncio }}
+                                      {{ form.prezzo_per_giorno_annuncio }}
                                     </div>
                                 </div>
 
                             </div>
 
-                            <div class="text-center mt-2 registrazione">
-                                {{ form.submit_annuncio }}
+                            <div class="text-center mt-2">
+                               {{ form.submit_annuncio }}
                             </div>
                         </form>
 
