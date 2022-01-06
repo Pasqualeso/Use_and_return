@@ -1,27 +1,23 @@
+import os
+
 import flask
-from flask import Flask, render_template, session, request, url_for, flash, redirect
-from flask_login import LoginManager
+from flask import render_template, session, url_for, flash, redirect
+from flask_login import LoginManager, login_user
 from flask_login._compat import unicode
 
-from Database.annuncio_db import form_add_annuncio
-from Database.dbMysqlAlchemy import db_session, init_db
-from Database.utente_db import form_user, form_login_user, Utente, add_user, form_login_user
-from flask_wtf import FlaskForm
-from wtforms import (
-    StringField,
-    BooleanField,
-    DateTimeField,
-    RadioField,
-    SelectField,
-    TextAreaField,
-    SubmitField,
-)
-from wtforms.validators import DataRequired
+from project.Database.dbMysqlAlchemy import db_session
+from project.annuncio.annuncio_db import form_add_annuncio
 
-from Form.forms import LoginForm, RegistrationFormUtente, RegistrationFormAnnuncio, RegistrationFormRicerca
+from project.utenti.models import Utente
 
-app = Flask(__name__)
-db = init_db()
+from project.utenti.forms import RegistrationForm, LoginForm, RegistrationFormRicerca
+from flask_migrate import Migrate
+
+from project import db, create_app
+
+app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+Migrate(app, db)
+
 login_manager = LoginManager()
 current_app_login = login_manager.init_app(app)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -55,6 +51,7 @@ def home():  # put application's code here
     return render_template('index.html')
 
 
+'''
 @app.route('/registrazione_annuncio.html', methods=["GET", "POST"])
 def registrazione_annuncio():  # put application's code here
 
@@ -69,6 +66,7 @@ def registrazione_annuncio():  # put application's code here
 
     return render_template('registrazione_annuncio.html', form=form_annuncio)
 
+'''
 
 @app.route('/salva_annuncio.html')
 def salva_annuncio():  # put application's code here
@@ -136,9 +134,10 @@ def utente():  # put application's code here
     form_log = LoginForm()
 
     if form_log.validate_on_submit():
+        # user = form_login_user(db, form_log)
 
-        user = form_login_user(db, form_log)
-
+        #login_user(user)
+        next = flask.request.args.get("next")
         return redirect(url_for("TEST_RISULTATO"))
 
     return render_template('utente.html', form=form_log)
@@ -150,7 +149,7 @@ def get_id(self):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Utente.query.filter_by(alternative_id=user_id).first()
+    return Utente.get_id(user_id)
 
 
 def logout():
@@ -185,11 +184,12 @@ def registrazione_utente():  # put application's code here
 
 '''
 
+'''
 
 @app.route("/TEST_REGISTRAZIONE_UTENTE.html", methods=["GET", "POST"])
 def super_form():
     # Actions for the complicate form
-    form_utente = RegistrationFormUtente()
+    form_utente = RegistrationForm()
 
     if form_utente.validate_on_submit():
         log_err, nuovo_utente = form_user(db, form_utente)
@@ -215,6 +215,7 @@ def password_dimenticata():  # put application's code here
 def shutdown_session(exception=None):
     db_session.remove()
 
+'''
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
