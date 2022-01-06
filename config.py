@@ -45,9 +45,6 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{0}:{1}@{2}:{3}/{4}".format(secretsData.dbUser, secretsData.dbPass,
-                                                                           secretsData.dbHost, secretsData.dbPort,
-                                                                           secretsData.dbSchema)
 
     DEBUG = True
     # Settings per usare https://mailtrap.io/ - Registrati e cambia con i tuoi dati
