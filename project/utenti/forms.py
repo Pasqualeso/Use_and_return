@@ -1,9 +1,7 @@
-from datetime import datetime
-
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, SelectField, TextAreaField, \
-    EmailField, DateField, IntegerField, FileField
-from wtforms.validators import InputRequired, EqualTo, DataRequired, Email, ValidationError, Length
+from wtforms import StringField, PasswordField, SubmitField, SelectField, EmailField, DateField, IntegerField, \
+    FileField, BooleanField
+from wtforms.validators import EqualTo, DataRequired, Email, ValidationError, Length
 
 # classe form login utente
 from project.utenti.models import Utente
@@ -12,7 +10,7 @@ from project.utenti.models import Utente
 class LoginForm(FlaskForm):
     username = StringField("username", validators=[DataRequired()])
     password = PasswordField("password", validators=[DataRequired()])
-
+    remember_me = BooleanField('Ricordami su questo sito')
     submit_login = SubmitField("Submit")
 
 

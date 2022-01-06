@@ -1,12 +1,11 @@
+# Define blueprint
+from flask import Blueprint
 from flask import (
-    Blueprint,
     render_template,
     redirect,
     url_for,
     request,
     flash,
-    session,
-    current_app,
 )
 from flask_login import (
     login_user,
@@ -14,16 +13,10 @@ from flask_login import (
     login_required,
     current_user,
 )
-# Per le email
-# from project.email import send_email
 
+from project import db
 # from project.utenti.forms import TagForm
 from project.email import send_email
-from project.utenti.models import Utente
-from project import db
-
-from sqlalchemy import desc, asc
-
 from project.utenti.forms import (
     LoginForm,
     RegistrationForm,
@@ -32,9 +25,10 @@ from project.utenti.forms import (
     PasswordResetForm,
     ChangeEmailForm,
 )
+from project.utenti.models import Utente
 
-# Define blueprint
-from flask import Blueprint
+# Per le email
+# from project.email import send_email
 
 utenti_blueprint = Blueprint(
     "utenti",
@@ -119,9 +113,18 @@ def logout():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = Utente(email=form.email.data.lower(),
+        user = Utente(nome = form.nome_utente,
+                      cognome=form.cognome_utente.data,
                       username=form.username.data,
-                      password=form.password.data)
+                      password=form.password.data,
+                      sesso=form.sesso.data,
+                      citta = form.citta.data,
+                      provincia = form.provincia.data,
+                      cap = form.cap.data,
+                      via = form.via.data,
+                      telefono = form.telefono.data,
+                      data_di_nascita = form.data_di_nascita.data
+                      )
         db.session.add(user)
         db.session.commit()
         # Token e mail

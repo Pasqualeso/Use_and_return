@@ -1,23 +1,19 @@
 import hashlib
 from datetime import datetime
-import uuid
-from flask import session, current_app
+
+from flask import current_app
 from flask_login import UserMixin, AnonymousUserMixin
-from flask_login._compat import text_type
 from itsdangerous import Serializer
-from sqlalchemy import Table, Column, Integer, String
-from sqlalchemy import exc
-from wtforms import SubmitField
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from project import db, login_manager
-from project.Database.dbMysqlAlchemy import db_session, metadata
+from project.Database.dbMysqlAlchemy import db_session
 
 
 # CLASSE UTENTE
 class Utente(UserMixin, db.Model):
     query = db_session.query_property()
-    __tablename__ = 'Utente'
+    __tablename__ = 'utente'
     id_utente = db.Column(db.Integer, primary_key=True)
     nome_utente = db.Column(db.String(64), nullable=False)
     cognome_utente = db.Column(db.String(64), nullable=False)

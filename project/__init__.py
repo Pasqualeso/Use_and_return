@@ -1,30 +1,27 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
-from sqlalchemy import create_engine, MetaData
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, scoped_session
-
-from config import config
-# Per modulo autenticazione Utente
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 # Per email
 from flask_mail import Mail
+# Per modulo autenticazione Utente
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, MetaData
+from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
+
+import secretsData
+from config import config
 
 # Use bootstrap with the app
 bootstrap = Bootstrap()
 mail = Mail()
-db = SQLAlchemy()
 
-'''
-def init_db():
-    # import all modules here that might define models so that
-    # they will be registered properly on the metadata.  Otherwise
-    # you will have to import them first before calling init_db()
-    Base.metadata.create_all(bind=db)
-    return db    
-'''
+db = SQLAlchemy()
+db_session = scoped_session(sessionmaker(autocommit=False,
+                                             autoflush=False,
+                                             bind=db))
+metadata = MetaData(bind=db)
+Base = declarative_base()
+Base.metadata.create_all(bind=db)
 
 # Per modulo autenticazione Utente
 login_manager = LoginManager()
@@ -42,6 +39,8 @@ def create_app(config_name):
     bootstrap.init_app(app)
     mail.init_app(app)
     db.init_app(app)
+
+
 
     # Per modulo autenticazione Utente
     login_manager.init_app(app)

@@ -18,8 +18,6 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 import secretsData
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-
 
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -50,13 +48,6 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{0}:{1}@{2}:{3}/{4}".format(secretsData.dbUser, secretsData.dbPass,
                                                                            secretsData.dbHost, secretsData.dbPort,
                                                                            secretsData.dbSchema)
-    db = create_engine(SQLALCHEMY_DATABASE_URI)
-    db_session = scoped_session(sessionmaker(autocommit=False,
-                                             autoflush=False,
-                                             bind=db))
-    metadata = MetaData(bind=db)
-    Base = declarative_base()
-    Base.metadata.create_all(bind=db)
 
     DEBUG = True
     # Settings per usare https://mailtrap.io/ - Registrati e cambia con i tuoi dati

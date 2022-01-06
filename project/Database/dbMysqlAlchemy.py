@@ -3,8 +3,9 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import pymysql
 import secretsData
-from project import create_app,db
+from project import create_app, db
 
+'''
 conn = "mysql+pymysql://{0}:{1}@{2}:{3}/{4}".format(secretsData.dbUser, secretsData.dbPass, secretsData.dbHost,secretsData.dbPort, secretsData.dbSchema)
 db = create_engine(conn)
 db_session = scoped_session(sessionmaker(autocommit=False,
@@ -24,5 +25,5 @@ def init_db():
     # you will have to import them first before calling init_db()
     Base.metadata.create_all(bind=db)
     return db
-
+'''
 
