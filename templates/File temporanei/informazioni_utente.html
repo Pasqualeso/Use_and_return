@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/Login.css">
+    <link rel="stylesheet" href="/static/css/Utente.css">
+    <title>Informazioni utente</title>
+</head>
+<body>
+<!-- Sezione NavBar -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Use and return</a>
+            <!--link esterni-->
+            <div id="container">
+                <div class="action">
+                    <ul class="action">
+                        <li><a href="../index.html">
+                            <ion-icon name="search-outile">Home</ion-icon>
+                        </a></li>
+                        <li><a href="../categorie.html">
+                            <ion-icon name="search-outile">Categorie</ion-icon>
+                        </a></li>
+                        <li><a href="../utente.html">
+                            <ion-icon name="search-outile">Utente</ion-icon>
+                        </a></li>
+                        <li><a href="../registrazione_annuncio.html">
+                            <ion-icon name="search-outile">Aggiungi annuncio</ion-icon>
+                        </a></li>
+                        <li><a href="../carrello.html">
+                            <ion-icon name="search-outile">Carrello</ion-icon>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Sezione Account -->
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Informazioni account
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <form class="col-lg-4" action="" method="post" role="form">
+                    <label for="fname">Nome:</label><br>
+                    <output type="text" id="nome" name="nome"></output>
+
+                    <label for="lname">Cognome:</label><br>
+                        <output type="text" id="cognome" name="cognome"></output>
+
+                    <label for="fname">Data di nascita:</label><br>
+                        <output type="text" id="data_di_nascita" name="data_di_nascita"></output>
+
+                    <label for="fname">Email:</label><br>
+                    <output type="text" id="email" name="email"></output>
+
+                    <label for="fname">Telefono:</label><br>
+                        <output type="text" id="telefono" name="telefono"></output>
+
+                    <label for="fname">Username:</label><br>
+                        <output type="text" id="username" name="username"></output>
+
+                </form>
+                <p>Modifica password</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Noleggi effettuati
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>Titolo:</p>
+                <p>Codice:</p>
+                <p>Categoria:</p>
+                <p>Utente:</p>
+                <p>Data inzio noleggio:</p>
+                <p>Data fine noleggio:</p>
+                <p>Luogo</p>
+                <p>Prezzo totale:</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Noleggi dei tuoi annunci
+                </button>
+            </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>Titolo:</p>
+                <p>Codice.</p>
+                <p>Categoria:</p>
+                <p>Utente:</p>
+                <p>Data inzio noleggio:</p>
+                <p>Data fine noleggio:</p>
+                <p>Luogo</p>
+                <p>Guadagno totale:</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sezione menù -->
+<section id="Menù" class="Menù text-center">
+    <div class="container">
+        <a class="mb-5" href=../index.html><br>Torna allo shopping</a>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="#">Contact</a></li>
+                    <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright
+                    <strong><span>Università di Napoli Parthenope</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                </p>
+            </div>
+
+            <div class="col-lg-6 h-100 text-center text-lg-right">
+                <p class="testo">Seguici su:</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home%20Page/logo-insta.jpg"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home%20Page/logo-linkedln.png"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item"><a href="#"><img src="/static/images/Home%20Page/logo-twitter.png"
+                                                                  alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

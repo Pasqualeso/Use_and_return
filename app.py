@@ -25,7 +25,7 @@ db = init_db()
 login_manager = LoginManager()
 current_app_login = login_manager.init_app(app)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-curr_user = None
+
 
 
 @app.route('/')
