@@ -12,10 +12,7 @@ PBG_ADMIN=
 import os
 from pathlib import Path
 
-from sqlalchemy import create_engine, MetaData
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import scoped_session, sessionmaker
-
+#basedir = os.path.abspath(os.path.dirname(__file__))
 import secretsData
 
 
@@ -45,7 +42,9 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{0}:{1}@{2}:{3}/{4}".format(secretsData.dbUser, secretsData.dbPass,
+                                                                           secretsData.dbHost, secretsData.dbPort,
+                                                                           secretsData.dbSchema)
     DEBUG = True
     # Settings per usare https://mailtrap.io/ - Registrati e cambia con i tuoi dati
     MAIL_SERVER = 'smtp.mailtrap.io'
@@ -57,21 +56,19 @@ class DevConfig(Config):
     PBG_ADMIN = "useandreturn1@gmail.com"
 
 
-'''
-
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "testdata.sqlite")
+    #SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "testdata.sqlite")
     # To test configuration usage in unit test
     TESTING = True
     # disabling CSRF protection in the testing conguration
     WTF_CSRF_ENABLED = False
     # test admin
     EMAIL_ADMIN = "test1@test.it"
-'''
+
 
 config = {
     'development': DevConfig,
-    # 'testing': TestConfig,
+    'testing': TestConfig,
     'production': ProdConfig,
     'default': DevConfig
 }
