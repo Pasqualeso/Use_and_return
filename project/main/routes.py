@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
+
+from project.main.forms import RegistrationFormRicerca
 from project.ruoli.models import Permission
 
 main_blueprint = Blueprint(
@@ -24,4 +26,21 @@ def inject_permissions():
 
 @main_blueprint.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template("index.html")
+    form_ricerca = RegistrationFormRicerca()
+
+    if form_ricerca.validate_on_submit():
+        session["oggetto_ricerca"] = form_ricerca.oggetto_ricerca
+        session["categoria_ricerca"] = form_ricerca.categoria_ricerca
+        session["regione_ricerca "] = form_ricerca.regione_ricerca
+        session["data_inizio_noleggio_ricerca"] = form_ricerca.data_inizio_noleggio_ricerca
+        session["data_fine_noleggio_ricerca"] = form_ricerca.data_fine_noleggio_ricerca
+
+        submit_ricerca = form_ricerca.submit_ricerca
+
+        form_ricerca.oggetto_ricerca = ""
+        form_ricerca.categoria_ricerca = ""
+        form_ricerca.regione_ricerca = ""
+        form_ricerca.data_inizio_noleggio_ricerca = ""
+        form_ricerca.data_fine_noleggio_ricerca = ""
+
+    render_template('index.html', form=form_ricerca)

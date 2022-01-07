@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Registrazione Utente</title>
+</head>
+<body>
+<!--Sezione NavBar -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Use and return</a>
+            <!--link esterni-->
+            <div id="container">
+                <div class="action">
+                    <ul class="action">
+                        <li><a href="../index.html">
+                            <ion-icon name="search-outile">Home</ion-icon>
+                        </a></li>
+                        <li><a href="../categorie.html">
+                            <ion-icon name="search-outile">Categorie</ion-icon>
+                        </a></li>
+                        <li><a href="../utente.html">
+                            <ion-icon name="search-outile">Utente</ion-icon>
+                        </a></li>
+                        <li><a href="../registrazione_annuncio.html">
+                            <ion-icon name="search-outile">Aggiungi annuncio</ion-icon>
+                        </a></li>
+                        <li><a href="../carrello.html">
+                            <ion-icon name="search-outile">Carrello</ion-icon>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- CSS FORM -->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #ff7f50;
+    }
+
+    .inner-page {
+        background: rgba(0, 0, 0, .5);
+        margin: 100px auto;
+        font-family: Raleway;
+        padding: 40px;
+        width: 70%;
+        min-width: 300px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    select {
+        text-align: center;
+    }
+
+    .login-box form a {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #F1EEE6;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+        letter-spacing: 4px;
+    }
+
+    button {
+        background-color: #ff5a26;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 17px;
+        font-family: Raleway;
+        cursor: pointer;
+    }
+
+    h6 {
+        color: #dddddd;
+    }
+
+    h3 {
+        color: #dddddd;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+</style>
+</body>
+<!--HTML FORM-->
+<section class="inner-page">
+    <div class="container">
+
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-up">
+                    <h3>Registrazione utente</h3>
+                    <h6>INFOMRAZIONI:</h6>
+                    <br>
+                </div>
+
+                <div class="row">
+
+                    <div class="mb-5">
+
+                        <form action="" method="post" role="form" class="email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="nome"></label>
+                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"
+                                                                     required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="cognome"></label>
+                                    <input type="text" class="form-control" name="cognome" id="cognome"
+                                                                        placeholder="Cognome" required>
+                                </div>
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <label for="email"></label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                                                      required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="username"></label>
+                                    <input type="text" name="username" class="form-control" id="username"
+                                                                         placeholder="Username" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="password"></label>
+                                    <input type="password" class="form-control" name="password" id="password"
+                                                                         placeholder="Password" required>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0 ">
+                                    <label for="sesso"></label>
+                                    <select class="form-control" id="sesso" name="sesso"
+                                                                       style="padding:10px; border-radius: 0;">
+                                        <option value="" selected="true" disabled="disabled">Sesso
+                                        </option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                        <option value="N">N</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="telefono"></label>
+                                    <input type="text" class="form-control" name="telefono" id="telefono"
+                                                                         placeholder="Telefono"
+                                                                         required>
+                                </div>
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <div type="text" class="form-control"
+                                         id="data_nascita_utente">Data di nascita:
+                                        <label for="data_nascita_utente"></label>
+                                        <input type="date" class="form-control" name="data_nascita_utente"
+                                                                                        id="data_nascita_utente" required>
+                                        <br>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="citta"></label>
+                                    <input type="text" class="form-control" name="citta" id="citta"
+                                                                      placeholder="Città domicilio"
+                                                                      required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="provincia"></label>
+                                    <select class="form-control" id="provincia" name="provincia"
+                                                                           style="padding:10px; border-radius: 0;">
+                                        <option value="" selected="true" disabled="disabled">Provincia domicilio
+                                        </option>
+                                        <option value="ag">Agrigento</option>
+                                        <option value="al">Alessandria</option>
+                                        <option value="an">Ancona</option>
+                                        <option value="ao">Aosta</option>
+                                        <option value="ar">Arezzo</option>
+                                        <option value="ap">Ascoli Piceno</option>
+                                        <option value="at">Asti</option>
+                                        <option value="av">Avellino</option>
+                                        <option value="ba">Bari</option>
+                                        <option value="bt">Barletta-Andria-Trani</option>
+                                        <option value="bl">Belluno</option>
+                                        <option value="bn">Benevento</option>
+                                        <option value="bg">Bergamo</option>
+                                        <option value="bi">Biella</option>
+                                        <option value="bo">Bologna</option>
+                                        <option value="bz">Bolzano</option>
+                                        <option value="bs">Brescia</option>
+                                        <option value="br">Brindisi</option>
+                                        <option value="ca">Cagliari</option>
+                                        <option value="cl">Caltanissetta</option>
+                                        <option value="cb">Campobasso</option>
+                                        <option value="ci">Carbonia-iglesias</option>
+                                        <option value="ce">Caserta</option>
+                                        <option value="ct">Catania</option>
+                                        <option value="cz">Catanzaro</option>
+                                        <option value="ch">Chieti</option>
+                                        <option value="co">Como</option>
+                                        <option value="cs">Cosenza</option>
+                                        <option value="cr">Cremona</option>
+                                        <option value="kr">Crotone</option>
+                                        <option value="cn">Cuneo</option>
+                                        <option value="en">Enna</option>
+                                        <option value="fm">Fermo</option>
+                                        <option value="fe">Ferrara</option>
+                                        <option value="fi">Firenze</option>
+                                        <option value="fg">Foggia</option>
+                                        <option value="fc">Forl&igrave;-Cesena</option>
+                                        <option value="fr">Frosinone</option>
+                                        <option value="ge">Genova</option>
+                                        <option value="go">Gorizia</option>
+                                        <option value="gr">Grosseto</option>
+                                        <option value="im">Imperia</option>
+                                        <option value="is">Isernia</option>
+                                        <option value="sp">La spezia</option>
+                                        <option value="aq">L'aquila</option>
+                                        <option value="lt">Latina</option>
+                                        <option value="le">Lecce</option>
+                                        <option value="lc">Lecco</option>
+                                        <option value="li">Livorno</option>
+                                        <option value="lo">Lodi</option>
+                                        <option value="lu">Lucca</option>
+                                        <option value="mc">Macerata</option>
+                                        <option value="mn">Mantova</option>
+                                        <option value="ms">Massa-Carrara</option>
+                                        <option value="mt">Matera</option>
+                                        <option value="vs">Medio Campidano</option>
+                                        <option value="me">Messina</option>
+                                        <option value="mi">Milano</option>
+                                        <option value="mo">Modena</option>
+                                        <option value="mb">Monza e della Brianza</option>
+                                        <option value="na">Napoli</option>
+                                        <option value="no">Novara</option>
+                                        <option value="nu">Nuoro</option>
+                                        <option value="og">Ogliastra</option>
+                                        <option value="ot">Olbia-Tempio</option>
+                                        <option value="or">Oristano</option>
+                                        <option value="pd">Padova</option>
+                                        <option value="pa">Palermo</option>
+                                        <option value="pr">Parma</option>
+                                        <option value="pv">Pavia</option>
+                                        <option value="pg">Perugia</option>
+                                        <option value="pu">Pesaro e Urbino</option>
+                                        <option value="pe">Pescara</option>
+                                        <option value="pc">Piacenza</option>
+                                        <option value="pi">Pisa</option>
+                                        <option value="pt">Pistoia</option>
+                                        <option value="pn">Pordenone</option>
+                                        <option value="pz">Potenza</option>
+                                        <option value="po">Prato</option>
+                                        <option value="rg">Ragusa</option>
+                                        <option value="ra">Ravenna</option>
+                                        <option value="rc">Reggio di Calabria</option>
+                                        <option value="re">Reggio nell'Emilia</option>
+                                        <option value="ri">Rieti</option>
+                                        <option value="rn">Rimini</option>
+                                        <option value="rm">Roma</option>
+                                        <option value="ro">Rovigo</option>
+                                        <option value="sa">Salerno</option>
+                                        <option value="ss">Sassari</option>
+                                        <option value="sv">Savona</option>
+                                        <option value="si">Siena</option>
+                                        <option value="sr">Siracusa</option>
+                                        <option value="so">Sondrio</option>
+                                        <option value="ta">Taranto</option>
+                                        <option value="te">Teramo</option>
+                                        <option value="tr">Terni</option>
+                                        <option value="to">Torino</option>
+                                        <option value="tp">Trapani</option>
+                                        <option value="tn">Trento</option>
+                                        <option value="tv">Treviso</option>
+                                        <option value="ts">Trieste</option>
+                                        <option value="ud">Udine</option>
+                                        <option value="va">Varese</option>
+                                        <option value="ve">Venezia</option>
+                                        <option value="vb">Verbano-Cusio-Ossola</option>
+                                        <option value="vc">Vercelli</option>
+                                        <option value="vr">Verona</option>
+                                        <option value="vv">Vibo valentia</option>
+                                        <option value="vi">Vicenza</option>
+                                        <option value="vt">Viterbo</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="via"></label>
+                                    <label for="via"></label>
+                                    <input type="text" class="form-control" name="via" id="via"
+                                                                    placeholder="Via domicilio"
+                                                                    required>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="cap"></label>
+                                    <input type="text" class="form-control" name="cap" id="cap"
+                                                                    placeholder="Cap domicilio"
+                                                                    required>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-2">
+                                <button type="submit">Registrati</button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+
+    </div>
+</section>
+<!-- Sezione recensioni clienti -->
+<section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
+    <div class="container">
+        <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente1" src="/static/images/Home%20Page/cliente1.jpg" alt="">
+                    <h5>Luca Rossi</h5>
+                    <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
+                        guadagnare!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente2" src="/static/images/Home%20Page/cliente2.jpg" alt="">
+                    <h5>Paolo Bianchi</h5>
+                    <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounder-circle mb-3 cliente3" src="/static/images/Home%20Page/cliente3.jpg" alt="">
+                    <h5>Matteo Verdi</h5>
+                    <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Sezione Newsletter -->
+<section id="contattaci" class="newsletter text-white text-center">
+    <div class="container">
+        <style>
+            .newsletter {
+                background-image: url("/static/images/newsletter.jpeg");
+            }
+        </style>
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h2 class="mb-4">Iscriviti alla nostra newsletter!</h2>
+            </div>
+            <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                <form>
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            <label for="exampleInputEmail1"></label>
+                            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                                                           aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="#">Contact</a></li>
+                    <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright <strong><span>Università di Napoli Parthenope</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong></p>
+            </div>
+
+            <div class="col-lg-6 h-100 text-center text-lg-right">
+                <p class="testo">Seguici su:</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home%20Page/logo-insta.jpg"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home%20Page/logo-linkedln.png"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item"><a href="#"><img src="/static/images/Home%20Page/logo-twitter.png"
+                                                                       alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
