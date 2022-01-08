@@ -1,6 +1,6 @@
 Ciao {{ user.username }},
 
-Benvenuto nel Python Biella Group!
+Benvenuto nell' Uniparthenope Group!
 
 Per confermare la tua registrazione, clicca sul seguente link:
 
@@ -8,6 +8,6 @@ Per confermare la tua registrazione, clicca sul seguente link:
 
 Cordialmente,
 
-Python Biella Group
+Uniparthenope Group
 
 (Non rispondere a questa mail, nessuno controlla)

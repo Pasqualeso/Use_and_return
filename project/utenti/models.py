@@ -9,24 +9,24 @@ from project import db, login_manager
 from flask import current_app, request, url_for
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
-#from project.ruoli.models import Ruolo
-#from project.ruoli.models import Permission
+from project.ruoli.models import Ruolo
+from project.ruoli.models import Permission
 from project.ruoli.models import Permission, Ruolo
 
 
 class Utente(UserMixin, db.Model):
     __tablename__ = 'utente'
 
-    id_utente = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    confirmed = db.Column(db.Boolean, default=False)
 
     nome_utente = db.Column(db.String(64))
     cognome_utente = db.Column(db.String(64))
     sesso_utente = db.Column(db.String(15))
-
+    data_di_nascita_utente = db.Column(db.DateTime)
+    telefono_utente = db.Column(db.String(10))
     citta_utente = db.Column(db.String(64))
     provincia_utente = db.Column(db.String(64))
     via_utente = db.Column(db.String(64))
@@ -34,6 +34,7 @@ class Utente(UserMixin, db.Model):
 
     data_creazione_utente = db.Column(db.DateTime(), default=datetime.utcnow)
     ultimo_accesso = db.Column(db.DateTime(), default=datetime.utcnow)
+    confirmed = db.Column(db.Boolean, default=False)
 
     role_id = db.Column(db.Integer, db.ForeignKey('ruoli.id'))
     #avatar_hash = db.Column(db.String(32))
@@ -65,9 +66,9 @@ class Utente(UserMixin, db.Model):
         super(Utente, self).__init__(**kwargs)
         if self.ruolo is None:
             if self.email == current_app.config['PBG_ADMIN']:
-                self.ruolo = Ruolo.query.filter_by(name='Administrator').first()
+                self.ruolo = Ruolo.query.filter_by(name_role='Administrator').first()
             if self.ruolo is None:
-                self.ruolo = Ruolo.query.filter_by(default=True).first()
+                self.ruolo = Ruolo.query.filter_by(default_role=True).first()
         #if self.email is not None and self.avatar_hash is None:
             #self.avatar_hash = self.gravatar_hash()
         
@@ -147,7 +148,7 @@ class Utente(UserMixin, db.Model):
         if self.query.filter_by(email=new_email).first() is not None:
             return False
         self.email = new_email
-        self.avatar_hash = self.gravatar_hash()
+        # self.avatar_hash = self.gravatar_hash()
         db.session.add(self)
         return True
 
@@ -159,7 +160,7 @@ class Utente(UserMixin, db.Model):
         return self.can(Permission.ADMIN)
 
     def ping(self):
-        self.last_seen = datetime.utcnow()
+        self.ultimo_accesso = datetime.utcnow()
         db.session.add(self)
 
     # Avatar

@@ -35,7 +35,7 @@ def index():
         session["data_inizio_noleggio_ricerca"] = form_ricerca.data_inizio_noleggio_ricerca
         session["data_fine_noleggio_ricerca"] = form_ricerca.data_fine_noleggio_ricerca
 
-        submit_ricerca = form_ricerca.submit_ricerca
+        submit_ricerca = form_ricerca.submit
 
         form_ricerca.oggetto_ricerca = ""
         form_ricerca.categoria_ricerca = ""

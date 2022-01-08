@@ -22,8 +22,8 @@ class Permission:
 class Ruolo(db.Model):
     __tablename__ = 'ruoli'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), unique=True)
-    default = db.Column(db.Boolean, default=False, index=True)
+    name_role = db.Column(db.String(64), unique=True)
+    default_role = db.Column(db.Boolean, default=False, index=True)
     permissions = db.Column(db.Integer)
     # n utenti hanno un certo ruolo
     users = db.relationship('Utente', backref='ruolo', lazy='dynamic')

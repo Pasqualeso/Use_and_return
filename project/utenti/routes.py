@@ -99,7 +99,17 @@ def register():
     if form.validate_on_submit():
         user = Utente(email=form.email.data.lower(),
                       username=form.username.data,
-                      password=form.password.data)
+                      password=form.password.data,
+                      nome_utente=form.nome_utente.data,
+                      cognome_utente=form.cognome_utente.data,
+                      sesso_utente=form.sesso.data,
+                      data_di_nascita_utente=form.data_di_nascita.data,
+                      telefono_utente=form.telefono.data,
+                      citta_utente=form.citta.data,
+                      provincia_utente = form.provincia.data,
+                      via_utente=form.via.data,
+                      cap_utente=form.cap.data,
+                      )
         db.session.add(user)
         db.session.commit()
         # Token e mail
