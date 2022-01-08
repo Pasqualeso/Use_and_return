@@ -54,15 +54,6 @@ originale modficato con top:        -->
         <div id="container">
             <div class="action">
                 <ul class="action">
-                    <li><a href="{{ url_for('main.HomePage') }}">
-                        <ion-icon name="search-outile">Home Page</ion-icon>
-                    </a></li>
-                    <li><a href="categorie.html">
-                        <ion-icon name="search-outile">Categorie</ion-icon>
-                    </a></li>
-                    <!--<li><a href="utente.html">
-                        <ion-icon name="search-outile">Login</ion-icon> -->
-
                     <!--Gestione LOGIN / LOGOUT -->
                     {% if  current_user.is_authenticated %}
                         <a class="btn btn-primary btn-sm"
@@ -70,12 +61,9 @@ originale modficato con top:        -->
                     {% else %}
                         <a class="btn btn-primary btn-sm" href="{{ url_for('utenti.login') }}">Accedi</a>
                     {% endif %}
-
-
-                    </a></li>
                     <!-- Menu sotto visibile solo agli utenti loggati -->
                     {% if current_user.is_authenticated %}
-                         <li><a href="#">
+                        <li><a href="#">
                             <ion-icon name="search-outile">Informazioni utente</ion-icon>
                         </a></li>
                         <li><a href="registrazione_annuncio.html">
@@ -85,13 +73,22 @@ originale modficato con top:        -->
                             <ion-icon name="search-outile">Carrello</ion-icon>
                         </a></li>
                     {% endif %}
+                    <li><a href="{{ url_for('main.HomePage') }}">
+                        <ion-icon name="search-outile">Home Page</ion-icon>
+                    </a></li>
+                    <li><a href="categorie.html">
+                        <ion-icon name="search-outile">Categorie</ion-icon>
+                    </a></li>
+                    <!--<li><a href="utente.html">
+                        <ion-icon name="search-outile">Login</ion-icon> -->
+                    </a></li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
 
-    <!-- Optional JavaScript -->
+<!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
