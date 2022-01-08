@@ -26,7 +26,8 @@ def inject_permissions():
 
 @main_blueprint.route("/", methods=['GET', 'POST'])
 def index():
-    form_ricerca = RegistrationFormRicerca()
+    '''
+     form_ricerca = RegistrationFormRicerca()
 
     if form_ricerca.validate_on_submit():
         session["oggetto_ricerca"] = form_ricerca.oggetto_ricerca
@@ -42,5 +43,7 @@ def index():
         form_ricerca.regione_ricerca = ""
         form_ricerca.data_inizio_noleggio_ricerca = ""
         form_ricerca.data_fine_noleggio_ricerca = ""
+    '''
 
-    render_template('index.html', form=form_ricerca)
+
+    render_template('index.html')
