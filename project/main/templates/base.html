@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/Login.css">
     <script javascript src=../static/js/carrello.js></script>
     <title>Use and return</title>
 </head>
@@ -27,7 +28,7 @@
 originale modficato con top:        -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Use and return</a>
+        <a class="navbar-brand" href="{{ url_for('main.HomePage') }}">Use and return</a>
         <!-- DECIDERE SE TENERE IL BOTTONO IN MODALITà MOBILE
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,8 +54,8 @@ originale modficato con top:        -->
         <div id="container">
             <div class="action">
                 <ul class="action">
-                    <li><a href="index.html">
-                        <ion-icon name="search-outile">Home</ion-icon>
+                    <li><a href="{{ url_for('main.HomePage') }}">
+                        <ion-icon name="search-outile">Home Page</ion-icon>
                     </a></li>
                     <li><a href="categorie.html">
                         <ion-icon name="search-outile">Categorie</ion-icon>
@@ -74,6 +75,9 @@ originale modficato con top:        -->
                     </a></li>
                     <!-- Menu sotto visibile solo agli utenti loggati -->
                     {% if current_user.is_authenticated %}
+                         <li><a href="#">
+                            <ion-icon name="search-outile">Informazioni utente</ion-icon>
+                        </a></li>
                         <li><a href="registrazione_annuncio.html">
                             <ion-icon name="search-outile">Aggiungi annuncio</ion-icon>
                         </a></li>
@@ -86,6 +90,7 @@ originale modficato con top:        -->
         </div>
     </div>
 </nav>
+
     <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -98,4 +103,9 @@ originale modficato con top:        -->
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 {% block content %} {% endblock %}
+
+
+
+
+
 

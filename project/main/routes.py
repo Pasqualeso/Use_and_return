@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session
+from flask import Blueprint, render_template, session, redirect, url_for
 
 from project.main.forms import RegistrationFormRicerca
 from project.ruoli.models import Permission
@@ -44,5 +44,10 @@ def index():
         form_ricerca.data_fine_noleggio_ricerca = ""
 
     return render_template('index.html', form=form_ricerca)
+
+# Gestione ritorno sulla home page
+@main_blueprint.route('/HomePage')
+def HomePage():
+    return redirect(url_for('main.index'))
 
 

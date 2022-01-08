@@ -1,36 +1,92 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
-
-<!-- Messaggi flash -->
-<div class="container">
-  {# Flashed messages #}
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, message in messages %}
-        <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-  {# End Flashed messages #}
-</div> 
-
-<div class="container text-center">
-  <br>
-  <h1>Accedi all'area riservata</h1>
-  <br>
-</div>
-
-<div class="container">
-  <div class="row align-items-center justify-content-center">
-
-    <div class="col-md-4">
-    {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}) }}
     <br>
-    <p>Password dimenticata? <a class="btn btn-primary" href="{{ url_for('utenti.password_reset_request') }}">Reset password</a>.</p>
-    <p>Nuovo utente? <a class="btn btn-secondary" href="{{ url_for('utenti.register') }}">Registrati</a></p>
-  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Messaggi flash -->
+    <div class="container">
+        {# Flashed messages #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {# End Flashed messages #}
+    </div>
+    <!--Sezione Login -->
+    <section class login>
+        <div class="container">
+            <div class="login-box">
+                <h3>Accedi all'area riservata</h3>
+                <br>
 
-  </div>
-</div>
+                <div class="text-center">
+                    <div class="container">
+                        <div class="mb-5">
+                        {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}) }}
+                        <br>
+                </div>
+                <!-- collegamenti -->
+                <style>
+                    button {
+                        background-color: #ff5a26;
+                        color: #ffffff;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 17px;
+                        font-family: Raleway;
+                        cursor: pointer;
+                    }
+                </style>
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <div class="container">
+                        <div class="mb-5">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <p>Password dimenticata? <a class="btn btn-primary"
+                                                        href="{{ url_for('utenti.password_reset_request') }}">Reset
+                                password</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="container">
+                        <div class="mb-5">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <p>Nuovo utente? <a class="btn btn-secondary" href="{{ url_for('utenti.register') }}">Registrati</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 {% endblock %}
+

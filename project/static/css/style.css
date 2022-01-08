@@ -26,21 +26,26 @@
     font-size: 2em;
     font-weight: 700;
 }
-.navbar-light .navbar-brand:hover{
+
+.navbar-light .navbar-brand:hover {
     color: coral;
 }
+
 .navbar-light .navbar-nav .nav-link {
     color: #222222;
 }
-.navbar-light .navbar-nav .nav-link:hover{
-    color: coral ;
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: coral;
 }
+
 a {
     color: #222222;
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
 }
+
 a:hover {
     color: coral;
     text-decoration: none;
@@ -90,6 +95,7 @@ a:hover {
     letter-spacing: 2px;
     padding: 13px;
 }
+
 .card {
     position: relative;
     display: flex;
@@ -101,25 +107,28 @@ a:hover {
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, .125);
     border-radius: 0.25rem;
 }
-.categorie{
+
+.categorie {
     padding-top: 1rem;
     padding-bottom: 7rem;
 }
 
-.wrapper{
+.wrapper {
     max-height: 600px;
     border: 10px solid #ff7f50;
     display: flex;
     overflow-x: auto;
     padding: 10px;
 }
-.wrapper::-webkit-scrollbar{
+
+.wrapper::-webkit-scrollbar {
     width: 0;
 }
-.wrapper.categoria-singola{
+
+.wrapper.categoria-singola {
     min-width: 100px;
     height: 100%;
     width: 100%;
@@ -129,6 +138,7 @@ a:hover {
     margin-right: 2px;
 
 }
+
 .RecuperoPassword {
     text-align: center;
     color: white;
@@ -150,24 +160,29 @@ a:hover {
     width: 100%;
 
 }
+
 .la-nostra-idea.testo {
     padding: 3rem;
 }
 
-.DiconoDiNoi{
+.DiconoDiNoi {
     padding-top: 7rem;
     padding-bottom: 7rem;
 }
-.DiconoDiNoi .cliente1{
+
+.DiconoDiNoi .cliente1 {
     min-height: 15rem;
 }
-.DiconoDiNoi .cliente2{
+
+.DiconoDiNoi .cliente2 {
     font-size: 5rem;
 }
-.DiconoDiNoi .cliente3{
+
+.DiconoDiNoi .cliente3 {
     min-height: 15rem;
 }
-.newsletter{
+
+.newsletter {
     background-color: #848484;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -175,7 +190,8 @@ a:hover {
     background-position: center;
     background-blend-mode: multiply;
 }
-footer{
+
+footer {
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
