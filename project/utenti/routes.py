@@ -15,10 +15,12 @@ from flask_login import (
     current_user,
 )
 # Per le email
+from project.annunci.models import Annuncio
 from project.email import send_email
 
 # from project.utenti.forms import TagForm
-from project.utenti.models import Utente
+from project.ruoli.models import Ruolo
+from project.utenti.models import Utente, load_user
 from project import db
 
 from sqlalchemy import desc, asc
@@ -83,6 +85,22 @@ def login():
     return render_template('login.html', form=form)
 
 
+# Gestione Informazioni utente
+@utenti_blueprint.route('/informazioni_utente', methods=['GET', 'POST'])
+@login_required
+def Informazioni_utente():
+    # Ordinamento alfabetico ascendente per titolo
+    if current_user.is_authenticated:
+        # Carico le informazioni dell'utente
+        id_utente_loggato = current_user.get_id()
+        utente = load_user(id_utente_loggato)
+        ruolo = Ruolo.query.filter_by(id=utente.role_id).first()
+        lista_annunci = Annuncio.query.filter_by(id_utente_rf_annuncio=utente.id)
+        print(lista_annunci)
+
+    return render_template('informazioni_utente.html', user=utente, ruolo=ruolo, lista_annunci=lista_annunci)
+
+
 # Gestione logout
 @utenti_blueprint.route('/logout')
 @login_required
@@ -106,7 +124,7 @@ def register():
                       data_di_nascita_utente=form.data_di_nascita.data,
                       telefono_utente=form.telefono.data,
                       citta_utente=form.citta.data,
-                      provincia_utente = form.provincia.data,
+                      provincia_utente=form.provincia.data,
                       via_utente=form.via.data,
                       cap_utente=form.cap.data,
                       )

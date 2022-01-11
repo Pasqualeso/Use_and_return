@@ -45,9 +45,8 @@ def index():
 
     return render_template('index.html', form=form_ricerca)
 
+
 # Gestione ritorno sulla home page
 @main_blueprint.route('/HomePage')
 def HomePage():
     return redirect(url_for('main.index'))
-
-

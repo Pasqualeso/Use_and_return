@@ -1,6 +1,8 @@
 from datetime import datetime
 # Per la gestione delle password
 import hashlib
+
+from flask_login._compat import unicode
 from werkzeug.security import generate_password_hash, check_password_hash
 # Per flask_login
 from flask_login import UserMixin, AnonymousUserMixin
@@ -37,9 +39,8 @@ class Utente(UserMixin, db.Model):
     confirmed = db.Column(db.Boolean, default=False)
 
     role_id = db.Column(db.Integer, db.ForeignKey('ruoli.id'))
-    #avatar_hash = db.Column(db.String(32))
+    # avatar_hash = db.Column(db.String(32))
     # FK - Ruolo dell'utente
-
 
     '''
     Utile per il popolamento dei dati e per i test
@@ -69,13 +70,10 @@ class Utente(UserMixin, db.Model):
                 self.ruolo = Ruolo.query.filter_by(name_role='Administrator').first()
             if self.ruolo is None:
                 self.ruolo = Ruolo.query.filter_by(default_role=True).first()
-        #if self.email is not None and self.avatar_hash is None:
-            #self.avatar_hash = self.gravatar_hash()
-        
-        
-        # self.follow(self)
-        
+        # if self.email is not None and self.avatar_hash is None:
+        # self.avatar_hash = self.gravatar_hash()
 
+        # self.follow(self)
 
     @property
     def password(self):
@@ -172,7 +170,6 @@ class Utente(UserMixin, db.Model):
         hash = self.avatar_hash or self.gravatar_hash()
         return '{url}/{hash}?s={size}&d={default}&r={rating}'.format(
             url=url, hash=hash, size=size, default=default, rating=rating)
-
 
     def generate_auth_token(self, expiration):
         s = Serializer(current_app.config['SECRET_KEY'],

@@ -63,10 +63,10 @@ originale modficato con top:        -->
                     {% endif %}
                     <!-- Menu sotto visibile solo agli utenti loggati -->
                     {% if current_user.is_authenticated %}
-                        <li><a href="#">
+                        <li><a href="{{ url_for('utenti.Informazioni_utente')}}">
                             <ion-icon name="search-outile">Informazioni utente</ion-icon>
                         </a></li>
-                        <li><a href="registrazione_annuncio.html">
+                        <li><a href="{{ url_for('annunci.registrazione_annuncio') }}">
                             <ion-icon name="search-outile">Aggiungi annuncio</ion-icon>
                         </a></li>
                         <li><a href="carrello.html">

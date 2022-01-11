@@ -18,6 +18,7 @@
         <option value="$MODULE_DIR$/project/error_pages/templates" />
         <option value="$MODULE_DIR$/project/main/templates" />
         <option value="$MODULE_DIR$/project/utenti/templates" />
+        <option value="$MODULE_DIR$/project/annunci/templates" />
       </list>
     </option>
   </component>

@@ -47,6 +47,8 @@ def create_app(config_name):
     app.register_blueprint(serate_blueprint, url_prefix="/serate", url_static="../static")
  
     '''
+    from project.annunci.routes import annunci_blueprint
+    app.register_blueprint(annunci_blueprint, url_prefix="/annunci", url_static="../static")
 
     from project.utenti.routes import utenti_blueprint
     app.register_blueprint(utenti_blueprint, url_prefix="/utenti", url_static="../static")

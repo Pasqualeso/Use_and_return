@@ -1,6 +1,5 @@
 from project import db
 
-
 '''
 The list of tasks for which permissions are needed is obviously application specific
 The benefit of using powers of two for permission values is that it allows permissions 
@@ -12,12 +11,15 @@ other users and comment on posts,
 the permission value is FOLLOW + COMMENT = 3. 
 This is a very efficient way to store the list of permissions assigned to each role.
 '''
+
+
 class Permission:
     FOLLOW = 1
     COMMENT = 2
     WRITE = 4
     MODERATE = 8
     ADMIN = 16
+
 
 class Ruolo(db.Model):
     __tablename__ = 'ruoli'
@@ -39,6 +41,7 @@ class Ruolo(db.Model):
     '''
     Inserimento dei ruoli nel db; User è il default
     '''
+
     @staticmethod
     def insert_roles():
         roles = {

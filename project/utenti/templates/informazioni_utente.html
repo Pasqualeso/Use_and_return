@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/Login.css">
+    <link rel="stylesheet" href="/static/css/Utente.css">
+    <title>Informazioni utente</title>
+</head>
+<body>
+<!-- Sezione NavBar -->
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+<!-- Sezione Account -->
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Informazioni account
+                </button>
+            </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <ul>
+                    <li>Id utente: <b>{{ user.id }}</b></li>
+                    <li>Nome utente: <b>{{ user.nome_utente  }}</b></li>
+                    <li>Cognome utente: <b>{{ user.cognome_utente }}</b></li>
+                    <li>Email: <b>{{ user.email }}</b></li>
+                    <li>Username: <b>{{ user.username }}</b></li>
+                    <li>Sesso: <b>{{ user.sesso_utente }}</b></li>
+                    <li>Telefono: <b>{{ user.telefono_utente }}</b></li>
+                    <li>Data di nascita: <b>{{ user.data_di_nascita_utente }}</b></li>
+                    <li>Citta': <b>{{ user.citta_utente }}</b></li>
+                    <li>Provincia: <b>{{ user.provincia_utente }}</b></li>
+                    <li>Via: <b>{{ user.via_utente }}</b></li>
+                    <li>Cap: <b>{{ user.cap_utente }}</b></li>
+                    <li>Ultimo accesso: <b>{{ user.ultimo_accesso }}</b></li>
+                    <li>Ruolo: <b>{{ ruolo.name_role }}</b></li>
+                </ul>
+                <!-- Sezione modica informazioni -->
+                <style>
+                    button {
+                        background-color: #ff5a26;
+                        color: #ffffff;
+                        border: none;
+                        padding: 10px 20px;
+                        font-size: 17px;
+                        font-family: Raleway;
+                        cursor: pointer;
+                    }
+                </style>
+               <!-- <section id="Modifiche" class="Menù text-center">
+                    <div class="container">
+                        <a class="mb-5 alert-danger button" href="TEST_REGISTRAZIONE_UTENTE.html"><br>
+                            <button>MODIFICA LE TUE INFORMAZIONI</button>
+                        </a>
+                    </div>
+                </section>-->
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    I miei annununci
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <ul>
+                    <li>Titolo annuncio: <b>{{ session['titolo_annuncio'] }}</b></li>
+                    <li>Categoria annuncio: <b>{{ session['categoria_annuncio'] }}</b></li>
+                    <li>Descrizione annuncio: <b>{{ session['descrizione_annuncio'] }}</b></li>
+                    <li>Data inzio noleggio: <b>{{ session['data_inizio_noleggio_annuncio'] }}</b></li>
+                    <li>Data fine noleggio: <b>{{ session['data_fine_noleggio_annuncio'] }}</b></li>
+                    <li>Immagine annuncio: <b>{{ session['immagine_annuncio'] }}</b></li>
+                </ul>
+                <section id="Modifiche" class="Menù text-center">
+                    <div class="container">
+                        <a class="mb-5 alert-danger button" href="registrazione_annuncio.html"><br>
+                            <button>MODIFICA LE TUE INFORMAZIONI</button>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Noleggi effettuati
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>Titolo:</p>
+                <p>Codice:</p>
+                <p>Categoria:</p>
+                <p>Utente:</p>
+                <p>Data inzio noleggio:</p>
+                <p>Data fine noleggio:</p>
+                <p>Luogo</p>
+                <p>Prezzo totale:</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Noleggi dei tuoi annunci
+                </button>
+            </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>Titolo:</p>
+                <p>Codice.</p>
+                <p>Categoria:</p>
+                <p>Utente:</p>
+                <p>Data inzio noleggio:</p>
+                <p>Data fine noleggio:</p>
+                <p>Luogo</p>
+                <p>Guadagno totale:</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sezione menù -->
+<section id="Menù" class="Menù text-center">
+    <div class="container">
+        <a class="mb-5" href=index.html><br>
+            <button>Torna allo shopping</button>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="#">Contact</a></li>
+                    <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright
+                    <strong><span>Università di Napoli Parthenope</span></strong></p>
+                <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                </p>
+            </div>
+
+            <div class="col-lg-6 h-100 text-center text-lg-right">
+                <p class="testo">Seguici su:</p>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home Page/logo-insta.jpg"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item mr-3"><a href="#"><img src="/static/images/Home Page/logo-linkedln.png"
+                                                                       alt=""></a>
+                    </li>
+                    <li class="list-inline-item"><a href="#"><img src="/static/images/Home Page/logo-twitter.png"
+                                                                  alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+{% endblock %}
