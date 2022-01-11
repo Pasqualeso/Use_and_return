@@ -5,9 +5,9 @@ from wtforms.validators import DataRequired
 
 
 class RegistrationFormRicerca(FlaskForm):
-    oggetto_ricerca = StringField("Inserisci oggetto", validators=[DataRequired()])
+    oggetto_ricerca = StringField("Cosa vuoi noleggiare?", validators=[DataRequired()])
     categoria_ricerca = SelectField(
-        "Inserisci la categoria",
+        "Categoria",
         choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console e videogiochi", "Console e videogiochi"),
                  ("informatica", "Informatica"),
                  ("accessori auto", "Accessori auto"), ("giocattoli", "Giocattoli"), ("fotografia", "Fotografia"),
