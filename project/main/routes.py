@@ -51,5 +51,3 @@ def HomePage():
     return redirect(url_for('main.index'))
 
 
-
-

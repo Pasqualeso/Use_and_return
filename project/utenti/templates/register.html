@@ -19,36 +19,100 @@
         {% endwith %}
         {# End Flashed messages #}
     </div>
+    <!-- CSS FORM -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <section class login>
+        body {
+            background-color: #ff7f50;
+        }
+
+        .inner-page {
+            background: rgba(0, 0, 0, .5);
+            margin: 100px auto;
+            font-family: Raleway;
+            padding: 40px;
+            width: 70%;
+            min-width: 300px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        input {
+            text-align: center;
+        }
+
+        select {
+            text-align: center;
+        }
+
+        .login-box form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #F1EEE6;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px;
+        }
+
+        button {
+            background-color: #ff5a26;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer;
+        }
+
+        h6 {
+            color: #dddddd;
+        }
+
+        h3 {
+            color: #dddddd;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+    </body>
+    <!--HTML FORM-->
+    <section class="inner-page">
         <div class="container">
-            <div class="login-box">
-                <h3>Registrazione al sito</h3>
-                <br>
 
-                <div class="text-center">
-                    <div class="container">
-                        <div class="mb-5 text-center">
-                            {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}) }}
-                        </div>
-                        <!-- collegamenti -->
-                        <style>
-                            button {
-                                background-color: #ff5a26;
-                                color: #ffffff;
-                                border: none;
-                                padding: 10px 20px;
-                                font-size: 17px;
-                                font-family: Raleway;
-                                cursor: pointer;
-                            }
-                        </style>
+
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container">
+
+                    <div class="section-title" data-aos="fade-up">
+                        <h3>Registrazione utente</h3>
+                        <h6>INFOMRAZIONI:</h6>
+                        <br>
                     </div>
+                    <!-- FORM -->
+                    <div class="mb-5 text-center">
+                        {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}) }}
+                    </div>
+
                 </div>
-            </div>
+            </section><!-- End Contact Section -->
+
+
         </div>
     </section>
-        <!-- Optional JavaScript -->
+
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

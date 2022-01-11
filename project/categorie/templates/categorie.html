@@ -1,142 +1,148 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %} {% block content %}
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>Categorie</title>
-</head>
-<body>
-
-<!-- Sezione categorie -->
-<section id="categorie" class="categorie text-center bg-light">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <script javascript src=../static/js/carrello.js></script>
+        <title>Categorie</title>
+    </head>
+    <!-- Messaggi flash -->
     <div class="container">
-        <h2 class="mb-5">Categorie</h2>
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_musica.html">
-                                <img src="../static/images/Categorie/Musica/Musica.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Musica</h5>
-                                </div>
-                            </a>
+        {# Flashed messages #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {# End Flashed messages #}
+    </div>
+    <!-- Sezione categorie -->
+    <section id="categorie" class="categorie text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Categorie</h2>
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_musica.html">
+                                    <img src="../static/images/Categorie/Musica/Musica.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Musica</h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_telefonia.html">
-                                <img src="../static/images/Categorie/Telefonia/telefonia.png" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Telefonia</h5>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_telefonia.html">
+                                    <img src="../static/images/Categorie/Telefonia/telefonia.png" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Telefonia</h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_console&videogiochi.html">
-                                <img src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
-                                     alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Console e videogiochi</h5>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_console&videogiochi.html">
+                                    <img src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
+                                         alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Console e videogiochi</h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_informatica.html">
-                                <img src="../static/images/Categorie/Informatica/informatica.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Informatica</h5>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_informatica.html">
+                                    <img src="../static/images/Categorie/Informatica/informatica.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Informatica</h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_auto.html">
-                                <img src="../static/images/Categorie/Accessori auto/accessori_auto.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Accessori auto</h5>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_auto.html">
+                                    <img src="../static/images/Categorie/Accessori auto/accessori_auto.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Accessori auto</h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_gioccatoli.html">
-                                <img src="../static/images/Categorie/Giocattoli/giocattoli.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Giocattoli</h5>
-                                    </p>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_gioccatoli.html">
+                                    <img src="../static/images/Categorie/Giocattoli/giocattoli.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Giocattoli</h5>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_fotografia.html">
-                                <img src="../static/images/Categorie/Fotografia/Fotografia.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Fotografia</h5>
-                                    </p>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_fotografia.html">
+                                    <img src="../static/images/Categorie/Fotografia/Fotografia.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Fotografia</h5>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_videomaker.html">
-                                <img src="../static/images/Categorie/VideoMaker/video_maker.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Video maker</h5>
-                                    </p>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_videomaker.html">
+                                    <img src="../static/images/Categorie/VideoMaker/video_maker.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Video maker</h5>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="card" style="width: 18rem;">
-                            <a href="categoria_altro.html">
-                                <img src="../static/images/Categorie/Altro/altro.jpg" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">Altro</h5>
-                                    </p>
-                                </div>
-                            </a>
+                        <div class="col-sm">
+                            <div class="card" style="width: 18rem;">
+                                <a href="categoria_altro.html">
+                                    <img src="../static/images/Categorie/Altro/altro.jpg" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Altro</h5>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}
