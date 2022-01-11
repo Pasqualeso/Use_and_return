@@ -43,131 +43,57 @@
     </div>
     </header>
     <!-- Sezione Barra Ricerca -->
-
-
     <section class="BarraRicerca">
-        <form action="" method="post" role="form" class="email-form">
-            <div class="searchBox">
-                <div class="inputBx">
-                    <div class="table-bordered text-center text-white">
-                        {{ form.hidden_tag() }} {{ form.oggetto_ricerca.label }}
+        <div class="searchBox">
+            <div class="inputBx text-center text-white table-responsive-lg">
+                <p>{{ form.hidden_tag() }} {{ form.oggetto_ricerca.label }}</p>
+                <label>
+                    {{ form.oggetto_ricerca }}
+                </label>
+            </div>
+            <div class="inputBx text-center text-white">
+                <p>   {{ form.categoria_ricerca.label }}</p>
+                <label>
+                    {{ form.categoria_ricerca }}
+                </label>
+            </div>
+            <div class="inputBx text-center text-white">
+                <p>{{ form.regione_ricerca.label }}</p>
+                <label>
+                    {{ form.regione_ricerca }}
+                </label>
+            </div>
+
+            <div class="inputBx text-center text-white">
+                <p> {{ form.data_inizio_noleggio_ricerca.label }}</p>
+                <label>
+                    {{ form.data_inizio_noleggio_ricerca }}
+                </label>
+            </div>
+            <div class="inputBx text-center text-white">
+                <p>  {{ form.data_fine_noleggio_ricerca.label }}</p>
+                <label>
+                    {{ form.data_fine_noleggio_ricerca }}
+                </label>
+            </div>
+
+
+            <div class="container">
+                <div class="mb-5">
+                    <div class="inputBx">
+                        <p class="white">-</p>
+                        <a href="#annunci">
+                            <div class="text-center mt-2 registrazione">
+                                <button>
+                                    Cerca
+                                </button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="form-control text-center">
-                        {{ form.oggetto_ricerca }}
-                    </div>
-                </div>
-
-                <div class="inputBx">
-
-                    <div class="table-bordered text-center text-white">
-                        {{ form.categoria_ricerca.label }}
-                    </div>
-                    <div class="form-control text-center">
-                        {{ form.categoria_ricerca }}
-                    </div>
-
-                    <!--<p>Categoria</p>
-                    <label>
-                        <select name='select1'>
-                            <option value='2'> Musica
-                            <option value='3'> Telefonia
-                            <option value='4'> Console e videogiochi
-                            <option value='5'> Informatica
-                            <option value='6'> Accessori auto
-                            <option value='7'> Gioccatoli
-                            <option value='8'> Fotografia
-                            <option value='9'> Video-maker
-                            <option value='9'> Altro
-                            <option value='9'> Tutte le categorie
-                        </select>
-                    </label> -->
-                </div>
-
-                <div class="inputBx">
-                    <div class="table-bordered text-center text-white">
-                        {{ form.regione_ricerca.label }}
-                    </div>
-                    <div class="form-control text-center">
-                        {{ form.regione_ricerca }}
-                    </div>
-
-                    <!--<p>Luogo</p>
-                    <label>
-                        <select name='select1'>
-                            <option value='2'> Valle d'Aosta
-                            <option value='3'> Piemonte
-                            <option value='4'> Liguria
-                            <option value='5'> Lombardia
-                            <option value='6'> Trentino-Alto Adige
-                            <option value='7'> Veneto
-                            <option value='8'> Friuli-Venezia Giulia
-                            <option value='9'> Emilia Romagna
-                            <option value='10'> Toscana
-                            <option value='11'> Umbria
-                            <option value='12'> Marche
-                            <option value='13'> Lazio
-                            <option value='14'> Abruzzo
-                            <option value='15'> Molise
-                            <option value='16'> Campania
-                            <option value='17'> Puglia
-                            <option value='18'> Basilicata
-                            <option value='19'> Calabria
-                            <option value='20'> Sicilia
-                            <option value='21'> Sardegna
-                            <option value="22"> Non specificare
-                        </select>
-                    </label> -->
-                </div>
-
-                <div class="inputBx">
-                    <div type="text" class="table-bordered"
-                         id="data_inizio_noleggio_ricerca">
-                        <div class="table-bordered text-center text-white">
-                            {{ form.data_inizio_noleggio_ricerca.label }}
-                        </div>
-                        <div class="form-control text-center">
-                            {{ form.data_inizio_noleggio_ricerca }}
-                        </div>
-
-                    </div>
-
-                    <!--<p>Data inizio noleggio</p>
-                    <label>
-                        <input type="date">
-                    </label>-->
-                </div>
-                <div class="inputBx">
-                    <div type="text" class="table-bordered"
-                         id="data_fine_noleggio">
-                        <div class="table-bordered text-center text-white">
-                            {{ form.data_fine_noleggio_ricerca.label }}
-                        </div>
-                        <div class="form-control text-center">
-                            {{ form.data_fine_noleggio_ricerca }}
-                        </div>
-                    </div>
-
-
-                    <!--<p>Data fine noleggio</p>
-                    <label>
-                        <input type="date">
-                    </label>-->
-                </div>
-
-                <div class="inputBx">
-                    <p class="white">-</p>
-                    <a href="#annunci">
-                        <div class="text-center mt-2 registrazione">
-                            <button>
-                                Cerca
-                            </button>
-
-                        </div>
-                    </a>
-
                 </div>
             </div>
-        </form>
+
+        </div>
     </section>
     <!-- sezione spazio
     <div class="mb-5"></div>-->
