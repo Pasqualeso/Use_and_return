@@ -1,4 +1,14 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!doctype html>
+    <html lang="en">
     <head>
         <!-- Required meta tags-->
         <meta charset="utf-8">
@@ -12,6 +22,7 @@
         <script javascript src=../static/js/carrello.js></script>
         <title>Categorie</title>
     </head>
+    <body>
     <!-- Messaggi flash -->
     <div class="container">
         {# Flashed messages #}
@@ -24,115 +35,115 @@
         {% endwith %}
         {# End Flashed messages #}
     </div>
-    <!-- Sezione categorie -->
+    <!-- sezione categorie -->
     <section id="categorie" class="categorie text-center bg-light">
         <div class="container">
             <h2 class="mb-5">Categorie</h2>
-            <div class="row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_musica') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_musica') }}">
-                                    <img src="../static/images/Categorie/Musica/Musica.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Musica</h5>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Musica/Musica.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Musica</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_telefonia') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_telefonia') }}">
-                                    <img src="../static/images/Categorie/Telefonia/telefonia.png" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Telefonia</h5>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Telefonia/telefonia.png" class="card-img-top"
+                                     alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Telefonia</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_console_e_videogiochi') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_console_e_videogiochi') }}">
-                                    <img src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
-                                         alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Console e videogiochi</h5>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
+                                     class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Console e videogiochi</h5>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_informatica') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_informatica') }}">
-                                    <img src="../static/images/Categorie/Informatica/informatica.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Informatica</h5>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Informatica/informatica.jpg" class="card-img-top"
+                                     alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Informatica</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_auto') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_auto') }}">
-                                    <img src="../static/images/Categorie/Accessori auto/accessori_auto.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Accessori auto</h5>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Accessori auto/accessori_auto.jpg"
+                                     class="card-img-top"
+                                     alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Accessori auto</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_giocattoli') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_giocattoli') }}">
-                                    <img src="../static/images/Categorie/Giocattoli/giocattoli.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Giocattoli</h5>
-                                        </p>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Giocattoli/giocattoli.jpg" class="card-img-top"
+                                     alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Giocattoli</h5>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_fotografia') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_fotografia') }}">
-                                    <img src="../static/images/Categorie/Fotografia/Fotografia.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Fotografia</h5>
-                                        </p>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Fotografia/Fotografia.jpg" class="card-img-top"
+                                     alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fotografia</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_videomaker') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_videomaker') }}">
-                                    <img src="../static/images/Categorie/VideoMaker/video_maker.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Video maker</h5>
-                                        </p>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/VideoMaker/video_maker.jpg" class="card-img-top"
+                                     alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Video maker</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="{{ url_for('categorie.categoria_altro') }}">
                             <div class="card" style="width: 18rem;">
-                                <a href="{{ url_for('categorie.categoria_altro') }}">
-                                    <img src="../static/images/Categorie/Altro/altro.jpg" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Altro</h5>
-                                        </p>
-                                    </div>
-                                </a>
+                                <img src="../static/images/Categorie/Altro/altro.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Altro</h5>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
