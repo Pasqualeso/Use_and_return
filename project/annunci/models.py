@@ -15,19 +15,14 @@ class Annuncio(db.Model):
     data_inizio_noleggio = db.Column(db.DateTime, nullable=False)
     data_fine_noleggio = db.Column(db.DateTime, nullable=False)
     data_inserimento_annuncio = db.Column(db.DateTime(), default=datetime.utcnow)
+
+    citta_annuncio = db.Column(db.String(64), nullable=False)
+    provincia_annuncio = db.Column(db.String(64), nullable=False)
+    via_annuncio = db.Column(db.String(120), nullable=False)
+    cap_annuncio = db.Column(db.Integer)
+
     id_utente_rf_annuncio = db.Column(db.Integer, db.ForeignKey('utente.id'))
 
     def __init__(self, **kwargs):
         super(Annuncio, self).__init__(**kwargs)
 
-
-
-class Magazzino(db.Model):
-    __tablename__ = 'magazzino'
-
-    id_magazzino = db.Column(db.Integer, primary_key=True)
-    nome_magazzino = db.Column(db.String(64), nullable=False)
-    citta_magazzino = db.Column(db.String(64), nullable=False)
-    provincia_magazzino = db.Column(db.String(64), nullable=False)
-    via_magazzino = db.Column(db.String(120), nullable=False)
-    cap_utente = db.Column(db.Integer)

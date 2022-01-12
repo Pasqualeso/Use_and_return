@@ -19,6 +19,7 @@
         <option value="$MODULE_DIR$/project/main/templates" />
         <option value="$MODULE_DIR$/project/utenti/templates" />
         <option value="$MODULE_DIR$/project/annunci/templates" />
+        <option value="$MODULE_DIR$/project/categorie/templates" />
       </list>
     </option>
   </component>

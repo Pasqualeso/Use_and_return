@@ -1,3 +1,12 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,36 +24,7 @@
 <body>
 <!-- INIZIALIZZA JAVASCRIPT -->
 <script>inizializza()</script>
-<!--Navbar -->
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Use and return</a>
-            <!--link esterni-->
-            <div id="container">
-                <div class="action">
-                    <ul class="action">
-                        <li><a href="index.html">
-                            <ion-icon name="search-outile">Home</ion-icon>
-                        </a></li>
-                        <li><a href="categorie.html">
-                            <ion-icon name="search-outile">Categorie</ion-icon>
-                        </a></li>
-                        <li><a href="utente.html">
-                            <ion-icon name="search-outile">Utente</ion-icon>
-                        </a></li>
-                        <li><a href="registrazione_annuncio.html">
-                            <ion-icon name="search-outile">Aggiungi annuncio</ion-icon>
-                        </a></li>
-                        <li><a href="carrello.html">
-                            <ion-icon name="search-outile">Carrello</ion-icon>
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
+
 
 <!-- Sezione Risultati Ricerca -->
 <section id="annunci" class="risultati_ricerca">
@@ -186,3 +166,5 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
+{% endblock %}
