@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
     <!doctype html>
     <html lang="en">
     <head>
@@ -23,18 +17,11 @@
         <title>Categorie</title>
     </head>
     <body>
-    <!-- Messaggi flash -->
-    <div class="container">
-        {# Flashed messages #}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        {# End Flashed messages #}
-    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- sezione categorie -->
     <section id="categorie" class="categorie text-center bg-light">
         <div class="container">
@@ -43,7 +30,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_musica') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Musica/Musica.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Musica</h5>
@@ -53,7 +40,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_telefonia') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Telefonia/telefonia.png" class="card-img-top"
                                      alt="...">
                                 <div class="card-body">
@@ -64,7 +51,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_console_e_videogiochi') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
                                      class="card-img-top" alt="...">
                                 <div class="card-body">
@@ -75,7 +62,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_informatica') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Informatica/informatica.jpg" class="card-img-top"
                                      alt="...">
                                 <div class="card-body">
@@ -86,7 +73,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_auto') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Accessori auto/accessori_auto.jpg"
                                      class="card-img-top"
                                      alt="...">
@@ -98,7 +85,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_giocattoli') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Giocattoli/giocattoli.jpg" class="card-img-top"
                                      alt="...">
                                 <div class="card-body">
@@ -109,7 +96,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_fotografia') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Fotografia/Fotografia.jpg" class="card-img-top"
                                      alt="...">
                                 <div class="card-body">
@@ -120,7 +107,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_videomaker') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/VideoMaker/video_maker.jpg" class="card-img-top"
                                      alt="...">
                                 <div class="card-body">
@@ -131,7 +118,7 @@
                     </div>
                     <div class="col-sm">
                         <a href="{{ url_for('categorie.categoria_altro') }}">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card border border-dark" style="width: 18rem;">
                                 <img src="../static/images/Categorie/Altro/altro.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Altro</h5>
@@ -144,6 +131,106 @@
         </div>
     </section>
 
+   <!-- Sezione recensioni clienti -->
+    <section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Home Page/cliente1.jpg" alt="">
+                        <h5>Luca Rossi</h5>
+                        <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
+                            guadagnare!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente2"
+                             src="../static/images/Home Page/cliente2.jpg" alt="">
+                        <h5>Paolo Bianchi</h5>
+                        <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente3"
+                             src="../static/images/Home Page/cliente3.jpg" alt="">
+                        <h5>Matteo Verdi</h5>
+                        <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Sezione Newsletter -->
+    <section id="contattaci" class="newsletter text-white text-center">
+        <div class="container">
+            <style>
+                .newsletter {
+                    background-image: url("../static/images/newsletter.jpeg");
+                }
+            </style>
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h2 class="mb-4">Iscriviti alla nostra newsletter!</h2>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright <strong><span>Università di Napoli Parthenope</span></strong>
+                    </p>
+                    <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                    </p>
+                </div>
+
+                <div class="col-lg-6 h-100 text-center text-lg-right">
+                    <p class="testo">Seguici su:</p>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mr-3"><a href="#"><img
+                                src="../static/images/Home Page/logo-insta.jpg"
+                                alt=""></a>
+                        </li>
+                        <li class="list-inline-item mr-3"><a href="#"><img
+                                src="../static/images/Home Page/logo-linkedln.png"
+                                alt=""></a>
+                        </li>
+                        <li class="list-inline-item"><a href="#"><img src="../static/images/Home Page/logo-twitter.png"
+                                                                      alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -155,5 +242,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    </body>
+    </html>
 
 {% endblock %}
