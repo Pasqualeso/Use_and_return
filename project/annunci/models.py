@@ -17,6 +17,10 @@ class Annuncio(db.Model):
     data_inserimento_annuncio = db.Column(db.DateTime(), default=datetime.utcnow)
     id_utente_rf_annuncio = db.Column(db.Integer, db.ForeignKey('utente.id'))
 
+    def __init__(self, **kwargs):
+        super(Annuncio, self).__init__(**kwargs)
+
+
 
 class Magazzino(db.Model):
     __tablename__ = 'magazzino'

@@ -18,7 +18,6 @@ from flask_login import (
 from project.annunci.models import Annuncio
 from project.email import send_email
 
-# from project.utenti.forms import TagForm
 from project.ruoli.models import Ruolo
 from project.utenti.models import Utente, load_user
 from project import db

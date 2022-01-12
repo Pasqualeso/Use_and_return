@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, IntegerField, DateField, FileField, SubmitField, BooleanField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 
 # classe form registrazione annuncio
 class RegistrationFormAnnuncio(FlaskForm):
-    titolo_annuncio = StringField("Inserisci il titolo della categoria", validators=[DataRequired()])
+    titolo_annuncio = StringField("Inserisci il titolo della categoria", validators=[DataRequired(), Length(1, 64)])
     categoria_annuncio = SelectField(
         "Inserisci la categoria",
         choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console e videogiochi", "Console e videogiochi"),
@@ -16,9 +16,11 @@ class RegistrationFormAnnuncio(FlaskForm):
 
     immagine_annuncio = FileField("Inserisci un'immagine", validators=[DataRequired()])
 
-    descrizione_annuncio = StringField("Inserisci una descrizione(Max 200 caratteri)", validators=[DataRequired()])
+    descrizione_annuncio = StringField("Inserisci una descrizione(Max 200 caratteri)",
+                                       validators=[DataRequired(), Length(1, 200)])
 
-    prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio", validators=[DataRequired()])
+    prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio",
+                                              validators=[DataRequired()])
 
     data_inizio_noleggio_annuncio = DateField("Inserisci una data di inizio noleggio", validators=[DataRequired()])
     data_fine_noleggio_annuncio = DateField("Inserisci una data di fine noleggio", validators=[DataRequired()])
@@ -26,3 +28,49 @@ class RegistrationFormAnnuncio(FlaskForm):
     disponibile = BooleanField("Inserisci la disponibilità", validators=[DataRequired()])
 
     submit_annuncio = SubmitField("Submit")
+
+
+# classe form registrazione annuncio
+class RegistrationFormMagazzino(FlaskForm):
+    nome_magazzino = StringField("Inserisci il Nome del magazzino", validators=[DataRequired()])
+    citta_magazzino = StringField('Inserire Città magazzino',
+                                  validators=[DataRequired(message='Città obbligatoria'), Length(1, 64)])
+
+    provincia_magazzino = SelectField("Inserisci la provincia",
+        choices=[("ag", "Agrigento"), ("al", "Alessandria"), ("an", "Ancona"), ("ao", "Aosta"), ("ar", "Arezzo"),
+                 ("ap", "Ascoli Piceno"),
+                 ("at", "Asti"), ("av", "Avellino"), ("ba", "Bari"), ("bt", "Barletta-Andria-Trani"), ("bl", "Belluno"),
+                 ("bn", "Benevento"),
+                 ("bg", "Bergamo"), ("bi", "Biella"), ("bo", "Bologna"), ("bz", "Bolzano"), ("bs", "Brescia"),
+                 ("br", "Brindisi"), ("ca", "Cagliari"),
+                 ("cl", "Caltanissetta"), ("cb", "Campobasso"), ("ci", "Carbonia - iglesias "), ("ce", "Caserta"),
+                 ("ct", "Catania"), ("cz", "Catanzaro"),
+                 ("ch", "Chieti"), ("co", "Como"), ("cs", "Cosenza"), ("cr", "Cremona"), ("kr", "Crotone"),
+                 ("cn", "Cuneo"), ("en", "Enna"), ("fm", "Fermo"),
+                 ("fe", "Ferrara"), ("fi", "Firenze"), ("fg", "Foggia"), ("fc", "Forli-Cesena"), ("fr", "Frosinone"),
+                 ("ge", "Genova"), ("go", "Gorizia"),
+                 ("gr", "Grosseto"), ("im", "Imperia"), ("is", "Isernia"), ("sp", "La spezia"), ("aq", "L'aquila"),
+                 ("lt", "Latina"), ("le", "Lecce"),
+                 ("lc", "Lecco"), ("li", "Livorno"), ("lo", "Lodi"), ("lu", "Lucca"), ("mc", "Macerata"),
+                 ("mn", "Mantova"), ("ms", "Massa - Carrara"),
+                 ("mt", "Matera"), ("vs", "Medio Campidano"), ("me", "Messina"), ("mi", "Milano"), ("mo", "Modena"),
+                 ("mb", "Monza e della Brianza"),
+                 ("na", "Napoli"), ("no", "Novara"), ("nu", "Nuoro"), ("og", "Ogliastra"), ("ot", "Olbia - Tempio"),
+                 ("or", "Oristano"), ("pd", "Padova"),
+                 ("pa", "Palermo"), ("pr", "Parma"), ("pv", "Pavia"), ("pg", "Perugia"), ("pu", "Pesaro e Urbino"),
+                 ("pe", "Pescara"), ("pc", "Piacenza"),
+                 ("pi", "Pisa"), ("pt", "Pistoia"), ("pn", "Pordenone"), ("pz", "Potenza"), ("po", "Prato"),
+                 ("rg", "Ragusa"), ("ra", "Ravenna"), ("rc", "Reggio di Calabria"),
+                 ("re", "Reggio nell'Emilia"), ("ri", "Rieti"), ("rn", "Rimini"), ("rm", "Roma"), ("ro", "Rovigo"),
+                 ("sa", "Salerno"), ("ss", "Sassari"),
+                 ("sv", "Savona"), ("si", "Siena"), ("sr", "Siracusa"), ("so", "Sondrio"), ("ta", "Taranto"),
+                 ("te", "Teramo"), ("tr", "Terni"), ("to", "Torino"),
+                 ("tp", "Trapani"), ("tn", "Trento"), ("tv", "Treviso"), ("ts", "Trieste"), ("ud", "Udine"),
+                 ("va", "Varese"), ("ve", "Venezia"), ("vb", "Verbano - Cusio - Ossola "),
+                 ("vc", "Vercelli"), ("vr", "Verona"), ("vv", "ibo valentia"), ("vi", "Vicenza"), ("vt", "Viterbo")]
+        , validators=[DataRequired()])
+
+    via = StringField("Inserisci la via", validators=[DataRequired()])
+    cap = StringField("Inserisci il cap", validators=[DataRequired()])
+
+    submit = SubmitField('Submit')
