@@ -25,4 +25,5 @@ class Annuncio(db.Model):
 
     def __init__(self, **kwargs):
         super(Annuncio, self).__init__(**kwargs)
+        self.disponibile = True
 

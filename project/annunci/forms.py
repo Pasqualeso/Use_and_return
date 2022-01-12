@@ -25,8 +25,6 @@ class RegistrationFormAnnuncio(FlaskForm):
     data_inizio_noleggio_annuncio = DateField("Inserisci una data di inizio noleggio", validators=[DataRequired()])
     data_fine_noleggio_annuncio = DateField("Inserisci una data di fine noleggio", validators=[DataRequired()])
 
-    disponibile = BooleanField("Inserisci la disponibilità", validators=[DataRequired()])
-
     citta_annuncio = StringField('Inserire Città magazzino',
                                   validators=[DataRequired(message='Città obbligatoria'), Length(1, 64)])
 
