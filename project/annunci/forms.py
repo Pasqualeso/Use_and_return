@@ -16,13 +16,13 @@ class RegistrationFormAnnuncio(FlaskForm):
                  ("video-maker", "Video-maker"), ("altro", "Altro")]
         , validators=[DataRequired()])
 
-    immagine_annuncio = FileField("Inserisci un'immagine")
+    immagine_annuncio = FileField("Inserisci un'immagine", validators=[DataRequired()])
 
 
     prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio",
                                               validators=[DataRequired()])
-    descrizione_annuncio = TextAreaField("Inserisci una descrizione(Max 150 caratteri)",
-                                         validators=[DataRequired(), Length(1, 150)])
+    descrizione_annuncio = TextAreaField("Inserisci una descrizione(Max 200 caratteri)",
+                                         validators=[DataRequired(), Length(1, 200)])
 
     data_inizio_noleggio_annuncio = DateField("Inserisci una data di inizio noleggio", format='%Y-%m-%d',
                                               validators=[DataRequired()])

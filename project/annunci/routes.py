@@ -37,7 +37,9 @@ def registrazione_annuncio():
         if current_user.is_authenticated:
             id_utente_loggato = current_user.get_id()
 
+            # Salvo l'immagine in una cartella
             filename = images.save(form.immagine_annuncio.data)
+            # Salvo la directory
             dirFile = 'project/static/uploads/images/' + filename
             fileBin = convertToBinaryData(dirFile)
 
@@ -52,10 +54,9 @@ def registrazione_annuncio():
                                 provincia_annuncio=form.provincia_annuncio.data,
                                 via_annuncio=form.via_annuncio.data,
                                 cap_annuncio=form.cap_annuncio.data)
+
             annuncio.id_utente_rf_annuncio = id_utente_loggato
             annuncio.data_inserimento_annuncio = datetime.datetime.utcnow()
-            print(
-                annuncio.titolo_annuncio + ' ' + annuncio.data_inizio_noleggio.__repr__() + ' ' + ' ' + annuncio.data_fine_noleggio.__repr__() + ' ' + annuncio.data_inserimento_annuncio.__repr__())
             db.session.add(annuncio)
             try:
                 db.session.commit()
@@ -64,5 +65,6 @@ def registrazione_annuncio():
                 flash("Errore durante l'inserimento dell'annuncio")
                 print(e)
                 db.session.rollback()
+            return redirect(url_for('annunci.registrazione_annuncio'))
 
     return render_template('registrazione_annuncio.html', form=form)
