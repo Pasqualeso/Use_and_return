@@ -7,7 +7,7 @@ from wtforms.widgets import TextArea
 
 
 class RegistrationFormAnnuncio(FlaskForm):
-    titolo_annuncio = StringField("Inserisci il titolo della categoria", validators=[DataRequired(), Length(1, 64)])
+    titolo_annuncio = StringField("Inserisci il titolo dell'annuncio", validators=[DataRequired(), Length(1, 64)])
     categoria_annuncio = SelectField(
         "Inserisci la categoria",
         choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console e videogiochi", "Console e videogiochi"),
