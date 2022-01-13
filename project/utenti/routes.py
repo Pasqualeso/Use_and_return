@@ -94,7 +94,7 @@ def Informazioni_utente():
         id_utente_loggato = current_user.get_id()
         utente = load_user(id_utente_loggato)
         ruolo = Ruolo.query.filter_by(id=utente.role_id).first()
-        lista_annunci = Annuncio.query.filter_by(id_utente_rf_annuncio=utente.id)
+        lista_annunci = Annuncio.query.filter_by(id_utente_rf_annuncio=utente.id).all()
         print(lista_annunci)
 
     return render_template('informazioni_utente.html', user=utente, ruolo=ruolo, lista_annunci=lista_annunci)

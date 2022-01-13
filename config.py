@@ -12,7 +12,9 @@ PBG_ADMIN=
 import os
 from pathlib import Path
 
-#basedir = os.path.abspath(os.path.dirname(__file__))
+# basedir = os.path.abspath(os.path.dirname(__file__))
+
+
 import secretsData
 
 
@@ -45,6 +47,7 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{0}:{1}@{2}:{3}/{4}".format(secretsData.dbUser, secretsData.dbPass,
                                                                            secretsData.dbHost, secretsData.dbPort,
                                                                            secretsData.dbSchema)
+
     DEBUG = True
     # Settings per usare https://mailtrap.io/ - Registrati e cambia con i tuoi dati
     MAIL_SERVER = 'smtp.mailtrap.io'
@@ -57,7 +60,7 @@ class DevConfig(Config):
 
 
 class TestConfig(Config):
-    #SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "testdata.sqlite")
+    # SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "testdata.sqlite")
     # To test configuration usage in unit test
     TESTING = True
     # disabling CSRF protection in the testing conguration

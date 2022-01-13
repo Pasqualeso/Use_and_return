@@ -1,18 +1,15 @@
-from datetime import datetime
 # Per la gestione delle password
 import hashlib
+from datetime import datetime
 
-from flask_login._compat import unicode
-from werkzeug.security import generate_password_hash, check_password_hash
+# Per token (conferma mail)
+from flask import current_app
 # Per flask_login
 from flask_login import UserMixin, AnonymousUserMixin
-from project import db, login_manager
-# Per token (conferma mail)
-from flask import current_app, request, url_for
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from werkzeug.security import generate_password_hash, check_password_hash
 
-from project.ruoli.models import Ruolo
-from project.ruoli.models import Permission
+from project import db, login_manager
 from project.ruoli.models import Permission, Ruolo
 
 

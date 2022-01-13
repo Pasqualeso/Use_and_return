@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from flask_uploads import UploadSet, IMAGES
+
 from config import config
 # Per modulo autenticazione Utente
 from flask_login import LoginManager
@@ -18,7 +20,7 @@ login_manager.login_view = 'utenti.login'
 # Personalizzazione del messaggio di errore su pagina che richiede autenticazione
 login_manager.login_message = u"Autenticati per vedere questa pagina"
 login_manager.login_message_category = "info"
-
+images = UploadSet('images', IMAGES)
 
 def create_app(config_name):
     app = Flask(__name__, static_folder="static")
