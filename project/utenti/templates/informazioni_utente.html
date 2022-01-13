@@ -90,12 +90,19 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
                 <ul>
-                    <li>Titolo annuncio: <b>{{ session['titolo_annuncio'] }}</b></li>
-                    <li>Categoria annuncio: <b>{{ session['categoria_annuncio'] }}</b></li>
-                    <li>Descrizione annuncio: <b>{{ session['descrizione_annuncio'] }}</b></li>
-                    <li>Data inzio noleggio: <b>{{ session['data_inizio_noleggio_annuncio'] }}</b></li>
-                    <li>Data fine noleggio: <b>{{ session['data_fine_noleggio_annuncio'] }}</b></li>
-                    <li>Immagine annuncio: <b>{{ session['immagine_annuncio'] }}</b></li>
+                    <li>Qauntità annunci: <b>{{ lista_annunci }}</b></li>
+                    <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
+                    <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
+                    <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
+                    <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio_annuncio }}</b></li>
+                    <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio_annuncio }}</b></li>
+                    <li>Immagine annuncio: <b>{{ annuncio.immagine_annuncio }}</b></li>
+                    <li>Prezzo per giorno annuncio: <b>{{ annuncio.prezzo_per_giorno_annuncio }}</b></li>
+                    <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
+                    <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
+                    <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
+                    <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
+
                 </ul>
                 <!--<section id="Modifiche" class="Menù text-center">
                     <div class="container">
