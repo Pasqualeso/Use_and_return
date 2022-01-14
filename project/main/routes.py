@@ -29,11 +29,11 @@ def index():
     form_ricerca = RegistrationFormRicerca()
 
     if form_ricerca.validate_on_submit():
-        session["oggetto_ricerca"] = form_ricerca.oggetto_ricerca
-        session["categoria_ricerca"] = form_ricerca.categoria_ricerca
-        session["regione_ricerca "] = form_ricerca.regione_ricerca
-        session["data_inizio_noleggio_ricerca"] = form_ricerca.data_inizio_noleggio_ricerca
-        session["data_fine_noleggio_ricerca"] = form_ricerca.data_fine_noleggio_ricerca
+        oggetto_ricerca = form_ricerca.oggetto_ricerca
+        categoria_ricerca = form_ricerca.categoria_ricerca
+        regione_ricerca = form_ricerca.regione_ricerca
+        data_inizio_noleggio_ricerca = form_ricerca.data_inizio_noleggio_ricerca
+        data_fine_noleggio_ricerca = form_ricerca.data_fine_noleggio_ricerca
 
         submit_ricerca = form_ricerca.submit
 
