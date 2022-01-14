@@ -1,5 +1,9 @@
 from flask import Blueprint, render_template
 
+from project.annunci.models import Annuncio
+from project.gestione_immagini import download_image_annunci
+from project.utenti.models import Utente
+
 categorie_blueprint = Blueprint(
     "categorie",
     __name__,
@@ -15,7 +19,18 @@ def categorie():
 
 @categorie_blueprint.route('/categoria_altro', methods=['GET', 'POST'])
 def categoria_altro():
-    return render_template('categoria_altro.html')
+    # Carico le informazioni dell'utente
+
+    lista_annunci = Annuncio.query.filter_by(categoria_annuncio='altro').all()
+    i = 1
+    for annuncio in lista_annunci:
+        annuncio.autore_caricato = Utente.query.filter_by(id = annuncio.id_utente_rf_annuncio).first()
+        download_image_annunci(annuncio, i)
+        print(annuncio.immagine_caricata)
+        i = i + 1
+
+    print(lista_annunci)
+    return render_template('categoria_altro.html',lista_annunci=lista_annunci)
 
 
 @categorie_blueprint.route('/categoria_auto', methods=['GET', 'POST'])

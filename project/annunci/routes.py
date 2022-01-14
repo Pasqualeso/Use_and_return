@@ -7,6 +7,7 @@ from flask_login import login_required, current_user
 from project import db, images
 from project.annunci.forms import RegistrationFormAnnuncio
 from project.annunci.models import Annuncio
+from project.gestione_immagini import convertToBinaryData
 
 annunci_blueprint = Blueprint(
     "annunci",
@@ -15,18 +16,6 @@ annunci_blueprint = Blueprint(
     static_folder='../static'
 )
 
-
-def convertToBinaryData(filename):
-    # Convert digital data to binary format
-    with open(filename, 'rb') as file:
-        binaryData = file.read()
-    return binaryData
-
-
-def convertToImageData(data, filename):
-    # Convert binary data to proper format and write it on Hard disk
-    with open(filename, 'wb') as file:
-        file.write(data)
 
 
 @annunci_blueprint.route('/registrazione_annuncio', methods=['GET', 'POST'])

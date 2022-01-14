@@ -27,7 +27,7 @@ class Annuncio(db.Model):
     id_utente_rf_annuncio = db.Column(db.Integer, db.ForeignKey('utente.id'))
 
     immagine_caricata = None
-
+    autore_caricato = None
 
     def __init__(self, **kwargs):
         super(Annuncio, self).__init__(**kwargs)
