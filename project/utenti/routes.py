@@ -1,3 +1,6 @@
+import base64
+import io
+
 from flask import (
     Blueprint,
     render_template,
@@ -20,7 +23,7 @@ from project.email import send_email
 
 from project.ruoli.models import Ruolo
 from project.utenti.models import Utente, load_user
-from project import db
+from project import db, images
 
 from sqlalchemy import desc, asc
 
@@ -84,6 +87,13 @@ def login():
     return render_template('login.html', form=form)
 
 
+def convertToImageData(data, filename):
+    # Convert binary data to proper format and write it on Hard disk
+    with open(filename, 'wb') as file:
+        file.write(data)
+    return file
+
+
 # Gestione Informazioni utente
 @utenti_blueprint.route('/informazioni_utente', methods=['GET', 'POST'])
 @login_required
@@ -95,6 +105,22 @@ def Informazioni_utente():
         utente = load_user(id_utente_loggato)
         ruolo = Ruolo.query.filter_by(id=utente.role_id).first()
         lista_annunci = Annuncio.query.filter_by(id_utente_rf_annuncio=utente.id).all()
+
+        lista_immagini_bin = list()
+        immagini = list()
+        i = 1
+        for annuncio in lista_annunci:
+            lista_immagini_bin.append(annuncio.immagine)
+            # Salvo la directory
+            filename = 'image' + str(i)
+            dirFile = 'project/static/downloads/images/' + filename + '.jpeg'
+           
+            annuncio.immagine_caricata = convertToImageData(annuncio.immagine, dirFile).name
+            percorso_modificato = annuncio.immagine_caricata.replace("project", "")
+            annuncio.immagine_caricata = '../' + percorso_modificato
+            print(annuncio.immagine_caricata)
+            i = i + 1
+
         print(lista_annunci)
 
     return render_template('informazioni_utente.html', user=utente, ruolo=ruolo, lista_annunci=lista_annunci)

@@ -24,8 +24,9 @@ class Annuncio(db.Model):
     provincia_annuncio = db.Column(db.String(64), nullable=False)
     via_annuncio = db.Column(db.String(120), nullable=False)
     cap_annuncio = db.Column(db.Integer, nullable=False)
-
     id_utente_rf_annuncio = db.Column(db.Integer, db.ForeignKey('utente.id'))
+
+    immagine_caricata = None
 
     def __init__(self, **kwargs):
         super(Annuncio, self).__init__(**kwargs)

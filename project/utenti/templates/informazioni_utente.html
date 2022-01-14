@@ -13,7 +13,7 @@
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
         <link rel="stylesheet" href="../static/css/style.css">
-         <link rel="stylesheet" href="../static/css/Utente.css">
+        <link rel="stylesheet" href="../static/css/Utente.css">
         <title>Informazioni utente</title>
     </head>
     <br>
@@ -26,149 +26,162 @@
     <br>
     <br>
 
-<!-- Sezione Account -->
-<div class="accordion" id="accordionExample">
-    <div class="card">
-        <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Informazioni account
-                </button>
-            </h2>
+    <!-- Sezione Account -->
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Informazioni account
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul>
+                        <li>Id utente: <b>{{ user.id }}</b></li>
+                        <li>Nome utente: <b>{{ user.nome_utente }}</b></li>
+                        <li>Cognome utente: <b>{{ user.cognome_utente }}</b></li>
+                        <li>Email: <b>{{ user.email }}</b></li>
+                        <li>Username: <b>{{ user.username }}</b></li>
+                        <li>Sesso: <b>{{ user.sesso_utente }}</b></li>
+                        <li>Telefono: <b>{{ user.telefono_utente }}</b></li>
+                        <li>Data di nascita: <b>{{ user.data_di_nascita_utente }}</b></li>
+                        <li>Citta': <b>{{ user.citta_utente }}</b></li>
+                        <li>Provincia: <b>{{ user.provincia_utente }}</b></li>
+                        <li>Via: <b>{{ user.via_utente }}</b></li>
+                        <li>Cap: <b>{{ user.cap_utente }}</b></li>
+                        <li>Ultimo accesso: <b>{{ user.ultimo_accesso }}</b></li>
+                        <li>Ruolo: <b>{{ ruolo.name_role }}</b></li>
+                    </ul>
+                    <!-- Sezione modica informazioni -->
+                    <style>
+                        button {
+                            background-color: #ff5a26;
+                            color: #ffffff;
+                            border: none;
+                            padding: 10px 20px;
+                            font-size: 17px;
+                            font-family: Raleway;
+                            cursor: pointer;
+                        }
+                    </style>
+                    <!--<section id="Modifiche" class="Menù text-center">
+                        <div class="container">
+                            <a class="mb-5 alert-danger button" href="TEST_REGISTRAZIONE_UTENTE.html"><br>
+                                <button>MODIFICA LE TUE INFORMAZIONI</button>
+                            </a>
+                        </div>
+                    </section>-->
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Annunci pubblicati
+                    </button>
+                </h2>
+
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        </button>
+                    </h2>
+
+                    <h1 class="display-1">
+                        {% for annuncio in lista_annunci %}
+                            <div>
+                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordionExample">
+                                      <span class="badge badge-secondary">{{ annuncio.titolo_annuncio }}</span>
+                                      <div class="card-body">
+                                        <ul>
+                                            <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
+                                            <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
+                                            <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
+                                            <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio }}</b>
+                                            </li>
+                                            <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio }}</b>
+                                            </li>
+                                            <li>Immagine annuncio: <b><img src="{{annuncio.immagine_caricata}}"></b></li>
+                                            <li>Prezzo per giorno annuncio:
+                                                <b>{{ annuncio.prezzo_per_giorno_annuncio }}</b>
+                                            </li>
+                                            <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
+                                            <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
+                                            <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
+                                            <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </h1>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Noleggi effettuati
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>Titolo:</p>
+                    <p>Codice:</p>
+                    <p>Categoria:</p>
+                    <p>Utente:</p>
+                    <p>Data inzio noleggio:</p>
+                    <p>Data fine noleggio:</p>
+                    <p>Luogo</p>
+                    <p>Prezzo totale:</p>
+                </div>
+            </div>
         </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                <ul>
-                    <li>Id utente: <b>{{ user.id }}</b></li>
-                    <li>Nome utente: <b>{{ user.nome_utente }}</b></li>
-                    <li>Cognome utente: <b>{{ user.cognome_utente }}</b></li>
-                    <li>Email: <b>{{ user.email }}</b></li>
-                    <li>Username: <b>{{ user.username }}</b></li>
-                    <li>Sesso: <b>{{ user.sesso_utente }}</b></li>
-                    <li>Telefono: <b>{{ user.telefono_utente }}</b></li>
-                    <li>Data di nascita: <b>{{ user.data_di_nascita_utente }}</b></li>
-                    <li>Citta': <b>{{ user.citta_utente }}</b></li>
-                    <li>Provincia: <b>{{ user.provincia_utente }}</b></li>
-                    <li>Via: <b>{{ user.via_utente }}</b></li>
-                    <li>Cap: <b>{{ user.cap_utente }}</b></li>
-                    <li>Ultimo accesso: <b>{{ user.ultimo_accesso }}</b></li>
-                    <li>Ruolo: <b>{{ ruolo.name_role }}</b></li>
-                </ul>
-                <!-- Sezione modica informazioni -->
-                <style>
-                    button {
-                        background-color: #ff5a26;
-                        color: #ffffff;
-                        border: none;
-                        padding: 10px 20px;
-                        font-size: 17px;
-                        font-family: Raleway;
-                        cursor: pointer;
-                    }
-                </style>
-                <!--<section id="Modifiche" class="Menù text-center">
-                    <div class="container">
-                        <a class="mb-5 alert-danger button" href="TEST_REGISTRAZIONE_UTENTE.html"><br>
-                            <button>MODIFICA LE TUE INFORMAZIONI</button>
-                        </a>
-                    </div>
-                </section>-->
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Noleggi dei tuoi annunci
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>Titolo:</p>
+                    <p>Codice.</p>
+                    <p>Categoria:</p>
+                    <p>Utente:</p>
+                    <p>Data inzio noleggio:</p>
+                    <p>Data fine noleggio:</p>
+                    <p>Luogo</p>
+                    <p>Guadagno totale:</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    I miei annununci
-                </button>
-            </h2>
+    <!-- Sezione menù -->
+    <section id="Menù" class="Menù text-center">
+        <div class="container">
+            <a class="mb-5" href=index.html><br>
+                <button>Torna allo shopping</button>
+            </a>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-                <ul>
-                    <li>Qauntità annunci: <b>{{ lista_annunci }}</b></li>
-                    <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
-                    <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
-                    <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
-                    <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio_annuncio }}</b></li>
-                    <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio_annuncio }}</b></li>
-                    <li>Immagine annuncio: <b>{{ annuncio.immagine_annuncio }}</b></li>
-                    <li>Prezzo per giorno annuncio: <b>{{ annuncio.prezzo_per_giorno_annuncio }}</b></li>
-                    <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
-                    <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
-                    <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
-                    <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
-
-                </ul>
-                <!--<section id="Modifiche" class="Menù text-center">
-                    <div class="container">
-                        <a class="mb-5 alert-danger button" href="registrazione_annuncio.html"><br>
-                            <button>MODIFICA LE TUE INFORMAZIONI</button>
-                        </a>
-                    </div>
-                </section>-->
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Noleggi effettuati
-                </button>
-            </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-                <p>Titolo:</p>
-                <p>Codice:</p>
-                <p>Categoria:</p>
-                <p>Utente:</p>
-                <p>Data inzio noleggio:</p>
-                <p>Data fine noleggio:</p>
-                <p>Luogo</p>
-                <p>Prezzo totale:</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-                <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Noleggi dei tuoi annunci
-                </button>
-            </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-                <p>Titolo:</p>
-                <p>Codice.</p>
-                <p>Categoria:</p>
-                <p>Utente:</p>
-                <p>Data inzio noleggio:</p>
-                <p>Data fine noleggio:</p>
-                <p>Luogo</p>
-                <p>Guadagno totale:</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Sezione menù -->
-<section id="Menù" class="Menù text-center">
-    <div class="container">
-        <a class="mb-5" href=index.html><br>
-            <button>Torna allo shopping</button>
-        </a>
-    </div>
-</section>
+    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
