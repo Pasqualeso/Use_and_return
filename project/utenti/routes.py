@@ -1,6 +1,8 @@
 import base64
 import io
 
+import PIL
+from PIL.Image import Image
 from flask import (
     Blueprint,
     render_template,
@@ -94,6 +96,19 @@ def convertToImageData(data, filename):
     return file
 
 
+def download_image_annunci(annuncio, i):
+    # Decode the string
+    # binary_data = base64.b64decode(annuncio.immagine)
+    # Convert the bytes into a PIL image
+    immagineTemp = PIL.Image.open(io.BytesIO(annuncio.immagine))
+    # Salvo la directory
+    filename = 'image' + str(i)
+    dirFile = 'project/static/downloads/images/' + filename + '.' + immagineTemp.format
+    annuncio.immagine_caricata = convertToImageData(annuncio.immagine, dirFile).name
+    percorso_modificato = annuncio.immagine_caricata.replace("project", "")
+    annuncio.immagine_caricata = '..' + percorso_modificato
+
+
 # Gestione Informazioni utente
 @utenti_blueprint.route('/informazioni_utente', methods=['GET', 'POST'])
 @login_required
@@ -106,18 +121,9 @@ def Informazioni_utente():
         ruolo = Ruolo.query.filter_by(id=utente.role_id).first()
         lista_annunci = Annuncio.query.filter_by(id_utente_rf_annuncio=utente.id).all()
 
-        lista_immagini_bin = list()
-        immagini = list()
         i = 1
         for annuncio in lista_annunci:
-            lista_immagini_bin.append(annuncio.immagine)
-            # Salvo la directory
-            filename = 'image' + str(i)
-            dirFile = 'project/static/downloads/images/' + filename + '.jpeg'
-           
-            annuncio.immagine_caricata = convertToImageData(annuncio.immagine, dirFile).name
-            percorso_modificato = annuncio.immagine_caricata.replace("project", "")
-            annuncio.immagine_caricata = '../' + percorso_modificato
+            download_image_annunci(annuncio, i)
             print(annuncio.immagine_caricata)
             i = i + 1
 

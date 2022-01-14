@@ -79,55 +79,56 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-header" id="headingTwo">
+            {% for annuncio in lista_annunci %}
+                <h1 class="display-1">
+
+                <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Annunci pubblicati
+                        {{ annuncio.titolo_annuncio }}
                     </button>
                 </h2>
 
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        </button>
-                    </h2>
+                <h1 class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    </button>
+                </h2>
 
-                    <h1 class="display-1">
-                        {% for annuncio in lista_annunci %}
-                            <div>
-                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                     data-parent="#accordionExample">
-                                      <span class="badge badge-secondary">{{ annuncio.titolo_annuncio }}</span>
-                                      <div class="card-body">
-                                        <ul>
-                                            <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
-                                            <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
-                                            <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
-                                            <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio }}</b>
-                                            </li>
-                                            <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio }}</b>
-                                            </li>
-                                            <li>Immagine annuncio: <b><img src="{{annuncio.immagine_caricata}}"></b></li>
-                                            <li>Prezzo per giorno annuncio:
-                                                <b>{{ annuncio.prezzo_per_giorno_annuncio }}</b>
-                                            </li>
-                                            <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
-                                            <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
-                                            <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
-                                            <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </h1>
+                <div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                         data-parent="#accordionExample">
+                        <span class="badge badge-secondary">{{ annuncio.titolo_annuncio }}</span>
+                        <div class="card-body">
+                            <ul>
+                                <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
+                                <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
+                                <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
+                                <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio }}</b>
+                                </li>
+                                <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio }}</b>
+                                </li>
+                                <li>Immagine annuncio: <b><img src="{{ annuncio.immagine_caricata }}"></b></li>
+                                <li>Prezzo per giorno annuncio:<b>{{ annuncio.prezzo_per_giorno_annuncio }}</b></li>
+                                <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
+                                <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
+                                <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
+                                <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                
                 </div>
-            </div>
-
+            {% endfor %}
+            </h1>
         </div>
+    </div>
+
+    </div>
         <div class="card">
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
