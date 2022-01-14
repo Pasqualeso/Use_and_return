@@ -26,7 +26,7 @@
     <br>
     <br>
 
-    <!-- Sezione Account -->
+    <!-- Informazioni Account -->
     <div class="accordion" id="accordionExample">
         <div class="card">
             <div class="card-header" id="headingOne">
@@ -71,62 +71,45 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        {% for annuncio in lista_annunci %}
+    {% for annuncio in lista_annunci %}
+    <div class="accordion" id="accordionExample">
         <div class="card">
-                <h1 class="display-1">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button"
-                                    data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                {{ annuncio.titolo_annuncio }}
-                            </button>
-                        </h2>
-                        <h1 class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse"
-                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                </button>
-                            </h2>
-                        </h1>
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                       {{ annuncio.titolo_annuncio }}
+                    </button>
+                </h2>
+            </div>
 
-
-                        <div>
-
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                 data-parent="#accordionExample">
-                                <span class="badge badge-secondary">{{ annuncio.titolo_annuncio }}</span>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
-                                        <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
-                                        <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
-                                        <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio }}</b>
-                                        </li>
-                                        <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio }}</b>
-                                        </li>
-                                        <li>Immagine annuncio: <b><img src="{{ annuncio.immagine_caricata }}"></b></li>
-                                        <li>Prezzo per giorno annuncio:<b>{{ annuncio.prezzo_per_giorno_annuncio }}</b>
-                                        </li>
-                                        <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
-                                        <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
-                                        <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
-                                        <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </h1>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                     <ul>
+                        <li>Titolo annuncio: <b>{{ annuncio.titolo_annuncio }}</b></li>
+                        <li>Categoria annuncio: <b>{{ annuncio.categoria_annuncio }}</b></li>
+                        <li>Descrizione annuncio: <b>{{ annuncio.descrizione_annuncio }}</b></li>
+                        <li>Data inzio noleggio: <b>{{ annuncio.data_inizio_noleggio }}</b>
+                        </li>
+                        <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio }}</b>
+                        </li>
+                        <li>Immagine annuncio: <b><img src="{{ annuncio.immagine_caricata }}"></b></li>
+                        <li>Prezzo per giorno annuncio:<b>{{ annuncio.prezzo_per_giorno_annuncio }}</b>
+                        </li>
+                        <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
+                        <li>Provincia annuncio: <b>{{ annuncio.provincia_annuncio }}</b></li>
+                        <li>Via annuncio: <b>{{ annuncio.via_annuncio }}</b></li>
+                        <li>CAP annuncio: <b>{{ annuncio.cap_annuncio }}</b></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        {% endfor %}
 
     </div>
+    {% endfor %}
 
-    </div>
     <div class="card">
         <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
@@ -149,7 +132,6 @@
             </div>
         </div>
     </div>
-
     <div class="card">
         <div class="card-header" id="headingThree">
             <h2 class="mb-0">
@@ -172,7 +154,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <!-- Sezione menù -->
     <section id="Menù" class="Menù text-center">
         <div class="container">
