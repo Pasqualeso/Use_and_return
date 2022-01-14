@@ -68,16 +68,11 @@
                             cursor: pointer;
                         }
                     </style>
-                    <!--<section id="Modifiche" class="Menù text-center">
-                        <div class="container">
-                            <a class="mb-5 alert-danger button" href="TEST_REGISTRAZIONE_UTENTE.html"><br>
-                                <button>MODIFICA LE TUE INFORMAZIONI</button>
-                            </a>
-                        </div>
-                    </section>-->
                 </div>
             </div>
         </div>
+
+        {% for annuncio in lista_annunci %}
         <div class="card">
                 <h1 class="display-1">
                     <div class="card-header" id="headingTwo">
@@ -88,7 +83,6 @@
                                 {{ annuncio.titolo_annuncio }}
                             </button>
                         </h2>
-
                         <h1 class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left collapsed" type="button"
@@ -100,6 +94,7 @@
 
 
                         <div>
+
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                  data-parent="#accordionExample">
                                 <span class="badge badge-secondary">{{ annuncio.titolo_annuncio }}</span>
@@ -122,12 +117,13 @@
                                     </ul>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </h1>
-            {% endfor %}
         </div>
-        
+        {% endfor %}
+
     </div>
 
     </div>
