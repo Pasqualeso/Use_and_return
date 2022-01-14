@@ -14,7 +14,7 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="../static/css/style.css">
         <script javascript src=../static/js/carrello.js></script>
-        <title>Categoria giocattoli</title>
+        <title>Categoria altro</title>
     </head>
     <body>
     <!-- INIZIALIZZA JAVASCRIPT -->
@@ -27,72 +27,72 @@
     <!-- Sezione Risultati Ricerca -->
     <section id="categorie" class="categorie text-center bg-light">
         <div class="container">
-            <h2 class="mb-5">Risultati ricerca categoria gioccatoli:</h2>
+        <h2 class="mb-5">Risultati ricerca categoria altro:</h2>
         </div>
+
+        {% for annuncio in lista_annunci %}
         <section id="annunci" class="risultati_ricerca">
             <div class="container-fluid p-15">
-                <div class="row no-gutters">
-                    <div class="card col-lg-6 order-lg-1 border border-dark" style="width: 18rem;">
-                        <img src="../static/images/Categorie/Giocattoli/giocattoli1.jpg" class="card-img-top" alt="...">
+                <div class="row no-gutters border border-dark">
+                    <div class="card col-lg-6 order-lg-1 " style="width: 18rem;">
+                        <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
                     </div>
-                    <div class="card-body col-lg-6 order-lg-2">
-                        <h5 class="card-title">Titolo: Costruzioni</h5>
-                        <p class="card-text">Codice: 8</p>
-                        <p class="card-text">Categoria: Giocatoli</p>
-                        <p class="card-text">Autore: Paolo Russo</p>
-                        <p class="card-text">Luogo: Lazio</p>
-                        <p class="card-text">Descrizione:</p>
-                        <p>Data inizio noleggio</p>
-                        <label>
-                            <input type="date">
-                        </label>
-                        <p>Data fine noleggio</p>
-                        <label>
-                            <input type="date">
-                        </label>
-                        <p class="card-text">Prezzo per giorno: 15 euro</p>
-                        <a href="javascript:aggiungi(8,15,'Costruzioni')" class="btn btn-primary">Aggiungi al
-                            carrello</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <div class="card-body col-lg-6 order-lg-2 ">
+                        <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
+                        <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
+                        <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
+                        <p class="card-text">Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
+                        <p class="card-text">Citta': {{ annuncio.citta_annuncio }}</p>
+                        <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
+                        <p class="card-text">Data inizio noleggio: {{ annuncio.data_inizio_noleggio}} </p>
+                        <p class="card-text">Data fine noleggio: {{ annuncio.data_fine_noleggio}} </p>
+                        <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
 
-        <!-- Sezione recensioni clienti -->
-        <section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
-            <div class="container">
-                <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounder-circle mb-3 cliente1"
-                                 src="../static/images/Home Page/cliente1.jpg" alt="">
-                            <h5>Luca Rossi</h5>
-                            <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
-                                guadagnare!"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounder-circle mb-3 cliente2"
-                                 src="../static/images/Home Page/cliente2.jpg" alt="">
-                            <h5>Paolo Bianchi</h5>
-                            <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounder-circle mb-3 cliente3"
-                                 src="../static/images/Home Page/cliente3.jpg" alt="">
-                            <h5>Matteo Verdi</h5>
-                            <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
-                        </div>
+                        <!-- <br> cod. 1 <p> 25 Euro <br clear=all>
+                         Mini pallone da football<p> -->
+                        <a href="javascript:aggiungi(9,25,'Libro')" class="btn btn-primary">Aggiungi al carrello</a>
+
+                        <!-- <a href="#" class="btn btn-primary">Vai al carrelo</a> -->
                     </div>
                 </div>
             </div>
         </section>
+        {% endfor %}
     </section>
-    <!--Sezione Newsletter -->
+
+    <!-- Sezione recensioni clienti -->
+    <section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Home Page/cliente1.jpg" alt="">
+                        <h5>Luca Rossi</h5>
+                        <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
+                            guadagnare!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente2"
+                             src="../static/images/Home Page/cliente2.jpg" alt="">
+                        <h5>Paolo Bianchi</h5>
+                        <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente3"
+                             src="../static/images/Home Page/cliente3.jpg" alt="">
+                        <h5>Matteo Verdi</h5>
+                        <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="contattaci" class="newsletter text-white text-center">
         <div class="container">
             <style>
@@ -148,8 +148,9 @@
                                 src="../static/images/Home Page/logo-linkedln.png"
                                 alt=""></a>
                         </li>
-                        <li class="list-inline-item"><a href="#"><img src="../static/images/Home Page/logo-twitter.png"
-                                                                      alt=""></a>
+                        <li class="list-inline-item"><a href="#"><img
+                                src="../static/images/Home Page/logo-twitter.png"
+                                alt=""></a>
                         </li>
                     </ul>
                 </div>
