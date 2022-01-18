@@ -1,11 +1,11 @@
 # classe form barra di ricerca in index
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, DateField, SubmitField
+from wtforms import StringField, SelectField, DateField, SubmitField, validators
 from wtforms.validators import DataRequired
 
 
 class RegistrationFormRicerca(FlaskForm):
-    oggetto_ricerca = StringField("Cosa vuoi noleggiare?", validators=[DataRequired()])
+    oggetto_ricerca = StringField("Cosa vuoi noleggiare?")
     categoria_ricerca = SelectField(
         "Categoria",
         choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console&videogiochi", "Console e videogiochi"),
@@ -48,7 +48,7 @@ class RegistrationFormRicerca(FlaskForm):
                  ("vc", "Vercelli"), ("vr", "Verona"), ("vv", "ibo valentia"), ("vi", "Vicenza"), ("vt", "Viterbo")]
         , validators=[DataRequired()])
 
-    data_inizio_noleggio_ricerca = DateField("Data di inizio noleggio", validators=[DataRequired()])
-    data_fine_noleggio_ricerca = DateField("Data di fine noleggio", validators=[DataRequired()])
+    data_inizio_noleggio_ricerca = DateField("Data di inizio noleggio",validators=(validators.Optional(),))
+    data_fine_noleggio_ricerca = DateField("Data di fine noleggio",validators=(validators.Optional(),))
 
     submit = SubmitField("Cerca")
