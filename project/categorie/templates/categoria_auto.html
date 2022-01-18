@@ -28,110 +28,87 @@
     <br>
     <br>
     <!-- Sezione Risultati Ricerca -->
-    <section id="categorie" class="categorie text-center bg-light">
-        <div class="container">
-            <h2 class="mb-5">Risultati ricerca categoria accessori auto:</h2>
-        </div>
+    <div class="container text-center bg-light" id="categorie">
+        <h2 class="mb-5">Risultati ricerca categoria accessori auto:</h2>
+    </div>
 
-        {% for annuncio in lista_annunci %}
-            <section id="annunci" class="risultati_ricerca">
-                <div class="container-fluid p-15">
-                    <div class="row no-gutters border border-dark">
-                        <div class="card col-lg-3 order-lg-1 " style="width: 18rem;">
-                            <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body col-lg-3 order-lg-2 ">
-                            <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
-                            <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
-                            <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
-                            <p class="card-text">
-                                Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
-                            <p class="card-text">Città: {{ annuncio.citta_annuncio }}</p>
-                            <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
-                            <p class="card-text">DATA INIZIO PRESENZA SUL
-                                CATOLOGO: {{ annuncio.data_inizio_noleggio }} </p>
-                            <p class="card-text">DATA FINE PRESENZA SUL CATOLOGO: {{ annuncio.data_fine_noleggio }} </p>
-                            <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
-                            <!--
-                            <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
-                                <div class="mb-5">
-                                    <label for="data_inizio_noleggio"></label>
-                                    <div class="table-bordered text-center text-white">
-
-                                    </div>
-                                    <div class="form-control">
-                                    <p>INSERISCI DATA INIZIO NOLEGGIO</p>
-                                    </div>
-                                </div>
-
-                                <div class="mb-5">
-                                    <label for="data_fine_noleggio"></label>
-                                    <div class="table-bordered text-center text-white">
-
-                                    </div>
-                                    <div class="form-control">
-                                    <p>INSERISCI DATA FINE NOLEGGIO</p>
-                                    </div>
-                                </div>
-
-                                <div class="text-center mt-2">
-                                    VERIFICA DISPONIBILITà
-                                </div>
-                            </form> -->
-
-                            <!-- <br> cod. 1 <p> 25 Euro <br clear=all> -->
-
-                            <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO-->
-                            {% if  current_user.is_authenticated %}
-                                <a href="javascript:aggiungi({{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
-                                   class="btn btn-primary">Aggiungi al carrello
-                                </a>
-                            {% else %}
-                                <a class="btn btn-primary" href="{{ url_for('utenti.login') }}">
-                                    Aggiungi al carrello
-                                </a>
-
-                            {% endif %}
-                        </div>
+    {% for annuncio in lista_annunci %}
+        <section id="annunci" class="risultati_ricerca">
+            <div class="container-fluid p-15">
+                <div class="row no-gutters">
+                    <div class="card col-lg-3 order-lg-1 " style="width: 18rem;">
+                        <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
                     </div>
-                </div>
-            </section>
-        {% endfor %}
-    </section>
+                    <div class="card-body col-lg-3 order-lg-2 ">
+                        <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
+                        <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
+                        <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
+                        <p class="card-text">
+                            Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
+                        <p class="card-text">Città: {{ annuncio.citta_annuncio }}</p>
+                        <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
+                        <p class="card-text">DATA INIZIO PRESENZA SUL
+                            CATOLOGO: {{ annuncio.data_inizio_noleggio }} </p>
+                        <p class="card-text">DATA FINE PRESENZA SUL CATOLOGO: {{ annuncio.data_fine_noleggio }} </p>
+                        <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
 
-    <!-- Sezione recensioni clienti -->
-    <section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
-        <div class="container">
-            <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounder-circle mb-3 cliente1"
-                             src="../static/images/Home Page/cliente1.jpg" alt="">
-                        <h5>Luca Rossi</h5>
-                        <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
-                            guadagnare!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounder-circle mb-3 cliente2"
-                             src="../static/images/Home Page/cliente2.jpg" alt="">
-                        <h5>Paolo Bianchi</h5>
-                        <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounder-circle mb-3 cliente3"
-                             src="../static/images/Home Page/cliente3.jpg" alt="">
-                        <h5>Matteo Verdi</h5>
-                        <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                        <!--
+                        <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
+                            <div class="mb-5">
+                                <label for="data_inizio_noleggio"></label>
+                                <div class="table-bordered text-center text-white">
+
+                                </div>
+                                <div class="form-control">
+                                <p>INSERISCI DATA INIZIO NOLEGGIO</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="data_fine_noleggio"></label>
+                                <div class="table-bordered text-center text-white">
+
+                                </div>
+                                <div class="form-control">
+                                <p>INSERISCI DATA FINE NOLEGGIO</p>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-2">
+                                VERIFICA DISPONIBILITà
+                            </div>
+                        </form> -->
+
+                        <!-- <br> cod. 1 <p> 25 Euro <br clear=all> -->
+
+                        <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO-->
+                        {% if  current_user.is_authenticated %}
+                            <a href="javascript:aggiungi({{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
+                               class="btn btn-primary">Aggiungi al carrello
+                            </a>
+                        {% else %}
+                            <a class="btn btn-primary" href="{{ url_for('utenti.login') }}">
+                                Aggiungi al carrello
+
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <div class="mb-5"></div>
+    {% endfor %}
+    <!--SPAZIO-->
+    <div class="mb-5"></div>
+    <!--Sezione torna alla ricerca -->
+    <div class="container text-center">
+        <a class="mb-5 menù" href="{{ url_for('main.HomePage') }}">
+            <h5>Effettua altre ricerche</h5>
+        </a>
+    </div>
+    <!--SPAZIO-->
+    <div class="mb-5"></div>
+    <!--sezione newsletter -->
     <section id="contattaci" class="newsletter text-white text-center">
         <div class="container">
             <style>
@@ -180,15 +157,15 @@
                     <p class="testo">Seguici su:</p>
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item mr-3"><a href="#"><img
-                                src="../static/images/Home Page/logo-insta.jpg"
+                                src="/static/images/Home Page/logo-insta.jpg"
                                 alt=""></a>
                         </li>
                         <li class="list-inline-item mr-3"><a href="#"><img
-                                src="../static/images/Home Page/logo-linkedln.png"
+                                src="/static/images/Home Page/logo-linkedln.png"
                                 alt=""></a>
                         </li>
                         <li class="list-inline-item"><a href="#"><img
-                                src="../static/images/Home Page/logo-twitter.png"
+                                src="/static/images/Home Page/logo-twitter.png"
                                 alt=""></a>
                         </li>
                     </ul>
