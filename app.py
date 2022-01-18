@@ -19,16 +19,11 @@ import os
 from flask_uploads import UploadSet, IMAGES, configure_uploads
 
 from project import create_app, db, images
-from flask import render_template
+
 from flask_migrate import Migrate
 
 from project.ruoli.models import Ruolo
 from project.utenti.models import Utente
-'''
-from project.corsi.models import Corso
-from project.serate.models import Serata
-from project.tags.models import Tag
-'''
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 # Create db and migrations

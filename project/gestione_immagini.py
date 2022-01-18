@@ -1,6 +1,8 @@
 import io
+from random import random
 
 import PIL
+from numpy.matlib import rand
 
 
 def convertToBinaryData(filename):
@@ -23,8 +25,10 @@ def download_image_annunci(annuncio, i):
     # Convert the bytes into a PIL image
     immagineTemp = PIL.Image.open(io.BytesIO(annuncio.immagine))
     # Salvo la directory
-    filename = 'image' + str(i)
+    index_image_rng = rand(2000)
+    j = i + index_image_rng
+    filename = 'image' + str(i)+str(j)
     dirFile = 'project/static/downloads/images/' + filename + '.' + immagineTemp.format
     annuncio.immagine_caricata = convertToImageData(annuncio.immagine, dirFile).name
     percorso_modificato = annuncio.immagine_caricata.replace("project", "")
-    annuncio.immagine_caricata = '..' + percorso_modificato
+    annuncio.immagine_caricata = '' + percorso_modificato
