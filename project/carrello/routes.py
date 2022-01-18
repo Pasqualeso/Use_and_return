@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, flash, redirect, url_for, request
 
+# Define blueprint
+from flask_login import login_required, current_user
 
 carrello_blueprint = Blueprint(
     "carrello",
@@ -11,4 +13,7 @@ carrello_blueprint = Blueprint(
 
 @carrello_blueprint.route('/carrello', methods=['GET', 'POST'])
 def carrello():
-    return render_template('carrello.html')
+    if current_user.is_authenticated:
+        return render_template('carrello.html')
+    else:
+        return redirect(url_for('utenti.login'))
