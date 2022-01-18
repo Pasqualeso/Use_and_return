@@ -24,39 +24,44 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
     <!-- Sezione Risultati Ricerca -->
     <section id="categorie" class="categorie text-center bg-light">
         <div class="container">
-        <h2 class="mb-5">Risultati ricerca categoria altro:</h2>
+            <h2 class="mb-5">Risultati ricerca categoria altro:</h2>
         </div>
 
         {% for annuncio in lista_annunci %}
-        <section id="annunci" class="risultati_ricerca">
-            <div class="container-fluid p-15">
-                <div class="row no-gutters border border-dark">
-                    <div class="card col-lg-6 order-lg-1 " style="width: 18rem;">
-                        <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body col-lg-6 order-lg-2 ">
-                        <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
-                        <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
-                        <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
-                        <p class="card-text">Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
-                        <p class="card-text">Citta': {{ annuncio.citta_annuncio }}</p>
-                        <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
-                        <p class="card-text">Data inizio noleggio: {{ annuncio.data_inizio_noleggio}} </p>
-                        <p class="card-text">Data fine noleggio: {{ annuncio.data_fine_noleggio}} </p>
-                        <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
+            <section id="annunci" class="risultati_ricerca">
+                <div class="container-fluid p-15">
+                    <div class="row no-gutters border border-dark">
+                        <div class="card col-lg-6 order-lg-1 " style="width: 18rem;">
+                            <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body col-lg-6 order-lg-2 ">
+                            <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
+                            <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
+                            <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
+                            <p class="card-text">
+                                Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
+                            <p class="card-text">Città: {{ annuncio.citta_annuncio }}</p>
+                            <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
+                            <p class="card-text">Data inizio noleggio: {{ annuncio.data_inizio_noleggio }} </p>
+                            <p class="card-text">Data fine noleggio: {{ annuncio.data_fine_noleggio }} </p>
+                            <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
 
-                        <!-- <br> cod. 1 <p> 25 Euro <br clear=all>
-                         Mini pallone da football<p> -->
-                        <a href="javascript:aggiungi(9,25,'Libro')" class="btn btn-primary">Aggiungi al carrello</a>
 
-                        <!-- <a href="#" class="btn btn-primary">Vai al carrelo</a> -->
+                            <!-- <br> cod. 1 <p> 25 Euro <br clear=all>
+                             Mini pallone da football<p> -->
+                            <a href="javascript:aggiungi(9,25,'Libro')" class="btn btn-primary">Aggiungi al carrello</a>
+
+                            <!-- <a href="#" class="btn btn-primary">Vai al carrelo</a> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         {% endfor %}
     </section>
 

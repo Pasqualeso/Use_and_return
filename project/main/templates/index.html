@@ -1,4 +1,6 @@
 {% extends "base.html" %} {% block content %}
+    <!doctype html>
+    <html lang="en">
     <head>
         <!-- Required meta tags-->
         <meta charset="utf-8">
@@ -13,6 +15,7 @@
 
         <title>Use and return</title>
     </head>
+    <body>
     <!-- Messaggi flash -->
     <div class="container">
         {# Flashed messages #}
@@ -31,203 +34,71 @@
         <style>
             .head-banner {
                 background-image: url("../static/images/baratto.jpeg");
-                margin-top: 113px;
+                height: 370px;
+                margin-top: 185px;
             }
         </style>
         <div class="row">
             <div class="col-xl-9 mx-auto">
                 <h1>Il servizio di noleggio più efficiente che ci sia</h1>
-                <div id="suggerimenti"></div>
             </div>
         </div>
     </div>
     </header>
+
     <!-- Sezione Barra Ricerca -->
-
-
-    <form action="" method="post" role="form" enctype="multipart/form-data"  class="email-form">
     <section class="BarraRicerca">
-        <div class="searchBox">
-            <div class="inputBx text-center text-white table-responsive-lg">
-                <p>{{ form.hidden_tag() }} {{ form.oggetto_ricerca.label }}</p>
-                <label>
-                    {{ form.oggetto_ricerca }}
-                </label>
-            </div>
-            <div class="inputBx text-center text-white">
-                <p>   {{ form.categoria_ricerca.label }}</p>
-                <label>
-                    {{ form.categoria_ricerca }}
-                </label>
-            </div>
-            <div class="inputBx text-center text-white">
-                <p>{{ form.provincia_annuncio.label }}</p>
-                <label>
-                    {{ form.provincia_annuncio }}
-                </label>
-            </div>
+        <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
+            <div class="searchBox">
+                <div class="inputBx text-center text-white table-responsive-lg">
+                    <p>{{ form.hidden_tag() }} {{ form.oggetto_ricerca.label }}</p>
+                    <label>
+                        {{ form.oggetto_ricerca }}
+                    </label>
+                </div>
+                <div class="inputBx text-center text-white">
+                    <p>   {{ form.categoria_ricerca.label }}</p>
+                    <label>
+                        {{ form.categoria_ricerca }}
+                    </label>
+                </div>
+                <div class="inputBx text-center text-white">
+                    <p>{{ form.provincia_annuncio.label }}</p>
+                    <label>
+                        {{ form.provincia_annuncio }}
+                    </label>
+                </div>
 
-            <div class="inputBx text-center text-white">
-                <p> {{ form.data_inizio_noleggio_ricerca.label }}</p>
-                <label>
-                    {{ form.data_inizio_noleggio_ricerca }}
-                </label>
-            </div>
-            <div class="inputBx text-center text-white">
-                <p>  {{ form.data_fine_noleggio_ricerca.label }}</p>
-                <label>
-                    {{ form.data_fine_noleggio_ricerca }}
-                </label>
-            </div>
+                <div class="inputBx text-center text-white">
+                    <p> {{ form.data_inizio_noleggio_ricerca.label }}</p>
+                    <label>
+                        {{ form.data_inizio_noleggio_ricerca }}
+                    </label>
+                </div>
+                <div class="inputBx text-center text-white">
+                    <p>  {{ form.data_fine_noleggio_ricerca.label }}</p>
+                    <label>
+                        {{ form.data_fine_noleggio_ricerca }}
+                    </label>
+                </div>
 
-            <div class="container">
-                <div class="mb-5">
-                    <div class="inputBx">
-                        <p class="white">-</p>
-                        <a href="#annunci">
+                <div class="container">
+                    <div class="mb-5">
+                        <div class="inputBx">
+                            <p class="white">-</p>
                             <div class="text-center mt-2 registrazione">
-                                <button>
-                                    {{ form.submit }}
-                                </button>
+                                {{ form.submit }}
                             </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
+        </form>
     </section>
-    </form>
     <!-- sezione spazio
     <div class="mb-5"></div>-->
-    <!-- sezione annunci suggeriti -->
-    <section id="suggerimenti" class="categorie text-center bg-light">
-        <div class="container">
-            <h2 class="mb-5">Annunci suggeriti</h2>
-            <div class="row">
-                <div class="wrapper">
-                    <div class="col-lg-4">
-                        <div class="suggerimento-singolo mx-auto mb-5 mb-lg-0">
-                            <a href="categoria_musica.html">
-                                <img class="img-fluid rounder-circle mb-3 categoria1"
-                                     src="../static/images/Categorie/Musica/musica3.jpg" alt="">
-                                <h5>Giradischi</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="categoria-singola mx-auto mb-5 mb-lg-0">
-                            <a href="categoria_telefonia.html">
-                                <img class="img-fluid rounder-circle mb-3 categoria2"
-                                     src="../static/images/Categorie/Telefonia/telefonia1.jpg" alt="">
-                                <h5>iPhone</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!--<a href="categoria_console&videogiochi.html">-->
-                            <img class="img-fluid rounder-circle mb-3 categoria3"
-                                 src="../static/images/Categorie/Console e videogiochi/videogiochi3.jpg" alt="">
-                            <h5>Visore</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!--<a href="categoria_informatica.html"> -->
-                            <img class="img-fluid rounder-circle mb-3 categoria4"
-                                 src="../static/images/Categorie/Informatica/informatica2.jpg" alt="">
-                            <h5>Stampante</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!--<a href="categoria_auto.html"> -->
-                            <img class="img-fluid rounder-circle mb-3 categoria5"
-                                 src="../static/images/Categorie/Musica/musica2.jpg" alt="">
-                            <h5>Microfono</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!-- <a href="categoria_gioccatoli.html"> -->
-                            <img class="img-fluid rounder-circle mb-3 categoria6"
-                                 src="../static/images/Categorie/Giocattoli/giocattoli2.jpg" alt="">
-                            <h5>Macchinine</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!-- <a href="categoria_fotografia.html"> -->
-                            <img class="img-fluid rounder-circle mb-3 categoria7"
-                                 src="../static/images/Categorie/Fotografia/Fotografia2.jpg" alt="">
-                            <h5>Macchina fotografica</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!-- <a href="categoria_videomaker.html"> -->
-                            <img class="img-fluid rounder-circle mb-3 categoria8"
-                                 src="../static/images/Categorie/Informatica/informatica3.jpg" alt="">
-                            <h5>Roter</h5>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="recensione-singola mx-auto mb-5 mb-lg-0">
-                            <!-- <a href="categoria_altro.html"> -->
-                            <img class="img-fluid rounder-circle mb-3 categoria9"
-                                 src="../static/images/Categorie/Altro/altro1.jpg" alt="">
-                            <h5>Libri</h5>
-                            <div id="annunci"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Risultati Ricerca -->
-    <section id="categorie" class="categorie text-center bg-light">
-        <div class="container">
-            <h2 class="mb-5">Risultati ricerca categoria altro:</h2>
-        </div>
-
-        {% for annuncio in lista_annunci %}
-            <section id="annunci" class="risultati_ricerca">
-                <div class="container-fluid p-15">
-                    <div class="row no-gutters border border-dark">
-                        <div class="card col-lg-6 order-lg-1 " style="width: 18rem;">
-                            <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body col-lg-6 order-lg-2 ">
-                            <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
-                            <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
-                            <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
-                            <p class="card-text">Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
-                            <p class="card-text">Citta': {{ annuncio.citta_annuncio }}</p>
-                            <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
-                            <p class="card-text">Data inizio noleggio: {{ annuncio.data_inizio_noleggio }} </p>
-                            <p class="card-text">Data fine noleggio: {{ annuncio.data_fine_noleggio }} </p>
-                            <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
-
-                            <!-- <br> cod. 1 <p> 25 Euro <br clear=all>
-                             Mini pallone da football<p> -->
-                            <a href="javascript:aggiungi(9,25,'Libro')" class="btn btn-primary">Aggiungi al carrello</a>
-
-                            <!-- <a href="#" class="btn btn-primary">Vai al carrelo</a> -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-        {% endfor %}
-    </section>
 
     <!--Sezione info sito -->
     <section class="sezione icone bg-light text-center">
@@ -311,22 +182,121 @@
                     <p>Riduzione di tonnellate di emissioni CO2 e rifiuti.</p>
                     <p>Ritiro e spedizione gestita dal sito tramite corriere.</p>
                     <p>Sicurezza app con accesso alla localizzazione per rintracciare l’utente in caso in cui il
-                        prodotto
-                        non
-                        venga restituito.</p>
+                        prodotto non venga restituito.</p>
                     <p>Un solo abbonamento, tante categorie di prodotti.</p>
                     <p>Bonus ottenibili tramite pubblicità della piattaforma sulla commissione di registrazione ai
-                        nuovi
-                        abbonati.</p>
+                        nuovi abbonati.</p>
+                    <div id="diconodinoi"></div>
                     <p>Periodo di prova del servizio di 30 giorni gratis.</p>
                     <p>Controllo della qualità e dello stato effettivo degli articoli noleggiati, sia prima del
-                        noleggio che
-                        al
-                        termine.</p>
+                        noleggio che al termine.</p>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Sezione recensioni clienti -->
+    <section id="diconodinoi" class="DiconoDiNoi text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">Cosa dicono i nostri clienti</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Home Page/cliente1.jpg"
+                             alt="">
+                        <h5>Luca Rossi</h5>
+                        <p class="font-weight-light mb-0">"Mi sono trovato benissimo. Eccellente per risparmiare e
+                            guadagnare!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente2"
+                             src="../static/images/Home Page/cliente2.jpg"
+                             alt="">
+                        <h5>Paolo Bianchi</h5>
+                        <p class="font-weight-light mb-0">"Ottima assistenza!"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="recensione-singola mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounder-circle mb-3 cliente3"
+                             src="../static/images/Home Page/cliente3.jpg"
+                             alt="">
+                        <h5>Matteo Verdi</h5>
+                        <p class="font-weight-light mb-0">"È la piattaforma che ho sempre desiderato"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Sezione Newsletter -->
+    <section id="contattaci" class="newsletter text-white text-center">
+        <div class="container">
+            <style>
+                .newsletter {
+                    background-image: url("../static/images/newsletter.jpeg");
+                }
+            </style>
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h2 class="mb-4">Iscriviti alla nostra newsletter!</h2>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- INFO GENERALI -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><a href="#">Term of Use</a></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright
+                        <strong><span>Università di Napoli Parthenope</span></strong></p>
+                    <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
+                    </p>
+                </div>
+
+                <div class="col-lg-6 h-100 text-center text-lg-right">
+                    <p class="testo">Seguici su:</p>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mr-3"><a href="#"><img
+                                src="../static/images/Home Page/logo-insta.jpg"
+                                alt=""></a>
+                        </li>
+                        <li class="list-inline-item mr-3"><a href="#"><img
+                                src="../static/images/Home Page/logo-linkedln.png"
+                                alt=""></a>
+                        </li>
+                        <li class="list-inline-item"><a href="#"><img
+                                src="../static/images/Home Page/logo-twitter.png"
+                                alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -339,6 +309,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-
+    </body>
+    </html>
 {% endblock %}
 

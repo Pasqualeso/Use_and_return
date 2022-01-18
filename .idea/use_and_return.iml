@@ -11,6 +11,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="jquery-1.11.0" level="application" />
+    <orderEntry type="library" name="jquery-1.11.0" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
@@ -21,6 +23,7 @@
         <option value="$MODULE_DIR$/project/utenti/templates" />
         <option value="$MODULE_DIR$/project/annunci/templates" />
         <option value="$MODULE_DIR$/project/categorie/templates" />
+        <option value="$MODULE_DIR$/project/carrello/templates" />
       </list>
     </option>
   </component>

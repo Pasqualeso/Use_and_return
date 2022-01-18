@@ -9,7 +9,7 @@ from wtforms.widgets import TextArea
 class RegistrationFormAnnuncio(FlaskForm):
     titolo_annuncio = StringField("Inserisci il titolo dell'annuncio", validators=[DataRequired(), Length(1, 64)])
     categoria_annuncio = SelectField(
-        "Inserisci la categoria",
+        "Inserisci la categoria dell'annuncio",
         choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console e videogiochi", "Console e videogiochi"),
                  ("informatica", "Informatica"),
                  ("accessori auto", "Accessori auto"), ("giocattoli", "Giocattoli"), ("fotografia", "Fotografia"),
@@ -21,7 +21,7 @@ class RegistrationFormAnnuncio(FlaskForm):
 
     prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio",
                                               validators=[DataRequired()])
-    descrizione_annuncio = TextAreaField("Inserisci una descrizione(Max 200 caratteri)",
+    descrizione_annuncio = TextAreaField("Inserisci una descrizione (Max 200 caratteri)",
                                          validators=[DataRequired(), Length(1, 200)])
 
     data_inizio_noleggio_annuncio = DateField("Inserisci una data di inizio noleggio", format='%Y-%m-%d',
@@ -29,11 +29,11 @@ class RegistrationFormAnnuncio(FlaskForm):
     data_fine_noleggio_annuncio = DateField("Inserisci una data di fine noleggio", format='%Y-%m-%d',
                                             validators=[DataRequired()])
 
-    citta_annuncio = StringField('Inserire Città annuncio',
+    citta_annuncio = StringField("Inserisci la città dell'annuncio",
                                  validators=[DataRequired(message='Città obbligatoria'), Length(1, 64)])
 
     provincia_annuncio = SelectField(
-        "Inserisci la provincia",
+        "Inserisci la provincia dell'annuncio",
         choices=[("ag", "Agrigento"), ("al", "Alessandria"), ("an", "Ancona"), ("ao", "Aosta"), ("ar", "Arezzo"),
                  ("ap", "Ascoli Piceno"),
                  ("at", "Asti"), ("av", "Avellino"), ("ba", "Bari"), ("bt", "Barletta-Andria-Trani"), ("bl", "Belluno"),
@@ -67,7 +67,7 @@ class RegistrationFormAnnuncio(FlaskForm):
                  ("vc", "Vercelli"), ("vr", "Verona"), ("vv", "ibo valentia"), ("vi", "Vicenza"), ("vt", "Viterbo")]
         , validators=[DataRequired()])
 
-    via_annuncio = StringField("Inserisci la via", validators=[DataRequired()])
-    cap_annuncio = IntegerField("Inserisci il cap", validators=[DataRequired()])
+    via_annuncio = StringField("Inserisci la via dell'annuncio", validators=[DataRequired()])
+    cap_annuncio = IntegerField("Inserisci il cap dell'annuncio", validators=[DataRequired()])
 
-    submit_annuncio = SubmitField("Submit")
+    submit_annuncio = SubmitField("Invia")

@@ -14,11 +14,14 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="../static/css/style.css">
         <script javascript src=../static/js/carrello.js></script>
-        <title>Categoria altro</title>
+        <title>Categoria console e videogiochi</title>
     </head>
     <body>
     <!-- INIZIALIZZA JAVASCRIPT -->
     <script>inizializza()</script>
+  <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
@@ -27,7 +30,7 @@
     <!-- Sezione Risultati Ricerca -->
     <section id="categorie" class="categorie text-center bg-light">
         <div class="container">
-        <h2 class="mb-5">Risultati ricerca categoria altro:</h2>
+        <h2 class="mb-5">Risultati ricerca categoria console e videogiochi:</h2>
         </div>
 
         {% for annuncio in lista_annunci %}
@@ -42,7 +45,7 @@
                         <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
                         <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
                         <p class="card-text">Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
-                        <p class="card-text">Citta': {{ annuncio.citta_annuncio }}</p>
+                        <p class="card-text">Città: {{ annuncio.citta_annuncio }}</p>
                         <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
                         <p class="card-text">Data inizio noleggio: {{ annuncio.data_inizio_noleggio}} </p>
                         <p class="card-text">Data fine noleggio: {{ annuncio.data_fine_noleggio}} </p>

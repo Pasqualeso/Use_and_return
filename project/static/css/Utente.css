@@ -8,12 +8,13 @@
 .card-header{
     background-color: coral;
 }
-.collapse{
+.collapse1{
     background: rgba(0,0,0,.5);
 }
 .btn-link{
     color: #dddddd;
 }
+
 @media screen and (min-width: 768px) {
     .head-banner {
         padding-top: 12rem;

@@ -100,6 +100,6 @@ function tabella() {
 function svuota() {
     delete localStorage.carrello;
     document.getElementById('elenco').innerHTML =
-        "<TABLE border=1><TH>Codice<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
+        "<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
 }
 
