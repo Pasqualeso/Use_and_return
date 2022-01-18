@@ -37,10 +37,10 @@
             <section id="annunci" class="risultati_ricerca">
                 <div class="container-fluid p-15">
                     <div class="row no-gutters border border-dark">
-                        <div class="card col-lg-6 order-lg-1 " style="width: 18rem;">
+                        <div class="card col-lg-3 order-lg-1 " style="width: 18rem;">
                             <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
                         </div>
-                        <div class="card-body col-lg-6 order-lg-2 ">
+                        <div class="card-body col-lg-3 order-lg-2 ">
                             <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
                             <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
                             <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
@@ -48,16 +48,50 @@
                                 Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
                             <p class="card-text">Città: {{ annuncio.citta_annuncio }}</p>
                             <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
-                            <p class="card-text">Data inizio noleggio: {{ annuncio.data_inizio_noleggio }} </p>
-                            <p class="card-text">Data fine noleggio: {{ annuncio.data_fine_noleggio }} </p>
+                            <p class="card-text">DATA INIZIO PRESENZA SUL
+                                CATOLOGO: {{ annuncio.data_inizio_noleggio }} </p>
+                            <p class="card-text">DATA FINE PRESENZA SUL CATOLOGO: {{ annuncio.data_fine_noleggio }} </p>
                             <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
+                            <!--
+                            <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
+                                <div class="mb-5">
+                                    <label for="data_inizio_noleggio"></label>
+                                    <div class="table-bordered text-center text-white">
 
+                                    </div>
+                                    <div class="form-control">
+                                    <p>INSERISCI DATA INIZIO NOLEGGIO</p>
+                                    </div>
+                                </div>
 
-                            <!-- <br> cod. 1 <p> 25 Euro <br clear=all>
-                             Mini pallone da football<p> -->
-                            <a href="javascript:aggiungi(9,25,'Libro')" class="btn btn-primary">Aggiungi al carrello</a>
+                                <div class="mb-5">
+                                    <label for="data_fine_noleggio"></label>
+                                    <div class="table-bordered text-center text-white">
 
-                            <!-- <a href="#" class="btn btn-primary">Vai al carrelo</a> -->
+                                    </div>
+                                    <div class="form-control">
+                                    <p>INSERISCI DATA FINE NOLEGGIO</p>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-2">
+                                    VERIFICA DISPONIBILITà
+                                </div>
+                            </form> -->
+
+                            <!-- <br> cod. 1 <p> 25 Euro <br clear=all> -->
+
+                            <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO-->
+                            {% if  current_user.is_authenticated %}
+                                <a href="javascript:aggiungi({{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
+                                   class="btn btn-primary">Aggiungi al carrello
+                                </a>
+                            {% else %}
+                                <a class="btn btn-primary" href="{{ url_for('utenti.login') }}">
+                                    Aggiungi al carrello
+                                </a>
+
+                            {% endif %}
                         </div>
                     </div>
                 </div>
