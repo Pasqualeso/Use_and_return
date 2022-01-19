@@ -23,17 +23,25 @@
     <br>
     <body>
     <!-- Messaggi flash -->
-    <div class="container">
-        {# Flashed messages #}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        {# End Flashed messages #}
+    <div class="container flash">
+        <h2 class="mb-5">
+            {# Flashed messages #}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} text-center" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {# End Flashed messages #}
+        </h2>
     </div>
+    <style>
+        .flash {
+            height: 75px;
+            margin-top: 65px;
+        }
+    </style>
 
     <div class="container text-center">
         <h1>

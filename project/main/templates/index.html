@@ -17,7 +17,26 @@
         <title>Use and return</title>
     </head>
     <body>
-
+    <!-- Messaggi flash -->
+    <div class="container flash">
+        <h2 class="mb-5">
+            {# Flashed messages #}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} text-center" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {# End Flashed messages #}
+        </h2>
+    </div>
+    <style>
+        .flash {
+            height: 370px;
+            margin-top: 185px;
+        }
+    </style>
     <!-- Sezione Banner -->
     <div class="head-banner text-white text-center">
 
@@ -25,7 +44,7 @@
             .head-banner {
                 background-image: url("../static/images/baratto.jpeg");
                 height: 370px;
-                margin-top: 185px;
+                margin-top: -370px;
             }
         </style>
         <div class="row">
@@ -33,19 +52,6 @@
                 <h1>Il servizio di noleggio più efficiente che ci sia</h1>
             </div>
         </div>
-    </div>
-    </header>
-    <!-- Messaggi flash -->
-    <div class="container">
-        {# Flashed messages #}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        {# End Flashed messages #}
     </div>
     <!-- Sezione Barra Ricerca -->
     <section class="BarraRicerca">
@@ -297,7 +303,6 @@
         </div>
 
     </footer>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
