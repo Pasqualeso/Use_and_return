@@ -21,19 +21,9 @@
     <br>
     <br>
     <br>
-    <body>
-    <!-- Messaggi flash -->
-    <div class="container">
-        {# Flashed messages #}
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        {# End Flashed messages #}
-    </div>
+    <header>
+
+
     <!-- CSS FORM -->
     <style>
         * {
@@ -100,6 +90,8 @@
         }
 
     </style>
+
+    </div>
     <!--HTML FORM-->
     <section class="inner-page">
         <div class="container">
