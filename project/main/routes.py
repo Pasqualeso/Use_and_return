@@ -4,6 +4,7 @@ from os import walk
 
 from flask import Blueprint, render_template, session, redirect, url_for
 
+from project.gestione_immagini import delete_image
 from project.main.forms import RegistrationFormRicerca
 from project.ruoli.models import Permission
 import numpy
@@ -31,6 +32,7 @@ def inject_permissions():
 
 @main_blueprint.route("/", methods=['GET', 'POST'])
 def index():
+    delete_image()
     form_ricerca = RegistrationFormRicerca()
     oggetto_ricerca = None
     provincia_ricerca = None
