@@ -84,13 +84,11 @@ def login():
             '''
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
+                flash('Bentornato', 'success')
                 next = url_for('main.index')
             return redirect(next)
         flash('Mail o password non validi', 'danger')
     return render_template('login.html', form=form)
-
-
-
 
 
 # Gestione Informazioni utente
