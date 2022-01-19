@@ -10,10 +10,10 @@ class RegistrationFormAnnuncio(FlaskForm):
     titolo_annuncio = StringField("Inserisci il titolo dell'annuncio", validators=[DataRequired(), Length(1, 64)])
     categoria_annuncio = SelectField(
         "Inserisci la categoria dell'annuncio",
-        choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console e videogiochi", "Console e videogiochi"),
+        choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console_e_videogiochi", "Console e videogiochi"),
                  ("informatica", "Informatica"),
-                 ("accessori auto", "Accessori auto"), ("giocattoli", "Giocattoli"), ("fotografia", "Fotografia"),
-                 ("video-maker", "Video-maker"), ("altro", "Altro")]
+                 ("auto", "Accessori auto"), ("giocattoli", "Giocattoli"), ("fotografia", "Fotografia"),
+                 ("videomaker", "Video-maker"), ("altro", "Altro")]
         , validators=[DataRequired()])
 
     immagine_annuncio = FileField("Inserisci un'immagine", validators=[DataRequired()])

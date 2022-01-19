@@ -8,7 +8,7 @@ class RegistrationFormRicerca(FlaskForm):
     oggetto_ricerca = StringField("Cosa vuoi noleggiare?")
     categoria_ricerca = SelectField(
         "Categoria",
-        choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console&videogiochi", "Console e videogiochi"),
+        choices=[("musica", "Musica"), ("telefonia", "Telefonia"), ("console_e_videogiochi", "Console e videogiochi"),
                  ("informatica", "Informatica"),
                  ("auto", "Accessori auto"), ("giocattoli", "Giocattoli"), ("fotografia", "Fotografia"),
                  ("videomaker", "Video-maker"), ("altro", "Altro")]
@@ -48,7 +48,7 @@ class RegistrationFormRicerca(FlaskForm):
                  ("vc", "Vercelli"), ("vr", "Verona"), ("vv", "ibo valentia"), ("vi", "Vicenza"), ("vt", "Viterbo")]
         , validators=[DataRequired()])
 
-    data_inizio_noleggio_ricerca = DateField("Data di inizio noleggio",validators=(validators.Optional(),))
-    data_fine_noleggio_ricerca = DateField("Data di fine noleggio",validators=(validators.Optional(),))
+    data_inizio_noleggio_ricerca = DateField("Data di inizio noleggio",validators=[DataRequired()])
+    data_fine_noleggio_ricerca = DateField("Data di fine noleggio",validators=[DataRequired()])
 
     submit = SubmitField("Cerca")

@@ -76,22 +76,9 @@ def index():
                 break
             else:
                 categoria_trovata = None
-        print(oggetto_ricerca)
-        '''
-        
-                # Redirezione verso le categorie con provincia, data di fine noleggio e data di fine noleggio
-                elif data_fine_noleggio_ricerca is not None and oggetto_ricerca is not None:
-                    return redirect(
-                        url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca, titolo=oggetto_ricerca,
-                                data_fine_noleggio=data_fine_noleggio_ricerca))
 
-                    # Redirezione verso le categorie con provincia, titolo data di inizio noleggio e data di fine noleggio
 
-                elif data_fine_noleggio_ricerca is not None and oggetto_ricerca is None:
-                    return redirect(
-                        url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca,
-                                data_fine_noleggio=data_fine_noleggio_ricerca))
-                '''
+
         # Redirezione verso le categorie con provincia,titolo,data di inizio noleggio e data di fine noleggio
         if data_fine_noleggio_ricerca is not None and data_inizio_noleggio_ricerca is not None and oggetto_ricerca is not None:
             return redirect(
@@ -104,31 +91,6 @@ def index():
             return redirect(url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca,
                                     data_inizio_noleggio=data_inizio_noleggio_ricerca,
                                     data_fine_noleggio=data_fine_noleggio_ricerca))
-
-        elif data_fine_noleggio_ricerca is not None and data_inizio_noleggio_ricerca is None and oggetto_ricerca is None:
-            return redirect(url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca,
-                                    data_fine_noleggio=data_fine_noleggio_ricerca))
-
-
-        # Redirezione verso le categorie con provincia, titolo e data di inizio noleggio
-        elif data_inizio_noleggio_ricerca is not None and oggetto_ricerca is not None:
-            return redirect(
-                url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca,titolo=oggetto_ricerca,
-                        data_inizio_noleggio=data_inizio_noleggio_ricerca))
-
-        # Redirezione verso le categorie con provincia e data di inizio noleggio
-        elif data_inizio_noleggio_ricerca is not None and oggetto_ricerca is None:
-            return redirect(
-                url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca,
-                        data_inizio_noleggio=data_inizio_noleggio_ricerca))
-
-        # Redirezione verso le categorie con provincia e titolo
-        elif oggetto_ricerca != '' and oggetto_ricerca is not None:
-            return redirect(
-                url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca,
-                        data_inizio_noleggio=data_inizio_noleggio_ricerca, titolo=oggetto_ricerca))
-
-        return redirect(url_for('categorie.' + categoria_trovata, provincia=provincia_ricerca))
 
     return render_template('index.html', form=form_ricerca, categoria_url=categoria_trovata)
 
