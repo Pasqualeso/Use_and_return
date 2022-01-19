@@ -121,7 +121,10 @@
                             </li>
                             <li>Data fine noleggio: <b>{{ annuncio.data_fine_noleggio }}</b>
                             </li>
-                            <li>Immagine annuncio: <b><img src="{{ annuncio.immagine_caricata }}"></b></li>
+                            <div class="card-body" style="width: 18rem;">
+                                <li>Immagine annuncio: <b><img src="{{ annuncio.immagine_caricata }}"
+                                                               class="card-img-top" alt="..."></b></li>
+                            </div>
                             <li>Prezzo per giorno annuncio:<b>{{ annuncio.prezzo_per_giorno_annuncio }}</b>
                             </li>
                             <li>Città annuncio: <b>{{ annuncio.citta_annuncio }}</b></li>
@@ -188,7 +191,7 @@
     </section>
     <br>
 
-   <!--SEZIONE NEWSLETTER-->
+    <!--SEZIONE NEWSLETTER-->
     <section id="contattaci" class="newsletter text-white text-center">
         <div class="container">
             <style>
