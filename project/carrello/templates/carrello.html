@@ -128,8 +128,8 @@
                                         <div class="table-bordered text-center text-white">
                                             {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
                                         </div>
-                                        <div class="form-control">
-                                            {{ form.titolo_annuncio }}
+                                        <div class="card-body">
+                                            <b>{{ annuncio.titolo_annuncio }}</b>
                                         </div>
                                     </div>
 
@@ -138,8 +138,9 @@
                                         <div class="table-bordered text-center text-white">
                                             {{ form.immagine_annucio.label }}
                                         </div>
-                                        <div class="form-control">
-                                            {{ form.immagine_annuncio }}
+                                        <div class="card-body" style="width: 18rem;">
+                                            <img src="{{ annuncio.immagine_caricata }}"
+                                                 class="card-img-top" alt="...">
                                         </div>
                                     </div>
                                 </div>
