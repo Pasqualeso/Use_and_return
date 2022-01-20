@@ -70,4 +70,4 @@ class RegistrationFormAnnuncio(FlaskForm):
     via_annuncio = StringField("Inserisci la via dell'annuncio", validators=[DataRequired()])
     cap_annuncio = IntegerField("Inserisci il cap dell'annuncio", validators=[DataRequired()])
 
-    submit_annuncio = SubmitField("Invia")
+    submit_annuncio = SubmitField("Aggiungi")

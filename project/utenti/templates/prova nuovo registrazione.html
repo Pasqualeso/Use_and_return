@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
@@ -14,7 +15,7 @@
               crossorigin="anonymous">
         <link rel="stylesheet" href="../static/css/style.css">
         <link rel="stylesheet" href="../static/css/Login.css">
-        <title>Registrazione annuncio</title>
+        <title>Registrazione utente</title>
     </head>
     <br>
     <br>
@@ -22,26 +23,6 @@
     <br>
     <br>
     <body>
-    <!-- Messaggi flash -->
-    <div class="container flash">
-        <h2 class="mb-5">
-            {# Flashed messages #}
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }} text-center" role="alert">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            {# End Flashed messages #}
-        </h2>
-    </div>
-    <style>
-        .flash {
-            height: 0px;
-            margin-top: 65px;
-        }
-    </style>
     <!-- CSS FORM -->
     <style>
         * {
@@ -109,7 +90,6 @@
 
     </style>
 
-    </div>
     <!--HTML FORM-->
     <section class="inner-page">
         <div class="container">
@@ -120,128 +100,130 @@
                 <div class="container">
 
                     <div class="section-title" data-aos="fade-up">
-                        <h3>Registrazione annuncio</h3>
+                        <h3>Registrazione utente</h3>
                         <h6>INFOMRAZIONI:</h6>
                         <br>
                     </div>
-
                     <div class="row">
+
                         <div class="mb-5">
+
                             <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
                                 <div class="row">
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="titolo"></label>
+                                        <label for="email"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
+                                            {{ form.hidden_tag() }} {{ form.email.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.titolo_annuncio }}
+                                            {{ form.email }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="categoria"></label>
+                                        <label for="usurname"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.categoria_annuncio.label }}
+                                            {{ form.username.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.categoria_annuncio }}
+                                            {{ form.username }}
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 form-group">
-                                        <label for="descrzione"></label>
+                                    <div class="col-md-6 form-group">
+                                        <label for="password"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.descrizione_annuncio.label }}
+                                            {{ form.password.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.descrizione_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="data_inizio_noleggio"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.data_inizio_noleggio_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.data_inizio_noleggio_annuncio }}
+                                            {{ form.password }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="data_fine_noleggio"></label>
+                                        <label for="conferma password"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.data_fine_noleggio_annuncio.label }}
+                                            {{ form.password2.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.data_fine_noleggio_annuncio }}
+                                            {{ form.password2 }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="immagine"></label>
+                                        <label for="nome"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.immagine_annuncio.label }}
+                                            {{ form.nome_utente.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.immagine_annuncio }}
+                                            {{ form.nome_utente }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="prezzo"></label>
+                                        <label for="cognome"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.prezzo_per_giorno_annuncio.label }}
+                                            {{ form.cognome_utente.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.prezzo_per_giorno_annuncio }}
+                                            {{ form.cognome_utente }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 form-group mt-3 mt-md-0">
+                                        <label for="sesso"></label>
+                                        <div class="table-bordered text-center text-white">
+                                            {{ form.sesso.label }}
+                                        </div>
+                                        <div class="form-control">
+                                            {{ form.sesso }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <label for="città"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.citta_annuncio.label }}
+                                            {{ form.citta.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.citta_annuncio }}
+                                            {{ form.citta }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <label for="provincia"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.provincia_annuncio.label }}
+                                            {{ form.provincia.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.provincia_annuncio }}
+                                            {{ form.provincia }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <label for="via"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.via_annuncio.label }}
+                                            {{ form.via.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.via_annuncio }}
+                                            {{ form.via }}
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <label for="cap"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.cap_annuncio.label }}
+                                            {{ form.cap.label }}
                                         </div>
                                         <div class="form-control">
-                                            {{ form.cap_annuncio }}
+                                            {{ form.cap }}
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="text-center mt-3">
-                                    {{ form.submit_annuncio (class="btn btn-success") }}
+                                    {{ form.submit(class="btn btn-success") }}
                                 </div>
                             </form>
                         </div>
@@ -250,74 +232,6 @@
             </section><!-- End Contact Section -->
         </div>
     </section>
-
-    <!--Sezione Newsletter -->
-    <section id="contattaci" class="newsletter text-white text-center">
-        <div class="container">
-            <style>
-                .newsletter {
-                    background-image: url("../static/images/newsletter.jpeg");
-                }
-            </style>
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <h2 class="mb-4">Iscriviti alla nostra newsletter!</h2>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form>
-                        <div class="form-row">
-                            <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" placeholder="Enter email">
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <button type="submit" class="btn btn-primary btn.lg btn-block">Iscriviti</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 h-100 text-center text-lg-left">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><a href="#">Contact</a></li>
-                        <li class="list-inline-item"><a href="#">Term of Use</a></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">&copy; Copyright <strong><span>Università di Napoli Parthenope</span></strong>
-                    </p>
-                    <p class="text-muted small mb-4 mb-lg-0">Realizzato da:<strong><span>Pasquale Sorrentino, Sara Terlizzi, Eduardo Autore</span></strong>
-                    </p>
-                </div>
-
-                <div class="col-lg-6 h-100 text-center text-lg-right">
-                    <p class="testo">Seguici su:</p>
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item mr-3"><a href="#"><img
-                                src="../static/images/Home Page/logo-insta.jpg"
-                                alt=""></a>
-                        </li>
-                        <li class="list-inline-item mr-3"><a href="#"><img
-                                src="../static/images/Home Page/logo-linkedln.png"
-                                alt=""></a>
-                        </li>
-                        <li class="list-inline-item"><a href="#"><img src="../static/images/Home Page/logo-twitter.png"
-                                                                      alt=""></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </footer>
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

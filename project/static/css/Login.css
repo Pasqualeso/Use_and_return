@@ -77,6 +77,11 @@ body {
     letter-spacing: 4px;
     font-family: Raleway;
 }
+
+
+.contact .form-control{
+    background-color: #ff7f50;
+}
  input {
         padding: 10px;
         font-size: 17px;
