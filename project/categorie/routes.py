@@ -109,6 +109,7 @@ def categoria_console_e_videogiochi(provincia, titolo, data_inizio_noleggio, dat
 def categoria_fotografia(provincia, titolo, data_inizio_noleggio, data_fine_noleggio):
     lista_annunci = gestisci_ricerca_categoria('fotografia', provincia, titolo, data_inizio_noleggio,
                                                data_fine_noleggio)
+
     return render_template('categoria_fotografia.html', lista_annunci=lista_annunci)
 
 

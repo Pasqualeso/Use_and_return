@@ -126,7 +126,7 @@
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <label for="titolo"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
+                                             titolo
                                         </div>
                                         <div class="card-body">
                                             <b>{{ annuncio.titolo_annuncio }}</b>
@@ -136,11 +136,10 @@
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
                                         <label for="immagine"></label>
                                         <div class="table-bordered text-center text-white">
-                                            {{ form.immagine_annucio.label }}
+                                            {{ form.immagine_caricata.label }}
                                         </div>
                                         <div class="card-body" style="width: 18rem;">
-                                            <img src="{{ annuncio.immagine_caricata }}"
-                                                 class="card-img-top" alt="...">
+                                            <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
                                         </div>
                                     </div>
                                 </div>
