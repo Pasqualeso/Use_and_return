@@ -1,3 +1,5 @@
+
+
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
@@ -36,128 +38,21 @@
         </div>
     </section>
 
-    <!-- CSS FORM -->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #ff7f50;
-        }
-
-        .inner-page {
-            background: rgba(0, 0, 0, .5);
-            margin: 100px auto;
-            font-family: Raleway;
-            padding: 40px;
-            width: 70%;
-            min-width: 300px;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        input {
-            text-align: center;
-        }
-
-        select {
-            text-align: center;
-        }
-
-        .login-box form a {
-            position: relative;
-            display: inline-block;
-            padding: 10px 20px;
-            color: #F1EEE6;
-            font-size: 16px;
-            text-decoration: none;
-            text-transform: uppercase;
-            overflow: hidden;
-            transition: .5s;
-            margin-top: 40px;
-            letter-spacing: 4px;
-        }
-
-        button {
-            background-color: #ff5a26;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 17px;
-            font-family: Raleway;
-            cursor: pointer;
-        }
-
-        h6 {
-            color: #dddddd;
-        }
-
-        h3 {
-            color: #dddddd;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-    </style>
-    <!--HTML FORM CARRELLO-->
-    <section class="inner-page">
+     <!-- Sezione Carrello -->
+    <section class="codice text-center">
         <div class="container">
+            <div class="mb-5">
+                <script language=javascript>
+                    carrello = eval(localStorage.carrello);
 
-
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-                <div class="container">
-
-                    <div class="section-title" data-aos="fade-up">
-                        <h3>Carrello</h3>
-                        <h6>CONFERMA ORDINE:</h6>
-                        <br>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="mb-5">
-
-                            <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
-                                <div class="row">
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="titolo"></label>
-                                        <div class="table-bordered text-center text-white">
-                                             titolo
-                                        </div>
-                                        <div class="card-body">
-                                            <b>{{ annuncio.titolo_annuncio }}</b>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="immagine"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.immagine_caricata.label }}
-                                        </div>
-                                        <div class="card-body" style="width: 18rem;">
-                                            <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="text-center mt-2">
-                                    {{ form.submit_ordine (class="btn btn-success") }}
-                                </div>
-                            </form>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section><!-- End Contact Section -->
+                    document.write("<div id=elenco>");
+                    tabella();
+                    document.write("</div>");
+                    totali();
+                </script>
+            </div>
         </div>
     </section>
-
 
     <br>
     <!-- Sezione Menù Inferiore -->
@@ -238,5 +133,3 @@
     </html>
 
 {% endblock %}
-
-
