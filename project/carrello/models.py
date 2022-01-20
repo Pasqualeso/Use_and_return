@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 class Ordine(db.Model):
+    __tablename__ = 'ordine'
     id_ordine = db.Column(db.Integer, primary_key=True)
     importo_pagamento = db.Column(db.Integer, nullable=False)
     data_inserimento_ordine = db.Column(db.DateTime(), default=datetime.utcnow)
@@ -10,6 +11,7 @@ class Ordine(db.Model):
 
 
 class Spedizione(db.Model):
+    __tablename__ = 'spedizione'
     id_spedizione = db.Column(db.Integer, primary_key=True)
     data_spedizione = db.Column(db.DateTime(), default=datetime.utcnow)
     spesa_di_spedizione = db.Column(db.Integer, default=10)
