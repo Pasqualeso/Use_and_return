@@ -122,7 +122,7 @@ def categoria_fotografia(provincia, titolo, data_inizio_noleggio, data_fine_nole
 def categoria_giocattoli(provincia, titolo, data_inizio_noleggio, data_fine_noleggio):
     lista_annunci = gestisci_ricerca_categoria('giocattoli', provincia, titolo, data_inizio_noleggio,
                                                data_fine_noleggio)
-    return render_template('categoria_gioccatoli.html', lista_annunci=lista_annunci)
+    return render_template('categoria_giocattoli.html', lista_annunci=lista_annunci)
 
 
 @categorie_blueprint.route('/categoria_informatica/', methods=['GET', 'POST'],

@@ -2,6 +2,9 @@
 import hashlib
 from datetime import datetime
 
+import tz as tz
+from pytz import timezone
+
 # Per token (conferma mail)
 from flask import current_app
 # Per flask_login
@@ -12,6 +15,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from project import db, login_manager
 from project.ruoli.models import Permission, Ruolo
 
+fmt = "%Y-%m-%d %H:%M:%S %Z%z"
+
 
 class Utente(UserMixin, db.Model):
     __tablename__ = 'utente'
@@ -21,18 +26,18 @@ class Utente(UserMixin, db.Model):
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
 
-    nome_utente = db.Column(db.String(64))
-    cognome_utente = db.Column(db.String(64))
-    sesso_utente = db.Column(db.String(15))
-    data_di_nascita_utente = db.Column(db.DateTime)
-    telefono_utente = db.Column(db.String(10))
-    citta_utente = db.Column(db.String(64))
-    provincia_utente = db.Column(db.String(64))
-    via_utente = db.Column(db.String(64))
-    cap_utente = db.Column(db.Integer)
+    nome_utente = db.Column(db.String(64), nullable=False)
+    cognome_utente = db.Column(db.String(64), nullable=False)
+    sesso_utente = db.Column(db.String(15), nullable=False)
+    data_di_nascita_utente = db.Column(db.DateTime, nullable=False)
+    telefono_utente = db.Column(db.String(10), nullable=False)
+    citta_utente = db.Column(db.String(64), nullable=False)
+    provincia_utente = db.Column(db.String(64), nullable=False)
+    via_utente = db.Column(db.String(120), nullable=False)
+    cap_utente = db.Column(db.Integer, nullable=False)
 
-    data_creazione_utente = db.Column(db.DateTime(), default=datetime.utcnow)
-    ultimo_accesso = db.Column(db.DateTime(), default=datetime.utcnow)
+    data_creazione_utente = db.Column(db.DateTime(), default=datetime.now)
+    ultimo_accesso = db.Column(db.DateTime, default=datetime.now())
     confirmed = db.Column(db.Boolean, default=False)
 
     role_id = db.Column(db.Integer, db.ForeignKey('ruoli.id'))
