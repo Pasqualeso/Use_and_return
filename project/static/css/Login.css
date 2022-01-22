@@ -21,6 +21,17 @@ body {
 
 }
 
+textarea {
+    overflow: auto;
+    resize: vertical;
+    width: 391px;
+}
+
+select {
+    text-align: center;
+    height: 47px;
+}
+
 .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
@@ -79,21 +90,24 @@ body {
 }
 
 
-.contact .form-control{
+.contact .form-control {
     background-color: #ff7f50;
 }
- input {
-        padding: 10px;
-        font-size: 17px;
-        font-family: Raleway;
-        border: 1px solid #aaaaaa;
-        color: #000000;
-        text-align: center;
-    }
- h3 {
-        color: #dddddd;
-        text-align: center;
-    }
+
+input {
+    padding: 10px;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+    color: #000000;
+    text-align: center;
+}
+
+h3 {
+    color: #dddddd;
+    text-align: center;
+}
+
 .login-box form a:hover {
     background: #ff7f50;
     color: #F1EEE6;
