@@ -10,13 +10,15 @@ function inizializza() {
 
 }
 
-function serializza() {
+function serializza(id_utente) {
     /* trasforma il carrello in una stringa e lo memorizza mediante cookies (localStorage)
        nel disco del client */
     var cart = "[";
     var comma = "";
     for(i=0;i<carrello.length;i++) {
+
         cart = cart + comma;
+        cart = cart + "{id_utente:" + carrello[i].id_utente;
         cart = cart + " {codice : " + carrello[i].codice;
         cart = cart + ", descr: '" + carrello[i].descr + "'";
         cart = cart + ", prezzo : " + carrello[i].prezzo;
@@ -39,12 +41,14 @@ function cerca(cod) {
     return("N");
 }
 
-function aggiungi(cod,prezzo, descrizione) {
+function aggiungi(id_utente,cod,prezzo, descrizione) {
     /* aggiunge un prodotto al carrello */
     var ogg = {};
     var n = carrello.length;
     var x = cerca(cod);
+    print(id_utente)
     if (x == 'N') {
+        ogg.id_utente = id_utente;
         ogg.codice  = cod;
         ogg.prezzo  = prezzo;
         ogg.descr   = descrizione;
@@ -53,7 +57,7 @@ function aggiungi(cod,prezzo, descrizione) {
     } else {
         carrello[x].qnt++;
     }
-    serializza();
+    serializza(id_utente);
     alert("Prodotto aggiunto al carrello");
 }
 
@@ -84,14 +88,17 @@ function cambia(cella) {
     totali();
 }
 
-function tabella() {
-    document.write("<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale\n ");
+function tabella(id_utente) {
+    document.write("<TABLE border=1><TH>Id_utente<TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale\n ");
     for(var i=0; i<carrello.length; i++) {
-        document.write("<TR><TD class=center>"+carrello[i].codice);
-        document.write("<TD> " + carrello[i].descr);
-        document.write("<TD class=right>"+carrello[i].prezzo);
-        document.write("<TD><input onChange=cambia(" + i + ") class=center id=q" + i + " type=text size=4 value= " + carrello[i].qnt + ">");
-        document.write("<TD class=right id=t"+i+">&nbsp; \n");
+        if (carrello[i].id_utente == id_utente) {
+            document.write("<TR><TD class=center>" + carrello[i].id_utente);
+            document.write("<TD>" + carrello[i].codice);
+            document.write("<TD> " + carrello[i].descr);
+            document.write("<TD class=right>" + carrello[i].prezzo);
+            document.write("<TD><input onChange=cambia(" + i + ") class=center id=q" + i + " type=text size=4 value= " + carrello[i].qnt + ">");
+            document.write("<TD class=right id=t" + i + ">&nbsp; \n");
+        }
     }
     document.write("<TR><TD colspan=4 align=right>Importo Ordine <TD class=right id=totale>&nbsp\n");
     document.write("</TABLE>\n");
@@ -100,6 +107,6 @@ function tabella() {
 function svuota() {
     delete localStorage.carrello;
     document.getElementById('elenco').innerHTML =
-        "<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
+        "<TABLE border=1><TH>Id_utente<TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
 }
 

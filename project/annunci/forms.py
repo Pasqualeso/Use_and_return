@@ -18,7 +18,6 @@ class RegistrationFormAnnuncio(FlaskForm):
 
     immagine_annuncio = FileField("Inserisci un'immagine", validators=[DataRequired()])
 
-
     prezzo_per_giorno_annuncio = IntegerField("Inserisci il prezzo al giorno per l'annuncio",
                                               validators=[DataRequired()])
     descrizione_annuncio = TextAreaField("Inserisci una descrizione (Max 200 caratteri)",

@@ -40,7 +40,7 @@
                         <img src="{{ annuncio.immagine_caricata }}" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body col-lg-3 order-lg-2 ">
-                        <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
+                        <p5 name=TitoloAnnuncio class="card-title" type="text" id="titolo_annuncio">Titolo:{{  annuncio.titolo_annuncio }}"</p5>
                         <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
                         <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
                         <p class="card-text">
@@ -51,6 +51,14 @@
                             CATOLOGO: {{ annuncio.data_inizio_noleggio }} </p>
                         <p class="card-text">DATA FINE PRESENZA SUL CATOLOGO: {{ annuncio.data_fine_noleggio }} </p>
                         <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
+
+                        <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
+                            <div class="mb-5">
+                               {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}, form_type = "basic") }}
+                            </div>
+
+                        </form>
+
 
                         <!--
                         <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
@@ -83,8 +91,8 @@
 
                         <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO-->
                         {% if  current_user.is_authenticated %}
-                            <a href="javascript:aggiungi({{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
-                               class="btn btn-primary">Aggiungi al carrello
+                            <a href="javascript:aggiungi({{id_utente}}{{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
+                               class="btn btn-primary">Aggiungi al carrello-->
                             </a>
                         {% else %}
                             <a class="btn btn-primary" href="{{ url_for('utenti.login') }}">

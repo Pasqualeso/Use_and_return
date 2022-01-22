@@ -15,6 +15,21 @@ carrello_blueprint = Blueprint(
     static_folder='../static'
 )
 
+'''
+@carrello_blueprint.route('/carrello', defaults={'annuncio': None}, methods=['GET', 'POST'])
+@carrello_blueprint.route('/carrello/<annuncio>/', methods=['GET', 'POST'])
+def carrello(annuncio):
+    form = OrdineForm()
+
+    if current_user.is_authenticated:
+        id_utente_loggato = current_user.get_id()
+
+        return render_template('carrello.html', form=form, annuncio=annuncio, id_utente=id_utente_loggato)
+    else:
+        return redirect(url_for('utenti.login'))
+
+'''
+
 
 @carrello_blueprint.route('/carrello', defaults={'annuncio': None}, methods=['GET', 'POST'])
 @carrello_blueprint.route('/carrello/<annuncio>/', methods=['GET', 'POST'])

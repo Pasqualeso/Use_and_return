@@ -1,10 +1,18 @@
+import cgi
+import cgitb
+import json
 from datetime import datetime
 from random import random
 
-from flask import Blueprint, render_template
+import flask
+import js2py
+
+from flask import Blueprint, render_template, session, request
+from flask_login import current_user
 from sqlalchemy import and_
 
 from project.annunci.models import Annuncio
+from project.carrello.forms import OrdineForm
 from project.gestione_immagini import download_image_annunci
 from project.utenti.models import Utente
 
@@ -123,6 +131,7 @@ def categoria_fotografia(provincia, titolo, data_inizio_noleggio, data_fine_nole
 def categoria_giocattoli(provincia, titolo, data_inizio_noleggio, data_fine_noleggio):
     lista_annunci = gestisci_ricerca_categoria('giocattoli', provincia, titolo, data_inizio_noleggio,
                                                data_fine_noleggio)
+
     return render_template('categoria_giocattoli.html', lista_annunci=lista_annunci)
 
 
@@ -162,8 +171,18 @@ def categoria_musica(provincia, titolo, data_inizio_noleggio, data_fine_noleggio
                            methods=['GET', 'POST'])
 def categoria_telefonia(provincia, titolo, data_inizio_noleggio, data_fine_noleggio):
     lista_annunci = gestisci_ricerca_categoria('telefonia', provincia, titolo, data_inizio_noleggio, data_fine_noleggio)
+    form = OrdineForm()
 
-    return render_template('categoria_telefonia.html', lista_annunci=lista_annunci)
+    if form.validate_on_submit():
+        print('ciao')
+
+
+    id_utente_loggato = None
+    if current_user.is_authenticated:
+        id_utente_loggato = current_user.get_id()
+
+    return render_template('categoria_telefonia.html', form=form, lista_annunci=lista_annunci,
+                           id_utente=id_utente_loggato)
 
 
 @categorie_blueprint.route('/categoria_videomaker/', methods=['GET', 'POST'],

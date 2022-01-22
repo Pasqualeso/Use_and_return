@@ -26,6 +26,7 @@ class Annuncio(db.Model):
     immagine_caricata = None
     autore_caricato = None
 
+
     def __init__(self, **kwargs):
         super(Annuncio, self).__init__(**kwargs)
 
