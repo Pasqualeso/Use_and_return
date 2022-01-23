@@ -56,6 +56,6 @@ def carrello(annuncio):
             id_utente_loggato = current_user.get_id()
             carrello_lista_ordini = Ordine.query.filter_by(id_utente_rf_ordine=id_utente_loggato)
 
-        return render_template('carrello.html', form=form, annuncio=annuncio)
+        return render_template('carrello.html', form=form, annuncio=annuncio, carrello=carrello_lista_ordini)
     else:
         return redirect(url_for('utenti.login'))
