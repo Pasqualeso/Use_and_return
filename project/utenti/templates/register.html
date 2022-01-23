@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="stylesheet" href="../static/css/Login.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/Login.css">
         <title>Registrazione utente</title>
     </head>
     <br>
@@ -36,7 +36,7 @@
             margin: 100px auto;
             font-family: Raleway;
             padding: 40px;
-            width: 70%;
+            width: 90%;
             min-width: 300px;
             text-align: center;
             border-radius: 10px;
@@ -90,26 +90,160 @@
     </body>
     <!--HTML FORM-->
     <section class="inner-page">
-        <div class="container">
 
 
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-                <div class="container">
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
 
-                    <div class="section-title" data-aos="fade-up">
-                        <h3>Registrazione utente</h3>
-                        <h6>INFOMRAZIONI:</h6>
-                        <br>
-                    </div>
-                    <!-- FORM -->
-                    <div class="mb-5 text-center text-white">
-                        {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}, form_type = "basic") }}
-                    </div>
-
+                <div class="section-title" data-aos="fade-up">
+                    <h3>Registrazione utente</h3>
+                    <h6>INFOMRAZIONI:</h6>
+                    <br>
                 </div>
-            </section><!-- End Contact Section -->
-        </div>
+
+                <div class="row">
+                    <div class="mb-5">
+                        <form action="" method="post" role="form" class="email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="nome"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.hidden_tag() }} {{ form.nome_utente.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.nome_utente }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="cognome"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.cognome_utente.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.cognome_utente }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <label for="email"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.email.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <label for="username"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.username.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.username }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0 ">
+                                    <label for="sesso"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.sesso.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.sesso }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="password"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.password.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.password }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="password"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.password2.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.password2 }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="telefono"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.telefono.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.telefono }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="data_nascita_utente"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.data_di_nascita.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.data_di_nascita }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="citta"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.citta.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.citta }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="provincia"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.provincia.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.provincia }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="via"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.via.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.via }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="cap"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.cap.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.cap }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-2">
+                                {{ form.submit (class="btn btn-success") }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Contact Section -->
     </section>
 
     <!--Sezione Newsletter -->
