@@ -1,12 +1,3 @@
-import cgi
-import cgitb
-import json
-from datetime import datetime
-from random import random
-
-import flask
-import js2py
-
 from flask import Blueprint, render_template, session, request
 from flask_login import current_user
 from sqlalchemy import and_

@@ -15,7 +15,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from project import db, login_manager
 from project.ruoli.models import Permission, Ruolo
 
-fmt = "%Y-%m-%d %H:%M:%S %Z%z"
 
 
 class Utente(UserMixin, db.Model):
@@ -36,13 +35,13 @@ class Utente(UserMixin, db.Model):
     via_utente = db.Column(db.String(120), nullable=False)
     cap_utente = db.Column(db.Integer, nullable=False)
 
-    data_creazione_utente = db.Column(db.DateTime(), default=datetime.now)
+    data_creazione_utente = db.Column(db.DateTime(), default=datetime.now())
     ultimo_accesso = db.Column(db.DateTime, default=datetime.now())
     confirmed = db.Column(db.Boolean, default=False)
 
+    # FK - Ruolo dell'utente
     role_id = db.Column(db.Integer, db.ForeignKey('ruoli.id'))
     # avatar_hash = db.Column(db.String(32))
-    # FK - Ruolo dell'utente
 
     '''
     Utile per il popolamento dei dati e per i test
