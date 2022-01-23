@@ -149,7 +149,7 @@ def register():
                    '/email/confirm', user=user, token=token)
         flash('Una mail di conferma è stata inviata', 'success')
         return redirect(url_for('utenti.login'))
-    return render_template('registrazione utente 2.html', form=form)
+    return render_template('register.html', form=form)
 
 
 # Gestione conferma utente tramite token da mail di conferma
