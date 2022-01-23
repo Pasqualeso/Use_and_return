@@ -58,8 +58,7 @@
                         <p class="card-text">Data di inseriemnto: {{ annuncio.data_inserimento_annuncio }} </p>
                         <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
 
-
-                        <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO-->
+                        <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO SOLO SE AUTETICATO -->
                         {% if  current_user.is_authenticated %}
                             <a href="javascript:aggiungi({{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
                                class="btn btn-primary">Aggiungi al carrello
@@ -67,7 +66,6 @@
                         {% else %}
                             <a class="btn btn-primary" href="{{ url_for('utenti.login') }}">
                                 Aggiungi al carrello
-
                             </a>
                         {% endif %}
                     </div>

@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/css/style.css">
-        <link rel="stylesheet" href="../static/css/Login.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/Login.css">
         <title>Registrazione annuncio</title>
     </head>
     <br>
@@ -21,27 +21,6 @@
     <br>
     <br>
     <br>
-    <body>
-    <!-- Messaggi flash -->
-    <div class="container flash">
-        <h2 class="mb-5">
-            {# Flashed messages #}
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }} text-center" role="alert">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            {# End Flashed messages #}
-        </h2>
-    </div>
-    <style>
-        .flash {
-            height: 0px;
-            margin-top: 65px;
-        }
-    </style>
     <!-- CSS FORM -->
     <style>
         * {
@@ -56,7 +35,7 @@
             background: rgba(0, 0, 0, .5);
             margin: 100px auto;
             font-family: Raleway;
-            padding: 40px;
+            padding: 20px;
             width: 90%;
             min-width: 300px;
             text-align: center;
@@ -108,147 +87,144 @@
         }
 
     </style>
-
-    </div>
+    </body>
     <!--HTML FORM-->
     <section class="inner-page">
-        <div class="container">
 
 
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-                <div class="container">
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
 
-                    <div class="section-title" data-aos="fade-up">
-                        <h3>Registrazione annuncio</h3>
-                        <h6>INFOMRAZIONI:</h6>
-                        <br>
-                    </div>
+                <div class="section-title" data-aos="fade-up">
+                    <h3>Registrazione annuncio</h3>
+                    <h6>INFOMRAZIONI:</h6>
+                    <br>
+                </div>
 
-                    <div class="row">
-                        <div class="mb-5">
-                            <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
-                                <div class="row">
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="titolo"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.titolo_annuncio }}
-                                        </div>
+                <div class="row">
+                    <div class="mb-5">
+                        <form action="" method="post" role="form" class="email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="titolo"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.hidden_tag() }} {{ form.titolo_annuncio.label }}
                                     </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="categoria"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.categoria_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.categoria_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12 form-group descrizione">
-                                        <label for="descrzione"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.descrizione_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.descrizione_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="data_inizio_noleggio"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.data_inizio_noleggio_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.data_inizio_noleggio_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="data_fine_noleggio"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.data_fine_noleggio_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.data_fine_noleggio_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="immagine"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.immagine_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.immagine_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="prezzo"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.prezzo_per_giorno_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.prezzo_per_giorno_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="città"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.citta_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.citta_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="provincia"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.provincia_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.provincia_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="via"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.via_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.via_annuncio }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <label for="cap"></label>
-                                        <div class="table-bordered text-center text-white">
-                                            {{ form.cap_annuncio.label }}
-                                        </div>
-                                        <div class="form-control">
-                                            {{ form.cap_annuncio }}
-                                        </div>
+                                    <div class="form-control">
+                                        {{ form.titolo_annuncio }}
                                     </div>
                                 </div>
 
-                                <div class="text-center mt-3">
-                                    {{ form.submit_annuncio (class="btn btn-success") }}
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="categoria"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.categoria_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.categoria_annuncio }}
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
+
+                                <div class="col-md-12 form-group descrizione">
+                                    <label for="descrzione"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.descrizione_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.descrizione_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="data_inizio_noleggio"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.data_inizio_noleggio_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.data_inizio_noleggio_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="data_fine_noleggio"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.data_fine_noleggio_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.data_fine_noleggio_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="immagine"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.immagine_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.immagine_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="prezzo"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.prezzo_per_giorno_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.prezzo_per_giorno_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="città"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.citta_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.citta_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="provincia"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.provincia_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.provincia_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="via"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.via_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.via_annuncio }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="cap"></label>
+                                    <div class="table-bordered text-center text-white">
+                                        {{ form.cap_annuncio.label }}
+                                    </div>
+                                    <div class="form-control">
+                                        {{ form.cap_annuncio }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                {{ form.submit_annuncio (class="btn btn-success") }}
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section><!-- End Contact Section -->
-        </div>
+            </div>
+        </section><!-- End Contact Section -->
     </section>
 
     <!--Sezione Newsletter -->
