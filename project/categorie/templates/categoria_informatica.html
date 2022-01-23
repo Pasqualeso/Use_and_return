@@ -41,15 +41,15 @@
                     </div>
                     <div class="card-body col-lg-3 order-lg-2 ">
                         <h5 class="card-title">Titolo: {{ annuncio.titolo_annuncio }}</h5>
+                        <p class="card-text">Autore: {{ annuncio.autore_caricato.username }}</p>
                         <p class="card-text">Codice: {{ annuncio.id_annuncio }}</p>
                         <p class="card-text">Categoria: {{ annuncio.categoria_annuncio }}</p>
-                        <p class="card-text">
-                            Autore: {{ annuncio.autore_caricato.id }} {{ annuncio.autore_caricato.username }}</p>
-                        <p class="card-text">Città: {{ annuncio.citta_annuncio }}</p>
                         <p class="card-text">Descrizione:{{ annuncio.descrizione_annuncio }}</p>
-                        <p class="card-text">DATA INIZIO PRESENZA SUL
-                            CATOLOGO: {{ annuncio.data_inizio_noleggio }} </p>
-                        <p class="card-text">DATA FINE PRESENZA SUL CATOLOGO: {{ annuncio.data_fine_noleggio }} </p>
+                        <p class="card-text">Luogo: {{ annuncio.via_annuncio }}, {{ annuncio.citta_annuncio }}
+                            ({{ annuncio.provincia_annuncio }}) {{ annuncio.cap_annuncio }}</p>
+                        <p class="card-text">Data inizio presenza sul catalogo: {{ annuncio.data_inizio_noleggio }} </p>
+                        <p class="card-text">Data fine presenza sul cataolgo: {{ annuncio.data_fine_noleggio }} </p>
+                        <p class="card-text">Data di inseriemnto: {{ annuncio.data_inserimento_annuncio }} </p>
                         <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
 
                         <!--
