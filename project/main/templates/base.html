@@ -37,7 +37,7 @@
                         <!--Gestione LOGIN / LOGOUT -->
                         {% if  current_user.is_authenticated %}
                             <a class="btn btn-primary btn-sm"
-                               href="{{ url_for('utenti.logout') }}">{{ current_user.username }}, esci</a>
+                               href="{{ url_for('utenti.logout') }}" >{{ current_user.username }}, esci</a>
                         {% else %}
                             <a class="btn btn-primary btn-sm" href="{{ url_for('utenti.login') }}">Accedi</a>
                         {% endif %}

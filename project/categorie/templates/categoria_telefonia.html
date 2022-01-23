@@ -52,13 +52,6 @@
                         <p class="card-text">DATA FINE PRESENZA SUL CATOLOGO: {{ annuncio.data_fine_noleggio }} </p>
                         <p class="card-text">Prezzo per giorno: {{ annuncio.prezzo_per_giorno_annuncio }}</p>
 
-                        <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
-                            <div class="mb-5">
-                               {{ wtf.quick_form(form, novalidate=True, button_map={'submit':'success'}, form_type = "basic") }}
-                            </div>
-
-                        </form>
-
 
                         <!--
                         <form action="" method="post" role="form" enctype="multipart/form-data" class="email-form">
@@ -91,8 +84,8 @@
 
                         <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO-->
                         {% if  current_user.is_authenticated %}
-                            <a href="javascript:aggiungi({{id_utente}}{{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
-                               class="btn btn-primary">Aggiungi al carrello-->
+                            <a href="javascript:aggiungi({{ annuncio.id_annuncio }},{{ annuncio.prezzo_per_giorno_annuncio }},'{{ annuncio.descrizione_annuncio }}')"
+                               class="btn btn-primary">Aggiungi al carrello
                             </a>
                         {% else %}
                             <a class="btn btn-primary" href="{{ url_for('utenti.login') }}">
