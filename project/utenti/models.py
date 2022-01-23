@@ -16,7 +16,6 @@ from project import db, login_manager
 from project.ruoli.models import Permission, Ruolo
 
 
-
 class Utente(UserMixin, db.Model):
     __tablename__ = 'utente'
 
