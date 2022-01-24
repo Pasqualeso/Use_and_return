@@ -54,7 +54,7 @@
 
                         <!--Gestione LOGIN / LOGOUT AGGIUNGI AL CARRELLO SOLO SE AUTETICATO -->
                         {% if  current_user.is_authenticated %}
-                            <a href="javascript:aggiungi('{{ annuncio.id_annuncio }}','{{ annuncio.prezzo_per_giorno_annuncio }}','{{ annuncio.descrizione_annuncio }}')"
+                            <a href="javascript:aggiungi('{{ annuncio.id_annuncio }}','{{ annuncio.prezzo_per_giorno_annuncio }}','{{ annuncio.titolo_annuncio }}')"
                                class="btn btn-primary">Aggiungi al carrello
                             </a>
                         {% else %}
