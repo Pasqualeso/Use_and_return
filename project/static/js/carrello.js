@@ -15,7 +15,7 @@ function serializza() {
        nel disco del client */
     var cart = "[";
     var comma = "";
-    for(i=0;i<carrello.length;i++) {
+    for (i = 0; i < carrello.length; i++) {
         cart = cart + comma;
         cart = cart + " {codice : " + carrello[i].codice;
         cart = cart + ", descr: '" + carrello[i].descr + "'";
@@ -31,24 +31,24 @@ function serializza() {
 function cerca(cod) {
     /* restituisce la posizione di un prodotto gia presente in carrello
        Se non esiste: 'N' */
-    for (var i=0;i<carrello.length;i++) {
+    for (var i = 0; i < carrello.length; i++) {
         if (carrello[i].codice == cod) {
-            return(i);
+            return (i);
         }
     }
-    return("N");
+    return ("N");
 }
 
-function aggiungi(cod,prezzo, descrizione) {
+function aggiungi(cod, prezzo, descrizione) {
     /* aggiunge un prodotto al carrello */
     var ogg = {};
     var n = carrello.length;
     var x = cerca(cod);
     if (x == 'N') {
-        ogg.codice  = cod;
-        ogg.prezzo  = prezzo;
-        ogg.descr   = descrizione;
-        ogg.qnt     = 1;
+        ogg.codice = cod;
+        ogg.prezzo = prezzo;
+        ogg.descr = descrizione;
+        ogg.qnt = 1;
         carrello[n] = ogg;
     } else {
         carrello[x].qnt++;
@@ -60,12 +60,12 @@ function aggiungi(cod,prezzo, descrizione) {
 
 /* -------------------------- Funzioni per la pagina Carrello -----------------------------*/
 
-function totali () {
+function totali() {
     /* calcola e visualizza i totali */
 
-    var obj, tot=0, tp=0;
-    for (i=0;i< carrello.length; i++) {
-        var id = "t"+i;
+    var obj, tot = 0, tp = 0;
+    for (i = 0; i < carrello.length; i++) {
+        var id = "t" + i;
         obj = document.getElementById(id);
         tp = carrello[i].prezzo * carrello[i].qnt;
         obj.innerHTML = tp;
@@ -77,21 +77,21 @@ function totali () {
 
 function cambia(cella) {
     /* una delle quantità è cambiata aggiorna le variabili */
-    var label = "q"+cella;
-    var v   = document.getElementById(label).value;
+    var label = "q" + cella;
+    var v = document.getElementById(label).value;
     carrello[cella].qnt = v;
     serializza();
     totali();
 }
 
 function tabella() {
-    document.write("<TABLE border=1><TH>Codice<TH>Descrizione<TH>Data inizio noleggio<TH>Prezzo x giorno<TH>Giorni<TH>Totale\n ");
-    for(var i=0; i<carrello.length; i++) {
-        document.write("<TR><TD class=center>"+carrello[i].codice);
+    document.write("<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale\n ");
+    for (var i = 0; i < carrello.length; i++) {
+        document.write("<TR><TD class=center>" + carrello[i].codice);
         document.write("<TD> " + carrello[i].descr);
-        document.write("<TD class=right>"+carrello[i].prezzo);
+        document.write("<TD class=right>" + carrello[i].prezzo);
         document.write("<TD><input onChange=cambia(" + i + ") class=center id=q" + i + " type=text size=4 value= " + carrello[i].qnt + ">");
-        document.write("<TD class=right id=t"+i+">&nbsp; \n");
+        document.write("<TD class=right id=t" + i + ">&nbsp; \n");
     }
     document.write("<TR><TD colspan=4 align=right>Importo Ordine <TD class=right id=totale>&nbsp\n");
     document.write("</TABLE>\n");
@@ -100,6 +100,6 @@ function tabella() {
 function svuota() {
     delete localStorage.carrello;
     document.getElementById('elenco').innerHTML =
-        "<TABLE border=1><TH>Codice<TH>Descrizione<TH>Data inizio noleggio<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
+        "<TABLE border=1><TH>Codice<TH>Descrizione<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
 }
 
