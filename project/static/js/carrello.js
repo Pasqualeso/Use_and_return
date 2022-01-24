@@ -85,7 +85,7 @@ function cambia(cella) {
 }
 
 function tabella() {
-    document.write("<TABLE border=1><TH>Codice<TH>TITOLO<TH>Prezzo x giorno<TH>Giorni<TH>Totale\n ");
+    document.write("<TABLE border=1><TH>Codice<TH>Titolo<TH>Prezzo x giorno<TH>Quantità<TH>Totale\n ");
     for (var i = 0; i < carrello.length; i++) {
         document.write("<TR><TD class=center>" + carrello[i].codice);
         document.write("<TD> " + carrello[i].descr);
@@ -100,6 +100,6 @@ function tabella() {
 function svuota() {
     delete localStorage.carrello;
     document.getElementById('elenco').innerHTML =
-        "<TABLE border=1><TH>Codice<TH>TITOLO<TH>Prezzo x giorno<TH>Giorni<TH>Totale</TABLE>";
+        "<TABLE border=1><TH>Codice<TH>Titolo<TH>Prezzo x giorno<TH>Quantità<TH>Totale</TABLE>";
 }
 
