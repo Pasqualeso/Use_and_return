@@ -25,121 +25,109 @@
     <br>
     <br>
     <br>
-    <!-- sezione categorie -->
-    <section id="categorie" class="categorie text-center bg-light">
-        <div class="container">
-            <h2 class="mb-5">Categorie</h2>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_musica') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Musica/Musica.jpg" class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Musica</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_telefonia') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Telefonia/telefonia.png" class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Telefonia</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_console_e_videogiochi') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
-                                     class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Console e videogiochi</h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="mb-5"></div>
-                        <div class="mb-5"></div>
-                    </div>
+    <!-- Sezione categorie -->
+    <div class="container text-center">
+        <h2 class="mb-5">Categorie</h2>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_musica') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Musica/Musica.jpg" alt="">
+                        <h5>Musica</h5>
+                    </a>
+                </div>
+            </div>
 
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_informatica') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Informatica/informatica.jpg" class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Informatica</h5>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="mb-5"></div>
-                        <div class="mb-5"></div>
-                    </div>
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_auto') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Accessori auto/accessori_auto.jpg"
-                                     class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Accessori auto</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_giocattoli') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Giocattoli/giocattoli.jpg" class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Giocattoli</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_fotografia') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Fotografia/Fotografia.jpg" class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Fotografia</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_videomaker') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/VideoMaker/video_maker.jpg" class="card-img-top"
-                                     alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Video maker</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm">
-                        <a href="{{ url_for('categorie.categoria_altro') }}">
-                            <div class="card border border-dark" style="width: 18rem;">
-                                <img src="../static/images/Categorie/Altro/altro.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Altro</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_telefonia') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                        src="../static/images/Categorie/Telefonia/telefonia.jpg" alt="">
+                        <h5>Telefonia</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_console_e_videogiochi') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Console e videogiochi/console%20e%20videogiochi.jpg"
+                             alt="">
+                        <h5>Console & videogiochi</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_informatica') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Informatica/informatica.jpg" alt="">
+                        <h5>Informatica</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_auto') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Accessori auto/accessori_auto.jpg" alt="">
+                        <h5>Accesori auto</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_giocattoli') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Giocattoli/giocattoli.jpg" alt="">
+                        <h5>Giocattoli</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_fotografia') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Fotografia/Fotografia.jpg" alt="">
+                        <h5>Fotografia</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_videomaker') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/VideoMaker/video_maker.jpg" alt="">
+                        <h5>Video maker</h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mx-auto mb-5 mb-lg-0 card border border-dark">
+                    <a href="{{ url_for('categorie.categoria_altro') }}">
+                        <img class="img-fluid rounder-circle mb-3 cliente1"
+                             src="../static/images/Categorie/Altro/altro.jpg" alt="">
+                        <h5>Altro</h5>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+      <style>
+        .col-lg-4 {
+            padding: 15px;
+        }
+    </style>
+
 
     <!--Sezione Newsletter -->
     <section id="contattaci" class="newsletter text-white text-center">

@@ -36,7 +36,7 @@ class RegistrationForm(FlaskForm):
         "Inserisci il tuo sesso: ",
         choices=[("uomo", "UOMO"), ("donna", "DONNA"), ("indefinito", "INDEFINITO")], validators=[DataRequired()]
     )
-    citta = StringField('Inserisci la citta', validators=[DataRequired(message='Città obbligatoria'), Length(1, 64)])
+    citta = StringField('Inserisci la città', validators=[DataRequired(message='Città obbligatoria'), Length(1, 64)])
     telefono = StringField("Inserisci il tuo numero di telefono", validators=[DataRequired()])
     data_di_nascita = DateField("Inserisci la data di nascita", format='%Y-%m-%d', validators=[DataRequired()])
     provincia = SelectField(
