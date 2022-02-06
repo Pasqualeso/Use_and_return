@@ -9,7 +9,7 @@ class Annuncio(db.Model):
     titolo_annuncio = db.Column(db.String(64), nullable=False)
     categoria_annuncio = db.Column(db.String(64), nullable=False)
     immagine = db.Column(db.BLOB)
-    disponibile = db.Column(db.Boolean,default=True ,nullable=False)
+    disponibile = db.Column(db.Boolean, default=True, nullable=False)
     prezzo_per_giorno_annuncio = db.Column(db.Integer, nullable=False)
     descrizione_annuncio = db.Column(db.String(150), nullable=False)
 
@@ -26,9 +26,5 @@ class Annuncio(db.Model):
     immagine_caricata = None
     autore_caricato = None
 
-
     def __init__(self, **kwargs):
         super(Annuncio, self).__init__(**kwargs)
-
-
-

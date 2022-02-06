@@ -17,7 +17,6 @@ annunci_blueprint = Blueprint(
 )
 
 
-
 @annunci_blueprint.route('/registrazione_annuncio', methods=['GET', 'POST'])
 @login_required
 def registrazione_annuncio():
