@@ -9,7 +9,7 @@ python3 -m venv venv (Mac)
 
 python -m venv venv (Windows)
 
-Una volta attivato il virtual environment eseguire i seguenti passaggi: 
+Una volta creato il virtual environment eseguire i seguenti passaggi: 
 
 Andare su "Add Configuration" in PyCharm
 
@@ -19,7 +19,7 @@ Dopodichè impostare Target type su Script patch,
 
 Selezionare in Target il file "app.py".
 
-Eseguire i comandi:
+Eseguire i comandi per attivare il virtual environment:
 
 venv\Scripts\activate (Windows)
 
