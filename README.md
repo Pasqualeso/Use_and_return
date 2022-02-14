@@ -7,7 +7,7 @@ Spostarsi nella cartella "use_and_return" e creare un virtual environment per Py
 
 python3 -m venv venv (Mac)
 
-python -m venv venv (windows)
+python -m venv venv (Windows)
 
 Una volta attivato il virtual environment, istallare le librerie richieste:
 
@@ -22,6 +22,8 @@ selezionare in Target il file app.py.
 Eseguire i comandi:
 
 venv\Scripts\activate (Windows)
+
+source venv/bin/activate (Mac)
 
 Installare le librerie con i seguenti comandi:
 
