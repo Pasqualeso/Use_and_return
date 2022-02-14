@@ -129,6 +129,8 @@ pip install wcwidth
 
 pip install wheel
 
+Spostarsi nella cartella static , creare una directory di nome 'uploads' e una di nome 'downloads'  
+
 Spostarsi nella cartella Flask e partire il web-server
 
 flask run --host 0.0.0.0
