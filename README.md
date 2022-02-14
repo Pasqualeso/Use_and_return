@@ -29,7 +29,7 @@ Installare le librerie con i seguenti comandi:
 
 // pip install -r requirements.txt (non installa tutto)
 
-~~pip install Flask
+pip install Flask
 
 pip install Flask-Bootstrap
 
