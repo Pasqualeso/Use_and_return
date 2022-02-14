@@ -29,7 +29,7 @@ Installare le librerie con i seguenti comandi:
 
 // pip install -r requirements.txt (non installa tutto)
 
-pip install Flask
+~~pip install Flask
 
 pip install Flask-Bootstrap
 
@@ -131,9 +131,9 @@ pip install wcwidth
 
 pip install wheel
 
-Spostarsi nella cartella static , creare una directory di nome 'uploads' e una di nome 'downloads'  
+Spostarsi nella cartella "static" (all'interno della cartella "project"), creare una directory di nome 'uploads' e una di nome 'downloads'  
 
-Spostarsi nella cartella Flask e partire il web-server
+Spostarsi nella cartella Flask e far partire il web-server
 
 flask run --host 0.0.0.0
 
