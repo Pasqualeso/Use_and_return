@@ -5,13 +5,129 @@ Per eseguire il progetto eseguire i passaggi:
 
 Spostarsi nella cartella "use_and_return" e creare un virtual environment per Python :
 
-python3 -m venv venv
+python3 -m venv venv (Mac)
 
-Una volta attivato il virtual environment, istallare le liberire richieste:
+python -m venv venv (windows)
+
+Una volta attivato il virtual environment, istallare le librerie richieste:
+
+andare su "Add Configuration" in PyCharm
+
+Selezionare "Add New Configuration" e selezionare Flask Server
+
+Dopodichè impostare Target type su Script patch,
+
+selezionare in Target il file app.py.
+
+Eseguire i comandi:
+
+venv\Scripts\activate (Windows)
+
+Installare le librerie con i seguenti comandi:
+
+// pip install -r requirements.txt (non installa tutto)
+
+pip install Flask
+
+pip install Flask-Bootstrap
+
+pip install Flask-Login
+
+pip install Flask-Mail
+
+pip install Flask-Migrate
+
+pip install Flask-Reuploaded
+
+pip install Flask-SQLAlchemy
+
+pip install Flask-WTF
+
+pip install Jinja2
+
+pip install Js2p
+
+pip install Mako
+
+pip install Markdown
+
+pip install MarkupSafe
+
+pip install Pillow
+
+pip install PyMySQL
+
+pip install SQLAlchemy
+
+pip install WTForms
+
+pip install Werkzeug
+
+pip install alembic
+
+pip install app
+
+pip install blinker
+
+pip install cffi
+
+pip install click
+
+pip install colorama
+
+pip install config
+
+pip install cryptography
+
+pip install decorator
+
+pip install dnspython
+
+pip install dominate
+
+pip install email-validator
+
+pip install greenlet
+
+pip install idna
+
+pip install integer
+
+pip install itsdangerous
+
+pip install legacy
+
+pip install numpy
+
+pip install prettytable
+
+pip install pycparser
+
+pip install pyjsparser
+
+pip install pytz
+
+pip install pytz-deprecation-shim
+
+pip install self
+
+pip install setuptools
+
+pip install six
+
+pip install today
+
+pip install tz
+
+pip install tzdata
+
+pip install tzlocal
+
+pip install visitor
+
+pip install wcwidth
 
 pip install wheel
-
-pip install -r requirements.txt
 
 Spostarsi nella cartella Flask e partire il web-server
 
