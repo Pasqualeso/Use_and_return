@@ -19,3 +19,8 @@ flask run --host 0.0.0.0
 
 Cosi il webserver parte in modo tale da essere raggiugibile su tutta la rete locale, per farlo partire solo sul localhost 
 flask run
+
+
+Istruzioni database:
+Nella cartella Database è presente il file per la creazione SQL del database
+
