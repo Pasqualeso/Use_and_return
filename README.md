@@ -22,5 +22,11 @@ flask run
 
 
 Istruzioni database:
-Nella cartella Database è presente il file per la creazione SQL del database
+Nella cartella "Database" sono presenti i file per la creazione delle tabelle del database in linguaggio SQL.
+Abbiamo utilizzato Mysql:
+
+https://dev.mysql.com/downloads/workbench/
+https://dev.mysql.com/downloads/mysql/
+
+Dododichè aprire il terminale o pront dei comandi ed eseguire i seguenti passagi per la creazione deglu untenti
 
