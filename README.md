@@ -146,6 +146,7 @@ Nella cartella "Database" sono presenti i file per la creazione delle tabelle de
 Abbiamo utilizzato Mysql:
 
 https://dev.mysql.com/downloads/workbench/
+
 https://dev.mysql.com/downloads/mysql/
 
 Eseguire lo script CREA_DB_NOLEGGIO_OGGETTI.sql per creare tutte le tabelle e per inizializzare le due tuple con i ruoli User e Administrator.
