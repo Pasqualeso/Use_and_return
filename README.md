@@ -28,5 +28,4 @@ Abbiamo utilizzato Mysql:
 https://dev.mysql.com/downloads/workbench/
 https://dev.mysql.com/downloads/mysql/
 
-Dododichè aprire il terminale o pront dei comandi ed eseguire i seguenti passagi per la creazione deglu untenti
-
+Eseguire lo script CREA_DB_NOLEGGIO_OGGETTI.sql per creare tutte le tabelle e per inizializzare le due tuple con i ruoli User e Administrator.
