@@ -9,15 +9,15 @@ python3 -m venv venv (Mac)
 
 python -m venv venv (Windows)
 
-Una volta attivato il virtual environment, istallare le librerie richieste:
+Una volta attivato il virtual environment eseguire i seguenti passaggi: 
 
-andare su "Add Configuration" in PyCharm
+Andare su "Add Configuration" in PyCharm
 
 Selezionare "Add New Configuration" e selezionare Flask Server
 
 Dopodichè impostare Target type su Script patch,
 
-selezionare in Target il file app.py.
+Selezionare in Target il file "app.py".
 
 Eseguire i comandi:
 
