@@ -1,153 +1,148 @@
 # Use_and_return
-Back_end progetto Tecnologie Web svolto da Pasquale Sorrentino, Eduardo Autore e Sara Terlizzi.
+Back_end Web Technologies project carried out by Pasquale Sorrentino, Eduardo Autore and Sara Terlizzi.
 
-Per eseguire il progetto eseguire i passaggi:
+ To run the project follow the steps:
 
-Spostarsi nella cartella "use_and_return" e creare un virtual environment per Python :
+ Navigate to the "use_and_return" folder and create a virtual environment for Python:
 
-python3 -m venv venv (Mac)
+ python3 -m venv venv (Mac)
 
-python -m venv venv (Windows)
+ python -m venv venv (Windows)
 
-Una volta creato il virtual environment eseguire i seguenti passaggi: 
+ Once the virtual environment has been created, perform the following steps:
 
-Andare su "Add Configuration" in PyCharm
+ Go to "Add Configuration" in PyCharm
 
-Selezionare "Add New Configuration" e selezionare Flask Server
+ Select "Add New Configuration" and select Flask Server
 
-Dopodichè impostare Target type su Script patch,
+ Then set Target type to Script patch,
 
-Selezionare in Target il file "app.py".
+ Select the "app.py" file in Target.
 
-Eseguire i comandi per attivare il virtual environment:
+ Run the commands to activate the virtual environment:
 
-venv\Scripts\activate (Windows)
+ venv \ Scripts \ activate (Windows)
 
-source venv/bin/activate (Mac)
+ source venv / bin / activate (Mac)
 
-Installare le librerie con i seguenti comandi:
+ Install the libraries with the following commands:
 
-// pip install -r requirements.txt (non installa tutto)
+ // pip install -r requirements.txt (don't install everything)
 
-pip install Flask
+ pip install Flask
 
-pip install Flask-Bootstrap
+ pip install Flask-Bootstrap
 
-pip install Flask-Login
+ pip install Flask-Login
 
-pip install Flask-Mail
+ pip install Flask-Mail
 
-pip install Flask-Migrate
+ pip install Flask-Migrate
 
-pip install Flask-Reuploaded
+ pip install Flask-Reuploaded
 
-pip install Flask-SQLAlchemy
+ pip install Flask-SQLAlchemy
 
-pip install Flask-WTF
+ pip install Flask-WTF
 
-pip install Jinja2
+ pip install Jinja2
 
-pip install Js2p
+ pip install Js2p
 
-pip install Mako
+ pip install Mako
 
-pip install Markdown
+ pip install Markdown
 
-pip install MarkupSafe
+ pip install MarkupSafe
 
-pip install Pillow
+ pip install Pillow
 
-pip install PyMySQL
+ pip install PyMySQL
 
-pip install SQLAlchemy
+ pip install SQLAlchemy
 
-pip install WTForms
+ pip install WTForms
 
-pip install Werkzeug
+ pip install Werkzeug
 
-pip install alembic
+ pip install alembic
 
-pip install app
+ pip install app
 
-pip install blinker
+ pip install blinker
 
-pip install cffi
+ pip install cffi
 
-pip install click
+ pip install click
 
-pip install colorama
+ pip install colorama
 
-pip install config
+ pip install config
 
-pip install cryptography
+ pip install cryptography
 
-pip install decorator
+ pip install decorator
 
-pip install dnspython
+ pip install dnspython
 
-pip install dominate
+ pip install dominate
 
-pip install email-validator
+ pip install email-validator
 
-pip install greenlet
+ pip install greenlet
 
-pip install idna
+ pip install idna
 
-pip install integer
+ pip install integer
 
-pip install itsdangerous
+ pip install itsdangerous
 
-pip install legacy
+ pip install legacy
 
-pip install numpy
+ pip install numpy
 
-pip install prettytable
+ pip install prettytable
 
-pip install pycparser
+ pip install pycparser
 
-pip install pyjsparser
+ pip install pyjsparser
 
-pip install pytz
+ pip install pytz
 
-pip install pytz-deprecation-shim
+ pip install pytz-deprecation-shim
 
-pip install self
+ pip install self
 
-pip install setuptools
+ pip install setuptools
 
-pip install six
+ pip install six
 
-pip install today
+ pip install today
 
-pip install tz
+ pip install tz
 
-pip install tzdata
+ pip install tzdata
 
-pip install tzlocal
+ pip install tzlocal
 
-pip install visitor
+ pip install visitor
 
-pip install wcwidth
+ pip install wcwidth
 
-pip install wheel
+ pip install wheel
 
-Spostarsi nella cartella "static" (all'interno della cartella "project"), creare una directory di nome 'uploads' e una di nome 'downloads'.
-Creare una sottocartella "images" in "dowloads" e in "uploads"
+ Move to the "static" folder (inside the "project" folder), create a directory called 'uploads' and one called 'downloads'.  Create a subfolder "images" in "dowloads" and "uploads"
 
-Spostarsi nella cartella Flask e far partire il web-server
+ Move to the Flask folder and start the web server
 
-flask run --host 0.0.0.0
+ flask run --host 0.0.0.0
 
-Cosi il webserver parte in modo tale da essere raggiugibile su tutta la rete locale, per farlo partire solo sul localhost 
-flask run
+ Thus the webserver starts in such a way as to be reachable on the whole local network, to start it only on the localhost flask run
 
+ Database instructions: In the "Database" folder there are the files for creating the database tables in SQL language.  We used Mysql:
 
-Istruzioni database:
-Nella cartella "Database" sono presenti i file per la creazione delle tabelle del database in linguaggio SQL.
-Abbiamo utilizzato Mysql:
+ https://dev.mysql.com/downloads/workbench/
 
-https://dev.mysql.com/downloads/workbench/
+ https://dev.mysql.com/downloads/mysql/
 
-https://dev.mysql.com/downloads/mysql/
-
-Eseguire lo script CREA_DB_NOLEGGIO_OGGETTI.sql per creare tutte le tabelle e per inizializzare le due tuple con i ruoli User e Administrator.
+ Run the CREA_DB_ROLEGGIO_OBGETTI.sql script to create all the tables and to initialize the two tuples with the User and Administrator roles.
